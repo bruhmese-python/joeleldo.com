@@ -133,7 +133,34 @@ a:hover {
 	overflow: scroll;
 }
 
+.desc-updates {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr;
+	gap: 0px 2em;
+	grid-auto-flow: row;
+	grid-template-areas:
+		"description updates";
+}
+
+.updates {
+	align-self: center;
+	grid-area: updates;
+}
+
+.updates_box {
+	background-color: #f9f9ff;
+	padding: 10px;
+	border: 1px solid #ccc;
+
+}
+
+.description {
+	grid-area: description;
+}
+
 /* Two-column content (My Story & Updates) using CSS Grid */
+/*
 .desc_updates {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
@@ -153,7 +180,7 @@ a:hover {
 	padding: 10px;
 	border: 1px solid #ccc;
 }
-
+*/
 /* Profile image and table icons */
 img.profile {
 	border: 1px solid #333;
