@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>My Retro Site</title>
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/1.0.0/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="styles/styles.css">
+
+</head>
+
+<body>
+
+	<div class="page-wrapper">
+
+		<!-- Sidebar -->
+		{% include 'sidebar.html' %}
+
+		<!-- Main Content -->
+		<div class="main-content">
+			<div
+				style="background-color: #003366; color: white; padding: 2px; text-align: center; font-size: 18px; font-weight: bold;">
+				Web Apps
+			</div>
+			<br><br>
+
+
+			<div class="container">
+
+				<img src="images/vi_graph.png" alt="Screenshot" class="screenshot" width="300">
+				<div class="content">
+					<h3>Vi Graph</h3>
+					<p>
+						Graph editor with vim keybindings
+					</p>
+					<a href="https://editor.p5js.org/bruhmese-python/full/A8D5-SazP">
+						Goto page..
+					</a>
+				</div>
+			</div>
+
+			<br><br>
+			<div class="container">
+				<img src="images/labelimg.png" alt="Screenshot" class="screenshot" width="300">
+				<div class="content">
+					<h3>p5.labelimg</h3>
+					<p>
+						Image annotator for ML projects and batch image editing
+					</p>
+					<a href="https://bruhmese-python.github.io/labelimg/">
+						Goto page..
+					</a>
+				</div>
+			</div>
+
+			<br><br>
+			<div class="container">
+				<img src="images/dataset_preparation.png" alt="Screenshot" class="screenshot" width="300">
+				<div class="content">
+					<h3>Bionic reading dataset preparation</h3>
+					<p>
+						Tool for dataset labeling for <a href="https://github.com/bruhmese-python/Bionic-reading">bionic reading ML algorithms</a>.
+					</p>
+					<a href="http://bruhmese-python.github.io/Bionic-reading/dataset-creation-tool/index.html">
+						Goto page..
+					</a>
+				</div>
+			</div>
+
+			<br><br>
+			<div class="container">
+				<img src="images/kettle_master_mockup.png" alt="Screenshot" class="screenshot" width="300">
+				<div class="content">
+					<h3>KettleMaster</h3>
+					<p>
+						Assistant for recipes
+					</p>
+					<a href="https://sangi30.pythonanywhere.com/">
+						Goto page..
+					</a>
+				</div>
+			</div>
+
+			<br><br>
+			<div class="container">
+				<img src="images/typing_maestro.png" alt="Screenshot" class="screenshot" width="300">
+				<div class="content">
+					<h3>Typing Maestro</h3>
+					<p>
+						Typing speed test : lorem ipsum
+					</p>
+					<a href="https://bruhmese-python.github.io/typing-maestro/">
+						Goto page..
+					</a>
+				</div>
+			</div>
+
+		</div>
+
+		<script>
+			const dots = document.getElementById('dots');
+			let toggle = true;
+
+			setInterval(() => {
+				dots.textContent = toggle ? '.' : '..';
+				toggle = !toggle;
+			}, 500);
+		</script>
+</body>
+
+</html>
