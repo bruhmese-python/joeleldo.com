@@ -9,87 +9,84 @@
 </head>
 
 <body>
+	<div class="site-container">
 
-	<div class="page-wrapper">
+		<div class="page-wrapper">
 
-		<!-- Sidebar -->
-		{% include 'sidebar.html' %}
+			<!-- Sidebar -->
+			{% include 'sidebar.html' %}
 
-		<!-- Main Content -->
-		<div class="main-content">
-			<div class="padded-content-index">
-				<h1>Welcome to My Page
-					<a href="https://gifcities.org/">
-						<img style="height: 1em;" src="images/under_construction.gif" alt="">
-					</a>
-				</h1>
-				<p>Thanks for visiting my corner of the internet.<br>
-					Before you ask, the site looks the way it is to rekindle nostalgia for a more civilized period of
-					the
-					internet.<br>
-					<small style="color: gray;">
-						<i>
-							* Mind you, the site is still a work-in-progress. Broken links will soon be fixed.
-						</i>
-					</small>
-				</p>
+			<!-- Main Content -->
+			<div class="main-content">
+				<div class="padded-content-index">
+					<h1>Welcome to My Page
+						<a href="https://gifcities.org/">
+							<img style="height: 1em;" src="images/under_construction.gif" alt="">
+						</a>
+					</h1>
+					<p>Thanks for visiting my corner of the internet.<br>
+						Before you ask, the site looks the way it is to rekindle nostalgia for a more civilized period
+						of
+						the
+						internet.<br>
+						<small style="color: gray;">
+							<i>
+								* Mind you, the site is still a work-in-progress. Broken links will soon be fixed.
+							</i>
+						</small>
+					</p>
 
-				<hr>
+					<hr>
 
-				<div class="desc-updates">
-					<!-- My Story -->
-					<div class="description">
-						<h2>My Story</h2>
-						<p>
-							I'm a 2000s kid, so sure — this site is a bit of a throwback to the late-2000s internet era.
-						</p>
-						<p>
-							I build tools around tools — parsers, command-line utilities, batch editors, Chrome
-							extensions, and whatever else makes workflows smoother. My day job? I’m a solution engineer
-							working on IT operations powered by AI, using
-							<a href="https://digitate.com/ignio-platform/">
-								Ignio
-							</a>.
-						</p>
-						<p>
-							When I’m not coding, you’ll probably find me humming a tune, messing around with MIDI on a
-							keyboard, between pages of a book — or staring thoughtfully at the default cube in <a
-								href="https://www.blender.org/">Blender</a>.
-						</p>
-					</div>
-
-					<!-- Latest Updates -->
-					<div class="updates">
-						<div class="updates_box">
-
-							<h2>Latest Updates</h2>
-							<ul>
-								<li>June 2025 - Site revived with classic HTML style!</li>
-								<li>April 2003 - Added new photo gallery section</li>
-								<li>Jan 2001 - Launched the site 🎉</li>
-							</ul>
+					<div class="desc-updates">
+						<!-- My Story -->
+						<div class="description">
+							<h2>My Story</h2>
 							<p>
-								<a href="#">All Blogs</a>
+								I'm a 2000s kid, so sure — this site is a bit of a throwback to the late-2000s internet
+								era.
+							</p>
+							<p>
+								I build tools around tools — parsers, command-line utilities, batch editors, Chrome
+								extensions, and whatever else makes workflows smoother. My day job? I’m a solution
+								engineer
+								working on IT operations powered by AI, using
+								<a href="https://digitate.com/ignio-platform/">
+									Ignio
+								</a>.
+							</p>
+							<p>
+								When I’m not coding, you’ll probably find me humming a tune, messing around with MIDI on
+								a
+								keyboard, between pages of a book — or staring thoughtfully at the default cube in <a
+									href="https://www.blender.org/">Blender</a>.
 							</p>
 						</div>
-					</div>
-				</div>
 
-				<p>
-					<center>
-						<small>
-							<a href="https://www.namecheap.com/">Namecheap</a>
-							|
-							Github Pages
-						</small>
-					</center>
-				</p>
+						<!-- Latest Updates -->
+						<div class="updates">
+							<div class="updates_box">
+
+								<h2>Latest Updates</h2>
+								<ul>
+									<li>June 2025 - Site revived with classic HTML style!</li>
+									<li>April 2003 - Added new photo gallery section</li>
+									<li>Jan 2001 - Launched the site 🎉</li>
+								</ul>
+								<p>
+									<a href="#">All Blogs</a>
+								</p>
+							</div>
+						</div>
+					</div>
+
+				</div>
 			</div>
 		</div>
+
+			{%include 'footer.html'%}
+
 	</div>
-
-
-
 
 	<script>
 		const dots = document.getElementById('dots');
