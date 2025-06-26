@@ -138,6 +138,7 @@ a:hover {
 
 /* Main content area */
 .main-content {
+	background-color: #ffffff;
 	flex: 1;
 	font-family: Verdana, sans-serif;
 	height: calc(100vh - 2em);
