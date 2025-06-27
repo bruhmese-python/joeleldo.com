@@ -4,7 +4,6 @@ body {
 	justify-content: center;  /* Center horizontally */
 	align-items: center;      /* Center vertically */
 
-	min-height: 100vh;
 	margin: 0;
 	background-color: #ffffff;
 	font-family: Arial, sans-serif;
@@ -15,7 +14,6 @@ body {
 .site-container {
 	display: flex;
 	flex-direction: column;
-	min-height: 100vh;
 	width: 80%;
 }
 
@@ -147,8 +145,6 @@ a:hover {
 	background-color: #ffffff;
 	flex: 1;
 	font-family: Verdana, sans-serif;
-	height: calc(100vh - 3em);
-	overflow: scroll;
 }
 
 .desc-updates {
