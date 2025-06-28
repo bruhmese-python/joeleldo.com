@@ -136,7 +136,18 @@ a:hover {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
 }
 
+.chibi{
+    width: 100px;
+    height: 0;
+    font-size: smaller;
+    position: relative;
+    left: calc(100% - 50px - 10px);
+    bottom: 50px;
+    text-align: center;
+}
+
 .item-name {
+    max-width: 200px;
     flex: 0 0 250px;
     padding: 4px;
 }
