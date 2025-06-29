@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Links</title>
+	<link rel="stylesheet" href="styles/styles.css">
+
+</head>
+
+<body>
+
+	<div class="site-container">
+		<div class="page-wrapper">
+
+			<!-- Sidebar -->
+			{% include 'sidebar.html' %}
+
+			<!-- Main Content -->
+			<div class="main-content">
+
+				<!--Sitemap-->
+				<br>
+				<div class="subheading">
+					Sitemap
+				</div>
+
+				{%include 'sitemap.html.tmp'%}
+
+				<br>
+
+				<div align="right">
+					<small style="color: grey;">
+						Generated using <a href="sitemap_generator.py">sitemap generator</a>
+					</small>
+				</div>
+			</div>
+		</div>
+		{%include 'footer.html'%}
+	</div>
+
+</body>
+
+</html>

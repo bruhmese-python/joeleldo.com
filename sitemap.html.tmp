@@ -1,0 +1,47 @@
+<pre><div class="navigation">
+├──<details><summary class="sitemap-folder"><img width="16" src="images/dir.png" class>&nbsp;images</summary>
+  ├── <a href="images/batman_chibi.png" class="sitemap-anchor">batman_chibi.png</a>
+  ├── <a href="images/blender.png" class="sitemap-anchor">blender.png</a>
+  ├── <a href="images/commit.png" class="sitemap-anchor">commit.png</a>
+  ├── <a href="images/dataset_preparation.png" class="sitemap-anchor">dataset_preparation.png</a>
+  ├── <a href="images/dir.png" class="sitemap-anchor">dir.png</a>
+  ├── <a href="images/download" class="sitemap-anchor">download</a>
+  ├── <a href="images/droplet.png" class="sitemap-anchor">droplet.png</a>
+  ├── <a href="images/email.png" class="sitemap-anchor">email.png</a>
+  ├── <a href="images/gentoo.png" class="sitemap-anchor">gentoo.png</a>
+  ├── <a href="images/github.png" class="sitemap-anchor">github.png</a>
+  ├── <a href="images/injector.png" class="sitemap-anchor">injector.png</a>
+  ├── <a href="images/iwork.png" class="sitemap-anchor">iwork.png</a>
+  ├── <a href="images/kettle_master_mockup.png" class="sitemap-anchor">kettle_master_mockup.png</a>
+  ├── <a href="images/labelimg.png" class="sitemap-anchor">labelimg.png</a>
+  ├── <a href="images/linkedin.png" class="sitemap-anchor">linkedin.png</a>
+  ├── <a href="images/nqueens.png" class="sitemap-anchor">nqueens.png</a>
+  ├── <a href="images/photo (copy 1).jpg" class="sitemap-anchor">photo (copy 1).jpg</a>
+  ├── <a href="images/photo.jpg" class="sitemap-anchor">photo.jpg</a>
+  ├── <a href="images/photo_og.jpg" class="sitemap-anchor">photo_og.jpg</a>
+  ├── <a href="images/pin.png" class="sitemap-anchor">pin.png</a>
+  ├── <a href="images/qmark (copy 1).webp" class="sitemap-anchor">qmark (copy 1).webp</a>
+  ├── <a href="images/qmark.webp" class="sitemap-anchor">qmark.webp</a>
+  ├── <a href="images/typing_maestro.png" class="sitemap-anchor">typing_maestro.png</a>
+  ├── <a href="images/under_construction.gif" class="sitemap-anchor">under_construction.gif</a>
+  └── <a href="images/vi_graph.png" class="sitemap-anchor">vi_graph.png</a>
+</details>
+├──<details><summary class="sitemap-folder"><img width="16" src="images/dir.png" class>&nbsp;plugins</summary>
+</details>
+├──<details><summary class="sitemap-folder"><img width="16" src="images/dir.png" class>&nbsp;scripts</summary>
+  └── <a href="scripts/script.js" class="sitemap-anchor">script.js</a>
+</details>
+├──<details><summary class="sitemap-folder"><img width="16" src="images/dir.png" class>&nbsp;styles</summary>
+  └── <a href="styles/styles.css" class="sitemap-anchor">styles.css</a>
+</details>
+├── <a href="CNAME" class="sitemap-anchor">CNAME</a>
+├── <a href="_downloads.html" class="sitemap-anchor">_downloads.html</a>
+├── <a href="footer.html" class="sitemap-anchor">footer.html</a>
+├── <a href="_index.html" class="sitemap-anchor">_index.html</a>
+├── <a href="_links.html" class="sitemap-anchor">_links.html</a>
+├── <a href="Makefile" class="sitemap-anchor">Makefile</a>
+├── <a href="sidebar.html" class="sitemap-anchor">sidebar.html</a>
+├── <a href="sitemap_generator.py" class="sitemap-anchor">sitemap_generator.py</a>
+├── <a href="_sitemap.html" class="sitemap-anchor">_sitemap.html</a>
+└── <a href="sitemap.html.tmp" class="sitemap-anchor">sitemap.html.tmp</a>
+</div></pre>
