@@ -31,13 +31,13 @@
 
 	<pre class="navigation">
     <a href="index.html">Home</a>
-    <a href="#">Blog</a>
-       └─ <a href="#">2025</a>
-       └─ <a href="#">Archives</a>
+    <a href="#" class="disabled-anchor"> Blog</a>
+       └─ <a href="#" class="disabled-anchor"> 2025</a>
+       └─ <a href="#" class="disabled-anchor"> Archives</a>
     <a href="#">Misc.</a>
        └─ <a href="downloads.html">Downloads <img src="images/download" style="height: 1em;width: 1em;" alt=""></a>
        └─ <a href="links.html">Links</a>
-    <a href="#">Contact</a>
+    <a href="#" class="disabled-anchor"> Contact</a>
     <a href="sitemap.html">Sitemap</a>
 			</pre>
 
@@ -80,13 +80,15 @@
 			<!-- Main Content -->
 			<div class="main-content">
 
-				<!--Sitemap-->
-				<br>
-				<div class="subheading">
-					Sitemap
-				</div>
+				<div class="sitemap-wrapper">
+					<div class="sitemap-content">
+						<!--Sitemap-->
+						<br>
+						<div class="subheading">
+							Sitemap
+						</div>
 
-				<pre><div class="navigation">
+						<pre><div class="navigation">
 ├──<details><summary class="sitemap-folder"><img width="16" src="images/dir.png" class>&nbsp;images</summary>
   ├── <a href="images/batman_chibi.png" class="sitemap-anchor">batman_chibi.png</a>
   ├── <a href="images/blender.png" class="sitemap-anchor">blender.png</a>
@@ -135,12 +137,13 @@
 </div></pre>
 
 
-				<br>
-
-				<div align="right">
-					<small style="color: grey;">
-						Generated using <a href="sitemap_generator.py">sitemap generator</a>
-					</small>
+						<br>
+					</div>
+					<div class="sitemap-footer">
+						<small style="color: grey;">
+							Generated using <a href="sitemap_generator.py">sitemap generator</a>
+						</small>
+					</div>
 				</div>
 			</div>
 		</div>

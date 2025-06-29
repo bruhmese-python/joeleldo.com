@@ -1,24 +1,35 @@
 /* Reset and base styling */
 body {
     display: flex;
-    justify-content: center;  /* Center horizontally */
-    align-items: center;      /* Center vertically */
+    justify-content: center;
+    /* Center horizontally */
+    align-items: center;
+    /* Center vertically */
     margin: 0;
     background-color: #ffffff;
     font-family: Arial, sans-serif;
-	font-size: 14px;
+    font-size: 14px;
     color: #000000;
 }
 
 details {
-    display: inline-block; /* Makes the <details> element inline-block */
+    display: inline-block;
+    /* Makes the <details> element inline-block */
+}
+
+.link {
+    position: absolute;
+    right: +0.5em;
+    top: 0;
 }
 
 .site-container {
     display: flex;
     flex-direction: column;
-    width: 80%; /* Main content wrapper with 80% width */
-    max-width: 1200px; /* Optional: limit maximum width for large screens */
+    width: 80%;
+    /* Main content wrapper with 80% width */
+    max-width: 1200px;
+    /* Optional: limit maximum width for large screens */
 }
 
 .padded-content-index {
@@ -40,13 +51,14 @@ details {
     background-color: #f9f9ff;
     border-right: 1px solid #ccc;
     padding: 15px;
-    box-shadow: 2px 0 6px rgba(0, 0, 0, 0.1); /* Add subtle shadow to sidebar */
+    box-shadow: 2px 0 6px rgba(0, 0, 0, 0.1);
+    /* Add subtle shadow to sidebar */
 }
 
 .main-content {
     flex: 1;
     background-color: #ffffff;
-    padding:0 20px 20px 20px;
+    padding: 0 20px 20px 20px;
     font-family: Verdana, sans-serif;
 }
 
@@ -87,7 +99,8 @@ h3 {
     padding: 5px;
     position: absolute;
     z-index: 1;
-    bottom: 125%; /* Position above the icon */
+    bottom: 125%;
+    /* Position above the icon */
     left: 50%;
     transform: translateX(-50%);
     opacity: 0;
@@ -122,12 +135,19 @@ a:hover {
     background-color: yellow;
 }
 
+.disabled-anchor {
+    pointer-events: none;
+    color: #999;
+    text-decoration: none;
+}
+
 /* Content Area Layout */
 .container {
     width: 100%;
     display: flex;
     gap: 20px;
-    flex-wrap: wrap; /* Allows wrapping of content in small screens */
+    flex-wrap: wrap;
+    /* Allows wrapping of content in small screens */
 }
 
 .screenshot {
@@ -137,17 +157,49 @@ a:hover {
     border: 1px solid #999;
     padding: 4px;
     background-color: #f0f0f0;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* Add subtle shadow */
 }
 
-.chibi{
+.rick-and-morty {
+    width: 75px;
+    height: 0;
+    position: absolute;
+    right: 120px;
+    top: 5px;
+}
+
+.chibi {
     width: 100px;
     height: 0;
-    font-size: smaller;
     position: relative;
     left: calc(100% - 50px - 10px);
     bottom: 50px;
-    text-align: center;
+}
+
+.chibi_img {
+    transform: rotate(12deg);
+}
+
+.sitemap-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 2em;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+        "sitemap-content"
+        "sitemap-footer";
+    height: 100%;
+}
+
+.sitemap-content {
+    grid-area: sitemap-content;
+}
+
+.sitemap-footer {
+    text-align: right;
+    grid-area: sitemap-footer;
 }
 
 .item-name {
@@ -179,7 +231,8 @@ a:hover {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 2px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* Add subtle shadow */
 }
 
 .description {
@@ -194,15 +247,17 @@ hr {
 }
 
 pre.navigation {
-	color: #ccc;
+    color: #ccc;
     white-space: pre-wrap;
     font-family: Arial, Helvetica, sans-serif;
 }
 
 /* Profile Container */
 .profile-container {
-    position: relative; /* Make the container the reference point for absolute positioning */
-    display: inline-block; /* Align images next to each other */
+    position: relative;
+    /* Make the container the reference point for absolute positioning */
+    display: inline-block;
+    /* Align images next to each other */
 }
 
 /* Profile Image Styles */
@@ -211,18 +266,23 @@ img.profile {
     width: 100px;
     height: 100px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transform: rotate(-6deg); /* Use transform instead of rotate to apply the rotation */
+    transform: rotate(-6deg);
+    /* Use transform instead of rotate to apply the rotation */
     margin-bottom: 0.75em;
 }
 
 /* Pin Image Styles */
 img.profile_pin {
-    position: absolute;  /* Position relative to the parent container */
-    top: -12px;           /* Adjust the distance from the top of the profile image */
-    left: 30px;          /* Adjust the distance from the left side of the profile image */
+    position: absolute;
+    /* Position relative to the parent container */
+    top: -12px;
+    /* Adjust the distance from the top of the profile image */
+    left: 30px;
+    /* Adjust the distance from the left side of the profile image */
     width: 40px;
     height: 40px;
-    z-index: 1;          /* Make sure the pin is on top of the profile image */
+    z-index: 1;
+    /* Make sure the pin is on top of the profile image */
 }
 
 
