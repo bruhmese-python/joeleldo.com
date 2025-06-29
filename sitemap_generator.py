@@ -25,15 +25,16 @@ def generate_sitemap_from_json(tree_json, depth=0, is_last=False):
         
         if item_type == 'directory':
             parents.append(name)
-            html_content.append(f'{indent}{tree_symbol}<details><summary class="sitemap-folder"><img width="16" src="images/dir.png" class>&nbsp;{name}</summary>')
+            details = f'{indent}{tree_symbol}<details><summary class="sitemap-folder"><img width="16" src="images/dir.png" class>&nbsp;{name}</summary>'
 
             if 'contents' in item:
                 content = generate_sitemap_from_json(item['contents'], depth + 1, is_last_item)
                 if content:
-                    html_content.append(content)
+                    details+=content
                 else:
                     parents = parents[:-1]
-            html_content.append('</details>')
+            details+='</details>'
+            html_content.append(details)
 
         elif item_type == 'file':
             href = ('/'.join(parents) + '/' + name) if parents else name
