@@ -1,0 +1,8 @@
+sidebar.html
+footer.html
+Makefile
+CNAME
+sitemap.exclude
+^_.*
+.*.py
+.*.tmp

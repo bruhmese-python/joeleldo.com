@@ -16,11 +16,9 @@
   ├── <a href="images/linkedin.png" class="sitemap-anchor">linkedin.png</a>
   ├── <a href="images/new_window_glyph.png" class="sitemap-anchor">new_window_glyph.png</a>
   ├── <a href="images/nqueens.png" class="sitemap-anchor">nqueens.png</a>
-  ├── <a href="images/photo (copy 1).jpg" class="sitemap-anchor">photo (copy 1).jpg</a>
   ├── <a href="images/photo.jpg" class="sitemap-anchor">photo.jpg</a>
   ├── <a href="images/photo_og.jpg" class="sitemap-anchor">photo_og.jpg</a>
   ├── <a href="images/pin.png" class="sitemap-anchor">pin.png</a>
-  ├── <a href="images/qmark (copy 1).webp" class="sitemap-anchor">qmark (copy 1).webp</a>
   ├── <a href="images/qmark.webp" class="sitemap-anchor">qmark.webp</a>
   ├── <a href="images/rick_and_morty.webp" class="sitemap-anchor">rick_and_morty.webp</a>
   ├── <a href="images/typing_maestro.png" class="sitemap-anchor">typing_maestro.png</a>
@@ -29,14 +27,8 @@
 ├──<details><summary class="sitemap-folder"><img width="16" src="images/dir.png" class>&nbsp;plugins</summary></details>
 ├──<details><summary class="sitemap-folder"><img width="16" src="images/dir.png" class>&nbsp;scripts</summary>  └── <a href="scripts/script.js" class="sitemap-anchor">script.js</a></details>
 ├──<details><summary class="sitemap-folder"><img width="16" src="images/dir.png" class>&nbsp;styles</summary>  └── <a href="styles/styles.css" class="sitemap-anchor">styles.css</a></details>
-├── <a href="CNAME" class="sitemap-anchor">CNAME</a>
-├── <a href="_downloads.html" class="sitemap-anchor">_downloads.html</a>
-├── <a href="footer.html" class="sitemap-anchor">footer.html</a>
-├── <a href="_index.html" class="sitemap-anchor">_index.html</a>
-├── <a href="_links.html" class="sitemap-anchor">_links.html</a>
-├── <a href="Makefile" class="sitemap-anchor">Makefile</a>
-├── <a href="sidebar.html" class="sitemap-anchor">sidebar.html</a>
-├── <a href="sitemap_generator.py" class="sitemap-anchor">sitemap_generator.py</a>
-├── <a href="_sitemap.html" class="sitemap-anchor">_sitemap.html</a>
-└── <a href="sitemap.html.tmp" class="sitemap-anchor">sitemap.html.tmp</a>
+├── <a href="downloads.html" class="sitemap-anchor">downloads.html</a>
+├── <a href="index.html" class="sitemap-anchor">index.html</a>
+├── <a href="links.html" class="sitemap-anchor">links.html</a>
+└── <a href="sitemap.html" class="sitemap-anchor">sitemap.html</a>
 </div></pre>
