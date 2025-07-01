@@ -150,6 +150,25 @@ a:hover {
     /* Allows wrapping of content in small screens */
 }
 
+.peeking-tux {
+    height: 100px;
+    width: 128px;
+    position: relative;
+    left: 0;
+    top: 75.5px;
+}
+
+.deprecated {
+    border: 2px solid #FFD700;
+    border-radius: 2px;
+    /* Gold color for the frame */
+    padding: 10px;
+    margin: 10px 0;
+    background-color: #FFFACD;
+    /* Light yellow background */
+    position: relative;
+}
+
 .screenshot {
     width: 100%;
     max-width: 200px;
@@ -167,6 +186,15 @@ a:hover {
     position: absolute;
     right: 120px;
     top: 5px;
+}
+
+.peeking-tux {
+    width: 0;
+    height: 0;
+    margin-top: 2em;
+    position: relative;
+    right: calc(100% - 50px - 10px);
+    top: calc(-100px + 21.57px);
 }
 
 .chibi {
@@ -288,4 +316,26 @@ img.profile_pin {
 
 table img {
     vertical-align: middle;
+}
+
+/* midi files */
+
+/* Icon styles */
+.icon {
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-right: 8px;
+}
+
+/* MIDI Icon style */
+.midi-icon {
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/5/55/P_music.png');
+}
+
+/* MusE Icon style */
+.muse-icon {
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/8/88/P_music.gif');
 }

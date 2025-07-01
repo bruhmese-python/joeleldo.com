@@ -1,8 +1,7 @@
-sidebar.html
-footer.html
 Makefile
 CNAME
 sitemap.exclude
 ^_.*
+.*_.html
 .*.py
 .*.tmp
