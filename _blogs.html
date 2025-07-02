@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Blogs</title>
+	<link rel="stylesheet" href="styles/styles.css">
+
+</head>
+
+<body>
+
+	<div class="site-container">
+		<div class="page-wrapper">
+
+			<!-- Sidebar -->
+			{% include 'sidebar_.html' %}
+
+			<!-- Main Content -->
+			<div class="main-content">
+
+				<div class="subheading">
+					All
+				</div>
+				<br>
+
+				<div class="container">
+					<img src="images/photos/extensions.png" alt="Screenshot" class="screenshot" width="300">
+					<div class="content">
+						<h3>Studio extensions released</h3>
+						<p>
+						<h4>01-05-2025</h4>
+						Become a studio power user with more. <a href="downloads.html#ignio-tools">Explore</a> chrome
+						extensions.
+						</p>
+					</div>
+				</div>
+				<br>
+				<div class="container">
+					<img src="images/photos/sheraton.jpg" alt="Screenshot" class="screenshot" width="300">
+					<div class="content">
+						<h3>Aurora '25</h3>
+						<p>
+						<h4>28-04-2025</h4>
+						Digitate's 10 year anniversary event at the beautiful Grand Sheraton, Chennai.
+						</p>
+					</div>
+				</div>
+				<br>
+
+				<div class="container">
+					<img src="images/photos/pondicherry.jpg" alt="Screenshot" class="screenshot" width="300">
+					<div class="content">
+						<h3>Pondicherry in a Day</h3>
+						<p>
+						<h4>01-03-2025</h4>
+						Auroville, Pondicherry
+						</p>
+					</div>
+				</div>
+				<br>
+
+
+				<div class="container">
+					<img src="images/photos/mahabalipuram.jpg" alt="Screenshot" class="screenshot" width="300">
+					<div class="content">
+						<h3>Stones & Waves</h3>
+						<p>
+						<h4>02-10-2024</h4>
+						Mahabalipuram
+						</p>
+					</div>
+				</div>
+				<br>
+
+
+			</div>
+		</div>
+		{%include 'footer_.html'%}
+	</div>
+
+	{% include 'modal_.html' %}
+</body>
+
+</html>

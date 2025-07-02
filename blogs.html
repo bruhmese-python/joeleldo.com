@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Blogs</title>
+	<link rel="stylesheet" href="styles/styles.css">
+
+</head>
+
+<body>
+
+	<div class="site-container">
+		<div class="page-wrapper">
+
+			<!-- Sidebar -->
+			<div class="sidebar">
+	<center>
+		<div class="profile-container">
+			<img src="images/photos/photo.jpg" alt="My Photo" class="profile"><br>
+			<img src="images/photos/pin.png" alt="pin" class="profile_pin"><br>
+		</div>
+		<h3>Joel Eldo</h3>
+		Solutions Engineer @<a href="https://www.digitate.com">Digitate</a><br>
+		<small>
+			Chennai ● Kochi<br><br>
+		</small>
+	</center>
+
+	<hr>
+
+	<pre class="navigation">
+    <a href="index.html">Home</a>
+    <a href="blogs.html">Blogs</a>
+       └─ <a href="blogs.html">All</a>
+       └─ <a href="#" class="disabled-anchor">Archives</a>
+    <a href="misc.html">Misc.</a>
+       └─ <a href="downloads.html">Downloads<img src="images/download" style="height: 1em;width: 1em;" alt=""></a>
+       └─ <a href="links.html">Links</a>
+    <!-- <a href="#" class="disabled-anchor"> Contact</a> -->
+    <a href="sitemap.html">Sitemap</a></pre>
+
+	<hr>
+
+	<table style="width: 100%;text-align: center;">
+		<tr>
+			<td>
+				<a target="_blank" href="https://github.com/bruhmese-python">
+					<img src="images/github.png" width="25px" alt="">
+				</a>
+			</td>
+			<td>
+				<a target="_blank" href="https://in.linkedin.com/in/joel-eldo-a92616244">
+					<img src="images/linkedin.png" width="25px" alt="">
+				</a>
+			</td>
+			<td>
+				<a target="_blank" href="mailto:joeldo.mailbox@gmail.com">
+					<img src="images/email.png" width="25px" alt="">
+				</a>
+			</td>
+		</tr>
+	</table>
+
+	<br>
+	<b>&nbsp;- "<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">Roll</a> against the tide<span
+			id="dots">..</span>"</b>
+</div>
+<script>
+	const dots = document.getElementById('dots');
+	let toggle = true;
+
+	setInterval(() => {
+		dots.textContent = toggle ? '.' : '..';
+		toggle = !toggle;
+	}, 500);
+</script>
+
+			<!-- Main Content -->
+			<div class="main-content">
+
+				<div class="subheading">
+					All
+				</div>
+				<br>
+
+				<div class="container">
+					<img src="images/photos/extensions.png" alt="Screenshot" class="screenshot" width="300">
+					<div class="content">
+						<h3>Studio extensions released</h3>
+						<p>
+						<h4>01-05-2025</h4>
+						Become a studio power user with more. <a href="downloads.html#ignio-tools">Explore</a> chrome
+						extensions.
+						</p>
+					</div>
+				</div>
+				<br>
+				<div class="container">
+					<img src="images/photos/sheraton.jpg" alt="Screenshot" class="screenshot" width="300">
+					<div class="content">
+						<h3>Aurora '25</h3>
+						<p>
+						<h4>28-04-2025</h4>
+						Digitate's 10 year anniversary event at the beautiful Grand Sheraton, Chennai.
+						</p>
+					</div>
+				</div>
+				<br>
+
+				<div class="container">
+					<img src="images/photos/pondicherry.jpg" alt="Screenshot" class="screenshot" width="300">
+					<div class="content">
+						<h3>Pondicherry in a Day</h3>
+						<p>
+						<h4>01-03-2025</h4>
+						Auroville, Pondicherry
+						</p>
+					</div>
+				</div>
+				<br>
+
+
+				<div class="container">
+					<img src="images/photos/mahabalipuram.jpg" alt="Screenshot" class="screenshot" width="300">
+					<div class="content">
+						<h3>Stones & Waves</h3>
+						<p>
+						<h4>02-10-2024</h4>
+						Mahabalipuram
+						</p>
+					</div>
+				</div>
+				<br>
+
+
+			</div>
+		</div>
+			<center>
+		<small>
+			<a href="https://www.namecheap.com/">Namecheap</a>
+			|
+			Github Pages
+		</small>
+	</center>
+	<br>
+	</div>
+
+	<!-- Modal Structure -->
+<div id="screenshotModal" class="modal">
+	<span id="closeModal" class="close">&times;</span>
+	<img id="modalImage" src="" alt="Screenshot">
+</div>
+<script src="scripts/script.js"></script>
+</body>
+
+</html>
