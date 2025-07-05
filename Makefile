@@ -18,19 +18,19 @@ all: $(TARGETS) downloads.html sitemap.html
 # Special rule for sitemap.html
 sitemap.html: _sitemap.html sitemap_generator.py
 	$(PYTHON_CMD) sitemap_generator.py > sitemap.html.tmp
-	sleep 1	
+	# sleep 1	
 	$(JINJA_CMD) _sitemap.html > sitemap.html
 
 # Special rule for index.html
 index.html: scripts/fetch-github-pins.py
 	$(PYTHON_CMD) scripts/fetch-github-pins.py > github-pins_.html
-	sleep 2	
+	# sleep 2	
 	$(JINJA_CMD) _index.html > index.html
 
 # Special rule for downloads.html
 downloads.html: scripts/fetch-midi-projects.py
 	$(PYTHON_CMD) scripts/fetch-midi-projects.py > midi-projects_.html
-	sleep 2	
+	# sleep 2	
 	$(JINJA_CMD) _downloads.html > downloads.html
 
 # Clean target
