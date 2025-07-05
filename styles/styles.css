@@ -7,10 +7,19 @@ body {
     /* Center vertically */
     margin: 0;
     background-color: #ffffff;
+    /* background-color: #eaeaea; */
     font-family: Arial, sans-serif;
     font-size: 14px;
     color: #000000;
+
+    /* patterns */
+    background-color: #e5e5f7;
+    opacity: 1;
+    background: radial-gradient(circle, transparent 20%, #e5e5f7 20%, #e5e5f7 80%, transparent 80%, transparent), radial-gradient(circle, transparent 20%, #e5e5f7 20%, #e5e5f7 80%, transparent 80%, transparent) 10px 10px, linear-gradient(#7af745 0.8px, transparent 0.8px) 0 -0.4px, linear-gradient(90deg, #7af745 0.8px, #e5e5f7 0.8px) -0.4px 0;
+    background-size: 20px 20px, 20px 20px, 10px 10px, 10px 10px;
+
 }
+
 
 details {
     display: inline-block;
@@ -261,6 +270,30 @@ a:hover {
     border-radius: 2px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     /* Add subtle shadow */
+}
+
+.pin_box {
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* Add subtle shadow */
+}
+
+.pin_box>h5 {
+    background-color: #f9f9ff;
+    border-bottom: 1px solid #ccc;
+    margin: 0;
+    padding: 10px;
+}
+
+.pins {
+    font-size: 12px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* 2 equal columns */
+    gap: 1rem;
+    /* spacing between items */
+    padding: 10px;
 }
 
 .description {

@@ -52,7 +52,7 @@
 					<div class="desc-updates">
 						<!-- My Story -->
 						<div class="description">
-							<span style="font-size: 1.5em;"><b>My Story</b></span>
+							<h2>My Story</h2>
 							<p>
 								I'm a 2000s kid, so sure — this site is a bit of a throwback to the late-2000s internet
 								era.
@@ -98,22 +98,51 @@
 						</div>
 					</div>
 
-				</div>
 
-				<!-- chibi -->
-				<div class="chibi">
-					<a target="_blank" href="https://www.dc.com/characters/batman">
-						<img src="images/batman_chibi.png" alt="" width="75" srcset="" class="chibi_img">
-					</a>
-					<br>
-					<a target="_blank" href="https://www.pinterest.com/pin/496451558896479894/" class="link"><img
-							src="images/new_window_glyph.png" alt=""></a>
+					<!-- chibi -->
+					<div class="chibi">
+						<a target="_blank" href="https://www.dc.com/characters/batman">
+							<img src="images/batman_chibi.png" alt="" width="75" srcset="" class="chibi_img">
+						</a>
+						<br>
+						<a target="_blank" href="https://www.pinterest.com/pin/496451558896479894/" class="link"><img
+								src="images/new_window_glyph.png" alt=""></a>
+					</div>
+
+					<div class="desc-updates">
+						<!-- github pins -->
+						<div class="description pin_box">
+							<h5>
+								<a target="_blank" href="https://github.com/bruhmese-python">
+									<img src="images/github.png" alt="" width="16">
+								</a>
+
+								Github pins
+							</h5>
+							<div class="pins">
+								{%include 'github-pins_.html'%}
+							</div>
+						</div>
+
+						<div class="updates pin_box">
+							<h5>
+								Interesting links
+								<span style="text-align: right">📌️</span>
+							</h5>
+							<div class="pins">
+								{%include 'fav_links_.html'%}
+							</div>
+						</div>
+
+					</div>
+
 				</div>
 			</div>
 		</div>
 
 
 		{%include 'footer_.html'%}
+		{%include 'modal_.html'%}
 
 	</div>
 

@@ -4,7 +4,8 @@
     ├── <a href="images/photos/photo.jpg" class="sitemap-anchor">photo.jpg</a>
     ├── <a href="images/photos/pin.png" class="sitemap-anchor">pin.png</a>
     ├── <a href="images/photos/pondicherry.jpg" class="sitemap-anchor">pondicherry.jpg</a>
-    └── <a href="images/photos/sheraton.jpg" class="sitemap-anchor">sheraton.jpg</a></details>
+    ├── <a href="images/photos/sheraton.jpg" class="sitemap-anchor">sheraton.jpg</a>
+    └── <a href="images/photos/www.jpg" class="sitemap-anchor">www.jpg</a></details>
   ├──<details><summary class="sitemap-folder"><img width="16" src="images/dir.png" class>&nbsp;screenshots</summary>    ├── <a href="images/screenshots/commit.png" class="sitemap-anchor">commit.png</a>
     ├── <a href="images/screenshots/dataset_preparation.png" class="sitemap-anchor">dataset_preparation.png</a>
     ├── <a href="images/screenshots/droplet.png" class="sitemap-anchor">droplet.png</a>
