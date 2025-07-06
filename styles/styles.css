@@ -21,6 +21,13 @@ body {
 
 }
 
+.shadow-hr {
+    padding: 0.5em;
+    background: url('../images/shadow-hr.png');
+    background-size: cover;
+    background-position: center center;
+    margin: 0;
+  }
 
 .banner {
     padding: 2em;
@@ -42,9 +49,17 @@ details {
 }
 
 .link {
+    z-index: 2;
     position: absolute;
     right: +0.5em;
     top: 0;
+}
+
+.extra_pad_link{
+    z-index: 2;
+    position: absolute;
+    right: -0.5em;
+    top: -0.5em;
 }
 
 .site-container {
@@ -256,28 +271,34 @@ a:hover {
 
 .chibi_img {
     transform: rotate(12deg);
-}
-
-.chibi:hover {
-    animation: buzzOutAnimation 0.3s ease-in-out;
+    animation: buzzOutAnimation 1s ease-in-out infinite;
 }
 
 /* Keyframes for Buzz Out effect */
 @keyframes buzzOutAnimation {
     0% {
-        transform: scale(1);         /* Start at normal size */
+        transform: scale(1);
+        /* Start at normal size */
     }
+
     25% {
-        transform: scale(1.2) rotate(-5deg);  /* Slightly grow and rotate */
+        transform: scale(1.025) rotate(-2deg);
+        /* Slightly grow and rotate */
     }
+
     50% {
-        transform: scale(1) rotate(5deg);    /* Back to normal size with slight rotation */
+        transform: scale(1) rotate(2deg);
+        /* Back to normal size with slight rotation */
     }
+
     75% {
-        transform: scale(1.2) rotate(-5deg); /* Slightly grow again and rotate */
+        transform: scale(1.04) rotate(-2deg);
+        /* Slightly grow again and rotate */
     }
+
     100% {
-        transform: scale(1);         /* Back to normal size */
+        transform: scale(1);
+        /* Back to normal size */
     }
 }
 
@@ -390,9 +411,11 @@ img.profile {
     width: 100px;
     height: 100px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transform: rotate(-6deg);
     /* Use transform instead of rotate to apply the rotation */
-    margin-bottom: 0.75em;
+}
+
+img.profile_rotate {
+    transform: rotate(-6deg);
 }
 
 /* Pin Image Styles */
@@ -405,6 +428,19 @@ img.profile_pin {
     /* Adjust the distance from the left side of the profile image */
     width: 40px;
     height: 40px;
+    z-index: 1;
+    /* Make sure the pin is on top of the profile image */
+}
+
+img.name_img {
+    position: absolute;
+    /* Position relative to the parent container */
+    bottom: 12px;
+    /* Adjust the distance from the top of the profile image */
+    /* Adjust the distance from the left side of the profile image */
+    width: 104px;
+    height: 40px;
+    /* 1.5em */
     z-index: 1;
     /* Make sure the pin is on top of the profile image */
 }

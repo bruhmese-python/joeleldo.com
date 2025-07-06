@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.10.0/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.10.0/addons/p5.sound.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="utf-8" />
+
+  </head>
+  <body>
+    <script>
+      window.addEventListener('keydown', (e) => {  
+        if (e.keyCode === 32 && e.target === document.body) {  
+          e.preventDefault();  
+        }  
+      });
+      function closeModal() {
+          document.getElementById("modal").style.display = "none";
+      }
+    </script>
+    <main>
+    </main>
+    <div class="overlay">
+      <b>Mode : </b>
+      <span id="mode">Selection</span>
+<!--       
+      <span>&nbsp;|&nbsp;&nbsp;&nbsp;</span>
+      <b>Controls :</b> 
+      selection
+      a (add)
+      d (remove)
+      y (copy)
+      p (paste)
+      b/e (switch)
+      goto
+      g&lt;number&gt;(goto node)
+      translate
+      h/j/k/l (movement)
+      J (join)    
+-->
+      
+    </div>
+      
+    
+    <!-- The Modal -->
+    <div id="modal">
+        <div id="modal-content">
+<!--             <p>Output copied to clipboard</p> -->
+            <textarea rows="4" cols="50" id="output-area">
+            </textarea>
+            <br>
+            <button onclick="closeModal()">OK</button>
+        </div>
+    </div>
+    <script src="sketch.js"></script>
+  </body>
+</html>
