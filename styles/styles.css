@@ -19,7 +19,46 @@ body {
     background: radial-gradient(circle, transparent 20%, #e5e5f7 20%, #e5e5f7 80%, transparent 80%, transparent), radial-gradient(circle, transparent 20%, #e5e5f7 20%, #e5e5f7 80%, transparent 80%, transparent) 10px 10px, linear-gradient(#3e6783 0.8px, transparent 0.8px) 0 -0.4px, linear-gradient(90deg, #3e6783 0.8px, #e5e5f7 0.8px) -0.4px 0;
     background-size: 20px 20px, 20px 20px, 10px 10px, 10px 10px;
 
+    background: #111;
 }
+
+html { 
+    font-family: Noto Sans Display;
+    color: #eee;
+    font-size: 1em;
+    line-height: 1;
+    letter-spacing: 0.125em;
+    animation-duration: 0.01s;
+    animation-name: textflicker;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes textflicker {
+from {
+ text-shadow: 1px 0 0 #ea36af, -2px 0 0 #75fa69;
+ /* box-shadow: 1px 0 0 #ea36af, -2px 0 0 #75fa69; */
+}
+to {
+ text-shadow: 2px 0.5px 2px #ea36af, -1px -0.5px 2px #75fa69;
+ /* box-shadow: 2px 0.5px 2px #ea36af, -1px -0.5px 2px #75fa69; */
+}
+}
+img {
+    animation: flickerOverlay 0.01s infinite alternate;
+  }
+  
+  @keyframes flickerOverlay {
+    0% {
+      opacity: 0.99;
+      filter: brightness(1) saturate(1);
+    }
+    100% {
+      opacity: 1;
+      filter: brightness(1.05) saturate(1.1);
+    }
+  }
+  
 
 .shadow-hr {
     padding: 0.5em;
@@ -271,7 +310,7 @@ a:hover {
 
 .chibi_img {
     transform: rotate(12deg);
-    animation: buzzOutAnimation 1s ease-in-out infinite;
+    /* animation: buzzOutAnimation 1s ease-in-out infinite; */
 }
 
 /* Keyframes for Buzz Out effect */
