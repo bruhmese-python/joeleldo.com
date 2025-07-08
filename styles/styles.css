@@ -28,7 +28,7 @@ html {
     font-size: 1em;
     line-height: 1;
     letter-spacing: 0.125em;
-    text-shadow: 1px 0 0 #ea36af, -2px 0 0 #75fa69;
+    text-shadow: 1px 0 0 #ea36af, -1px 0 0 #75fa69;
     /* mation-duration: 0.01s; */
     /* animation-name: textflicker; */
     /* animation-iteration-count: infinite; */
@@ -123,6 +123,7 @@ details {
     margin: 1em;
     border: 1px solid #ccc;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    min-height: 90vh;
 }
 
 .sidebar {
