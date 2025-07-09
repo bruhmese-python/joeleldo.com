@@ -5,3 +5,5 @@ sitemap.exclude
 .*_.html
 .*.py
 .*.tmp
+.*.js
+scripts
