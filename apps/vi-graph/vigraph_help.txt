@@ -1,0 +1,30 @@
+<p><strong>Enter</strong> to switch between modes :</p>
+<ul>
+<li><strong>Selection (default)</strong>
+<ul>
+<li><strong>a </strong>add child</li>
+<li><strong>d </strong>delete<br /><br /></li>
+<li><strong>y&nbsp;</strong>copy&nbsp;</li>
+<li><strong>p&nbsp;</strong>paste<br /><br /></li>
+<li><strong>s&nbsp;</strong>Overwrite</li>
+<li><strong>i&nbsp;&nbsp;</strong>Insertion<br /><br /></li>
+<li><strong>g &lt;num&gt; &lt;enter&gt; </strong>goto node</li>
+<li><strong>e</strong>/<strong>b&nbsp;</strong>navigate nodes<br /><br /></li>
+<li><strong>&lt;Shift&gt; j &lt;num&gt; &lt;enter&gt;&nbsp;</strong>Join/Connect&nbsp;</li>
+<li><strong>&lt;Shift&gt; x &lt;num&gt;</strong> remove connection from&nbsp;<br /><br /></li>
+<li><strong>t&nbsp;</strong>toggle border/borderless<br /><br /></li>
+</ul>
+</li>
+<li><strong>Translate</strong>
+<ul>
+<li><strong>H</strong>/<strong>J</strong>/<strong>K</strong>/<strong>L </strong>keys to move the node around</li>
+</ul>
+</li>
+</ul>
+<p><strong>&lt;Esc&gt;&nbsp;</strong>to deselect</p>
+<ul>
+<li><strong>a</strong> add child at cursor</li>
+<li><strong>g &lt;num&gt; &lt;enter&gt;&nbsp;</strong>goto node</li>
+</ul>
+<p><br /><strong>o&nbsp;</strong>load vigraph from system<br /><strong>w </strong>save vigraph to system</p>
+<p>&nbsp;</p>
