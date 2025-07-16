@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Links</title>
+	<link rel="stylesheet" href="/styles/styles.css">
+
+</head>
+
+<body>
+
+	<div class="site-container">
+		<div class="page-wrapper">
+
+			<!-- Sidebar -->
+			{% include 'sidebar_.html' %}
+
+			<!-- Main Content -->
+			<div class="main-content">
+				<br>
+				<div class="subheading">
+					Articles
+				</div>
+				{% include 'content.html' %}
+			</div>
+		</div>
+		{%include 'footer_.html'%}
+	</div>
+
+	{% include 'modal_.html' %}
+</body>
+
+</html>

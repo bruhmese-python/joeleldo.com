@@ -6,4 +6,5 @@ sitemap.exclude
 .*.py
 .*.tmp
 .*.js
+.*.odt
 scripts

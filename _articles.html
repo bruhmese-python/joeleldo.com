@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="UTF-8">
-	<title>Read</title>
+	<title>Links</title>
 	<link rel="stylesheet" href="styles/styles.css">
 
 </head>
@@ -18,29 +18,17 @@
 
 			<!-- Main Content -->
 			<div class="main-content">
-
-				<div class="sitemap-wrapper">
-					<div class="sitemap-content">
-						<!--Sitemap-->
-						<br>
-						<div class="subheading">
-							Read
-						</div>
-
-						<ul>
-							<li><a href="blogs.html">Blogs</a></li>
-							<li><a href="#">Articles</a></li>
-							<li><a href="#" class="disabled-anchor">Archives</a></li>
-						</ul>
-
-						<br>
-					</div>
+				<br>
+				<div class="subheading">
+					Articles
 				</div>
+				{% include 'articles/article_links.html' %}
 			</div>
 		</div>
 		{%include 'footer_.html'%}
 	</div>
 
+	{% include 'modal_.html' %}
 </body>
 
 </html>

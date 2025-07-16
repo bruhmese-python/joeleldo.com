@@ -33,6 +33,13 @@ downloads.html: scripts/fetch-midi-projects.py
 	# sleep 2	
 	$(JINJA_CMD) _downloads.html > downloads.html
 
+# Special rule for articles.html
+articles.html: 
+	@echo "Making articles"
+	cd articles && make
+	$(JINJA_CMD) _articles.html > articles.html
+
 # Clean target
 clean:
+	cd articles && make clean
 	rm -f $(TARGETS)
