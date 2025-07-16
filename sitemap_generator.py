@@ -66,6 +66,7 @@ def generate_sitemap_from_json(tree_json, depth=0, is_last=False):
             item_type = item['type']
 
             is_last_item = filtered_items[-1] == name
+            print(name + " is last item") if is_last_item else ""
 
             indent = '  ' * depth
             tree_symbol = TREE_SYMBOLS['last_branch'] if is_last_item else TREE_SYMBOLS['branch']
@@ -89,9 +90,9 @@ def generate_sitemap_from_json(tree_json, depth=0, is_last=False):
                 href = "/" + href
                 html_content.append(f'{indent}{tree_symbol} <a href="{href}" class="sitemap-anchor">{name}</a>')
 
-                if parents: 
-                    if is_last or index == len(filtered_items) - 1:
-                        parents = parents[:-1]
+            if parents: 
+                if is_last_item or index == len(filtered_items) - 1:
+                    parents = parents[:-1]
 
 
     return '\n'.join(html_content)

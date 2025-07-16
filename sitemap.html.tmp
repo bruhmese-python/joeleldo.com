@@ -1,63 +1,76 @@
+vi-graph is last item
+vigraph_help.txt is last item
+content.html is last item
+midi is last item
+content.html is last item
+article_links.html is last item
+iworkflow_compiler_extension.zip is last item
+www.jpg is last item
+vi_graph.png is last item
+vi_graph.png is last item
+under_construction.gif is last item
+styles.css is last item
+read.html is last item
 <pre><div class="navigation">
 ├──<details><summary class="sitemap-folder"><img width="16" src="/images/dir.png" class>&nbsp;apps</summary>  └──<details><summary class="sitemap-folder"><img width="16" src="/images/dir.png" class>&nbsp;vi-graph</summary>    ├── <a href="/apps/vi-graph/index.html" class="sitemap-anchor">index.html</a>
-    ├── <a href="/apps/style.css" class="sitemap-anchor">style.css</a>
-    └── <a href="/vigraph_help.txt" class="sitemap-anchor">vigraph_help.txt</a></details></details>
+    ├── <a href="/apps/vi-graph/style.css" class="sitemap-anchor">style.css</a>
+    └── <a href="/apps/vi-graph/vigraph_help.txt" class="sitemap-anchor">vigraph_help.txt</a></details></details>
 ├──<details><summary class="sitemap-folder"><img width="16" src="/images/dir.png" class>&nbsp;articles</summary>  ├──<details><summary class="sitemap-folder"><img width="16" src="/images/dir.png" class>&nbsp;rendered</summary>    ├──<details><summary class="sitemap-folder"><img width="16" src="/images/dir.png" class>&nbsp;calc_dashboards</summary>      └── <a href="/articles/rendered/calc_dashboards/content.html" class="sitemap-anchor">content.html</a></details>
     └──<details><summary class="sitemap-folder"><img width="16" src="/images/dir.png" class>&nbsp;midi</summary>      └── <a href="/articles/rendered/midi/content.html" class="sitemap-anchor">content.html</a></details></details>
-  └── <a href="/articles/rendered/article_links.html" class="sitemap-anchor">article_links.html</a></details>
-├──<details><summary class="sitemap-folder"><img width="16" src="/images/dir.png" class>&nbsp;downloads</summary>  ├── <a href="/articles/downloads/iworkflow_compiler_agent.zip" class="sitemap-anchor">iworkflow_compiler_agent.zip</a>
-  └── <a href="/articles/downloads/iworkflow_compiler_extension.zip" class="sitemap-anchor">iworkflow_compiler_extension.zip</a></details>
-├──<details><summary class="sitemap-folder"><img width="16" src="/images/dir.png" class>&nbsp;images</summary>  ├──<details><summary class="sitemap-folder"><img width="16" src="/images/dir.png" class>&nbsp;photos</summary>    ├── <a href="/articles/images/photos/extensions.png" class="sitemap-anchor">extensions.png</a>
-    ├── <a href="/articles/images/photos/mahabalipuram.jpg" class="sitemap-anchor">mahabalipuram.jpg</a>
-    ├── <a href="/articles/images/photos/photo.jpg" class="sitemap-anchor">photo.jpg</a>
-    ├── <a href="/articles/images/photos/pin.png" class="sitemap-anchor">pin.png</a>
-    ├── <a href="/articles/images/photos/pondicherry.jpg" class="sitemap-anchor">pondicherry.jpg</a>
-    ├── <a href="/articles/images/photos/rameshwaram.jpg" class="sitemap-anchor">rameshwaram.jpg</a>
-    ├── <a href="/articles/images/photos/sheraton.jpg" class="sitemap-anchor">sheraton.jpg</a>
-    └── <a href="/articles/images/photos/www.jpg" class="sitemap-anchor">www.jpg</a></details>
-  ├──<details><summary class="sitemap-folder"><img width="16" src="/images/dir.png" class>&nbsp;screenshots</summary>    ├──<details><summary class="sitemap-folder"><img width="16" src="/images/dir.png" class>&nbsp;backup</summary>      ├── <a href="/articles/images/screenshots/backup/dataset_preparation.png" class="sitemap-anchor">dataset_preparation.png</a>
-      └── <a href="/articles/images/screenshots/backup/vi_graph.png" class="sitemap-anchor">vi_graph.png</a></details>
-    ├── <a href="/articles/images/screenshots/commit.png" class="sitemap-anchor">commit.png</a>
-    ├── <a href="/articles/images/screenshots/dataset_preparation.png" class="sitemap-anchor">dataset_preparation.png</a>
-    ├── <a href="/articles/images/screenshots/droplet.png" class="sitemap-anchor">droplet.png</a>
-    ├── <a href="/articles/images/screenshots/hangman.png" class="sitemap-anchor">hangman.png</a>
-    ├── <a href="/articles/images/screenshots/injector.png" class="sitemap-anchor">injector.png</a>
-    ├── <a href="/articles/images/screenshots/iwork.png" class="sitemap-anchor">iwork.png</a>
-    ├── <a href="/articles/images/screenshots/kettle_master_mockup.png" class="sitemap-anchor">kettle_master_mockup.png</a>
-    ├── <a href="/articles/images/screenshots/labelimg.png" class="sitemap-anchor">labelimg.png</a>
-    ├── <a href="/articles/images/screenshots/nqueens.png" class="sitemap-anchor">nqueens.png</a>
-    ├── <a href="/articles/images/screenshots/typing_maestro.png" class="sitemap-anchor">typing_maestro.png</a>
-    └── <a href="/articles/images/screenshots/vi_graph.png" class="sitemap-anchor">vi_graph.png</a></details>
-  ├── <a href="/articles/images/banner.png" class="sitemap-anchor">banner.png</a>
-  ├── <a href="/articles/images/banner_.png" class="sitemap-anchor">banner_.png</a>
-  ├── <a href="/articles/images/batman_chibi.png" class="sitemap-anchor">batman_chibi.png</a>
-  ├── <a href="/articles/images/batman_chibi_.png" class="sitemap-anchor">batman_chibi_.png</a>
-  ├── <a href="/articles/images/blender.png" class="sitemap-anchor">blender.png</a>
-  ├── <a href="/articles/images/book.gif" class="sitemap-anchor">book.gif</a>
-  ├── <a href="/articles/images/dir.png" class="sitemap-anchor">dir.png</a>
-  ├── <a href="/articles/images/download" class="sitemap-anchor">download</a>
-  ├── <a href="/articles/images/email.png" class="sitemap-anchor">email.png</a>
-  ├── <a href="/articles/images/gentoo.png" class="sitemap-anchor">gentoo.png</a>
-  ├── <a href="/articles/images/github.png" class="sitemap-anchor">github.png</a>
-  ├── <a href="/articles/images/linkedin_old.png" class="sitemap-anchor">linkedin_old.png</a>
-  ├── <a href="/articles/images/linkedin.png" class="sitemap-anchor">linkedin.png</a>
-  ├── <a href="/articles/images/name_png.png" class="sitemap-anchor">name_png.png</a>
-  ├── <a href="/articles/images/new_window_glyph.png" class="sitemap-anchor">new_window_glyph.png</a>
-  ├── <a href="/articles/images/qmark.webp" class="sitemap-anchor">qmark.webp</a>
-  ├── <a href="/articles/images/rick_and_morty.webp" class="sitemap-anchor">rick_and_morty.webp</a>
-  ├── <a href="/articles/images/rick_and_morty__.webp" class="sitemap-anchor">rick_and_morty__.webp</a>
-  ├── <a href="/articles/images/shadow-hr.png" class="sitemap-anchor">shadow-hr.png</a>
-  ├── <a href="/articles/images/tux.png" class="sitemap-anchor">tux.png</a>
-  ├── <a href="/articles/images/tux_.png" class="sitemap-anchor">tux_.png</a>
-  └── <a href="/articles/under_construction.gif" class="sitemap-anchor">under_construction.gif</a></details>
+  └── <a href="/articles/article_links.html" class="sitemap-anchor">article_links.html</a></details>
+├──<details><summary class="sitemap-folder"><img width="16" src="/images/dir.png" class>&nbsp;downloads</summary>  ├── <a href="/downloads/iworkflow_compiler_agent.zip" class="sitemap-anchor">iworkflow_compiler_agent.zip</a>
+  └── <a href="/downloads/iworkflow_compiler_extension.zip" class="sitemap-anchor">iworkflow_compiler_extension.zip</a></details>
+├──<details><summary class="sitemap-folder"><img width="16" src="/images/dir.png" class>&nbsp;images</summary>  ├──<details><summary class="sitemap-folder"><img width="16" src="/images/dir.png" class>&nbsp;photos</summary>    ├── <a href="/images/photos/extensions.png" class="sitemap-anchor">extensions.png</a>
+    ├── <a href="/images/photos/mahabalipuram.jpg" class="sitemap-anchor">mahabalipuram.jpg</a>
+    ├── <a href="/images/photos/photo.jpg" class="sitemap-anchor">photo.jpg</a>
+    ├── <a href="/images/photos/pin.png" class="sitemap-anchor">pin.png</a>
+    ├── <a href="/images/photos/pondicherry.jpg" class="sitemap-anchor">pondicherry.jpg</a>
+    ├── <a href="/images/photos/rameshwaram.jpg" class="sitemap-anchor">rameshwaram.jpg</a>
+    ├── <a href="/images/photos/sheraton.jpg" class="sitemap-anchor">sheraton.jpg</a>
+    └── <a href="/images/photos/www.jpg" class="sitemap-anchor">www.jpg</a></details>
+  ├──<details><summary class="sitemap-folder"><img width="16" src="/images/dir.png" class>&nbsp;screenshots</summary>    ├──<details><summary class="sitemap-folder"><img width="16" src="/images/dir.png" class>&nbsp;backup</summary>      ├── <a href="/images/screenshots/backup/dataset_preparation.png" class="sitemap-anchor">dataset_preparation.png</a>
+      └── <a href="/images/screenshots/backup/vi_graph.png" class="sitemap-anchor">vi_graph.png</a></details>
+    ├── <a href="/images/screenshots/commit.png" class="sitemap-anchor">commit.png</a>
+    ├── <a href="/images/screenshots/dataset_preparation.png" class="sitemap-anchor">dataset_preparation.png</a>
+    ├── <a href="/images/screenshots/droplet.png" class="sitemap-anchor">droplet.png</a>
+    ├── <a href="/images/screenshots/hangman.png" class="sitemap-anchor">hangman.png</a>
+    ├── <a href="/images/screenshots/injector.png" class="sitemap-anchor">injector.png</a>
+    ├── <a href="/images/screenshots/iwork.png" class="sitemap-anchor">iwork.png</a>
+    ├── <a href="/images/screenshots/kettle_master_mockup.png" class="sitemap-anchor">kettle_master_mockup.png</a>
+    ├── <a href="/images/screenshots/labelimg.png" class="sitemap-anchor">labelimg.png</a>
+    ├── <a href="/images/screenshots/nqueens.png" class="sitemap-anchor">nqueens.png</a>
+    ├── <a href="/images/screenshots/typing_maestro.png" class="sitemap-anchor">typing_maestro.png</a>
+    └── <a href="/images/screenshots/vi_graph.png" class="sitemap-anchor">vi_graph.png</a></details>
+  ├── <a href="/images/banner.png" class="sitemap-anchor">banner.png</a>
+  ├── <a href="/images/banner_.png" class="sitemap-anchor">banner_.png</a>
+  ├── <a href="/images/batman_chibi.png" class="sitemap-anchor">batman_chibi.png</a>
+  ├── <a href="/images/batman_chibi_.png" class="sitemap-anchor">batman_chibi_.png</a>
+  ├── <a href="/images/blender.png" class="sitemap-anchor">blender.png</a>
+  ├── <a href="/images/book.gif" class="sitemap-anchor">book.gif</a>
+  ├── <a href="/images/dir.png" class="sitemap-anchor">dir.png</a>
+  ├── <a href="/images/download" class="sitemap-anchor">download</a>
+  ├── <a href="/images/email.png" class="sitemap-anchor">email.png</a>
+  ├── <a href="/images/gentoo.png" class="sitemap-anchor">gentoo.png</a>
+  ├── <a href="/images/github.png" class="sitemap-anchor">github.png</a>
+  ├── <a href="/images/linkedin_old.png" class="sitemap-anchor">linkedin_old.png</a>
+  ├── <a href="/images/linkedin.png" class="sitemap-anchor">linkedin.png</a>
+  ├── <a href="/images/name_png.png" class="sitemap-anchor">name_png.png</a>
+  ├── <a href="/images/new_window_glyph.png" class="sitemap-anchor">new_window_glyph.png</a>
+  ├── <a href="/images/qmark.webp" class="sitemap-anchor">qmark.webp</a>
+  ├── <a href="/images/rick_and_morty.webp" class="sitemap-anchor">rick_and_morty.webp</a>
+  ├── <a href="/images/rick_and_morty__.webp" class="sitemap-anchor">rick_and_morty__.webp</a>
+  ├── <a href="/images/shadow-hr.png" class="sitemap-anchor">shadow-hr.png</a>
+  ├── <a href="/images/tux.png" class="sitemap-anchor">tux.png</a>
+  ├── <a href="/images/tux_.png" class="sitemap-anchor">tux_.png</a>
+  └── <a href="/under_construction.gif" class="sitemap-anchor">under_construction.gif</a></details>
 ├──<details><summary class="sitemap-folder"><img width="16" src="/images/dir.png" class>&nbsp;plugins</summary></details>
-├──<details><summary class="sitemap-folder"><img width="16" src="/images/dir.png" class>&nbsp;styles</summary>  └── <a href="/articles/styles/styles.css" class="sitemap-anchor">styles.css</a></details>
-├── <a href="/articles/article.html" class="sitemap-anchor">article.html</a>
-├── <a href="/articles/articles.html" class="sitemap-anchor">articles.html</a>
-├── <a href="/articles/blogs.html" class="sitemap-anchor">blogs.html</a>
-├── <a href="/articles/downloads.html" class="sitemap-anchor">downloads.html</a>
-├── <a href="/articles/index.html" class="sitemap-anchor">index.html</a>
-├── <a href="/articles/links.html" class="sitemap-anchor">links.html</a>
-├── <a href="/articles/misc.html" class="sitemap-anchor">misc.html</a>
-└── <a href="/articles/read.html" class="sitemap-anchor">read.html</a>
+├──<details><summary class="sitemap-folder"><img width="16" src="/images/dir.png" class>&nbsp;styles</summary>  └── <a href="/styles/styles.css" class="sitemap-anchor">styles.css</a></details>
+├── <a href="/article.html" class="sitemap-anchor">article.html</a>
+├── <a href="/articles.html" class="sitemap-anchor">articles.html</a>
+├── <a href="/blogs.html" class="sitemap-anchor">blogs.html</a>
+├── <a href="/downloads.html" class="sitemap-anchor">downloads.html</a>
+├── <a href="/index.html" class="sitemap-anchor">index.html</a>
+├── <a href="/links.html" class="sitemap-anchor">links.html</a>
+├── <a href="/misc.html" class="sitemap-anchor">misc.html</a>
+└── <a href="/read.html" class="sitemap-anchor">read.html</a>
 </div></pre>
