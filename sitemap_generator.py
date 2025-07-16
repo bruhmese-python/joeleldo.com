@@ -58,7 +58,7 @@ def generate_sitemap_from_json(tree_json, depth=0, is_last=False):
     # print('tree json:',tree_json)
 
     filtered_items = filter_items(name_list, exclude_patterns)
-    print('filtered items:',filtered_items)
+    # print('filtered items:',filtered_items)
 
     for index, item in enumerate(tree_json):
         name = item['name']

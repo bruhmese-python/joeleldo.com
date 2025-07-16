@@ -1,17 +1,3 @@
-filtered items: ['apps', 'articles', 'downloads', 'images', 'plugins', 'styles', 'article.html', 'articles.html', 'blogs.html', 'downloads.html', 'index.html', 'links.html', 'misc.html', 'read.html']
-filtered items: ['vi-graph']
-filtered items: ['index.html', 'style.css', 'vigraph_help.txt']
-filtered items: ['rendered', 'article_links.html']
-filtered items: ['calc_dashboards', 'midi']
-filtered items: ['content.html']
-filtered items: ['content.html']
-filtered items: ['iworkflow_compiler_agent.zip', 'iworkflow_compiler_extension.zip']
-filtered items: ['photos', 'screenshots', 'banner.png', 'banner_.png', 'batman_chibi.png', 'batman_chibi_.png', 'blender.png', 'book.gif', 'dir.png', 'download', 'email.png', 'gentoo.png', 'github.png', 'linkedin_old.png', 'linkedin.png', 'name_png.png', 'new_window_glyph.png', 'qmark.webp', 'rick_and_morty.webp', 'rick_and_morty__.webp', 'shadow-hr.png', 'tux.png', 'tux_.png', 'under_construction.gif']
-filtered items: ['extensions.png', 'mahabalipuram.jpg', 'photo.jpg', 'pin.png', 'pondicherry.jpg', 'rameshwaram.jpg', 'sheraton.jpg', 'www.jpg']
-filtered items: ['backup', 'commit.png', 'dataset_preparation.png', 'droplet.png', 'hangman.png', 'injector.png', 'iwork.png', 'kettle_master_mockup.png', 'labelimg.png', 'nqueens.png', 'typing_maestro.png', 'vi_graph.png']
-filtered items: ['dataset_preparation.png', 'vi_graph.png']
-filtered items: []
-filtered items: ['styles.css']
 <pre><div class="navigation">
 ├──<details><summary class="sitemap-folder"><img width="16" src="/images/dir.png" class>&nbsp;apps</summary>  └──<details><summary class="sitemap-folder"><img width="16" src="/images/dir.png" class>&nbsp;vi-graph</summary>    ├── <a href="/apps/vi-graph/index.html" class="sitemap-anchor">index.html</a>
     ├── <a href="/apps/style.css" class="sitemap-anchor">style.css</a>
