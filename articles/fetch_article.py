@@ -32,7 +32,7 @@ def main():
             h1_text = extract_first_h1(html_file)
             if not h1_text:
                 h1_text = folder  # fallback to folder name if no <h1> found
-            print(f'  <li><a href="articles/rendered/{folder}/content.html">{h1_text}</a></li>')
+            print(f'  <li><a href="/articles/rendered/{folder}/content.html">{h1_text}</a></li>')
     print('</ul>')
 
 if __name__ == '__main__':

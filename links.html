@@ -14,7 +14,81 @@
 		<div class="page-wrapper">
 
 			<!-- Sidebar -->
-			{% include 'sidebar_.html' %}
+			<div class="sidebar">
+	<center>
+		<div class="profile-container">
+			<a href="/images/photos/photo.jpg" target="_blank" class="extra_pad_link"><img src="/images/new_window_glyph.png" alt=""></a>
+			<img src="/images/photos/photo.jpg" alt="My Photo" class="profile profile_rotate"><br>
+			<img src="/images/photos/pin.png" alt="pin" class="profile_pin"><br>
+			<img src="/images/name_png.png" class="name_img profile_rotate" alt="Joel Eldo"><br>
+		</div>
+		<br>
+		<!-- <h3>Joel Eldo</h3> -->
+		Solutions Engineer @<a href="https://www.digitate.com" target="_blank">Digitate</a><br>
+		<small>
+			Chennai ● Kochi<br><br>
+		</small>
+	</center>
+
+	<hr class="shadow-hr">
+
+	<nav class="navigation">
+		<ul>
+			<li><a href="/index.html">Home</a></li>
+			<li><a href="/read.html">Read</a>
+				<ul class="submenu">
+					<li><a href="/blogs.html">Blogs</a></li>
+					<li><a href="/articles.html">Articles</a></li>
+					<li><a href="#" class="disabled-anchor">Archives</a></li>
+				</ul>
+			</li>
+			<li><a href="/misc.html">Misc.</a>
+				<ul class="submenu">
+					<li><a href="/downloads.html">Downloads <img src="/images/download" style="height: 1em;width: 1em;" alt=""></a></li>
+					<li><a href="/links.html">Links 🔗️</a></li>
+				</ul>
+			</li>
+			<!-- <li><a href="#" class="disabled-anchor"> Contact</a></li> -->
+			<li><a href="/sitemap.html">Sitemap</a></li>
+		</ul>
+	</nav>
+	
+
+	<hr>
+
+	<table style="width: 100%;text-align: center;">
+		<tr>
+			<td>
+				<a target="_blank" href="https://github.com/bruhmese-python">
+					<img src="/images/github.png" width="25px" alt="">
+				</a>
+			</td>
+			<td>
+				<a target="_blank" href="https://in.linkedin.com/in/joel-eldo-a92616244">
+					<img src="/images/linkedin.png" width="25px" alt="">
+				</a>
+			</td>
+			<td>
+				<a target="_blank" href="mailto:joeldo.mailbox@gmail.com">
+					<img src="/images/email.png" width="25px" alt="">
+				</a>
+			</td>
+		</tr>
+	</table>
+
+	<br>
+	<b>&nbsp;- "<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">Roll</a> against the tide<span
+			id="dots">..</span>"</b>
+</div>
+<script>
+	const dots = document.getElementById('dots');
+	let toggle = true;
+
+	setInterval(() => {
+		dots.textContent = toggle ? '.' : '..';
+		toggle = !toggle;
+	}, 500);
+</script>
 
 			<!-- Main Content -->
 			<div class="main-content">
@@ -132,10 +206,22 @@
 
 			</div>
 		</div>
-		{%include 'footer_.html'%}
+			<center>
+		<small style="padding: 2px 1em;" class="deprecated">
+			<a href="https://www.namecheap.com/">Namecheap</a>
+			|
+			Github Pages
+		</small>
+	</center>
+	<br>
 	</div>
 
-	{% include 'modal_.html' %}
+	<!-- Modal Structure -->
+<div id="screenshotModal" class="modal">
+	<span id="closeModal" class="close">&times;</span>
+	<img id="modalImage" src="" alt="Screenshot">
+</div>
+<script src="/scripts/script.js"></script>
 </body>
 
 </html>

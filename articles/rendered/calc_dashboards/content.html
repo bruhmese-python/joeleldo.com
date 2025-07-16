@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Links</title>
+	<link rel="stylesheet" href="/styles/styles.css">
+
+</head>
+
+<body>
+
+	<div class="site-container">
+		<div class="page-wrapper">
+
+			<!-- Sidebar -->
+			<div class="sidebar">
+	<center>
+		<div class="profile-container">
+			<a href="/images/photos/photo.jpg" target="_blank" class="extra_pad_link"><img src="/images/new_window_glyph.png" alt=""></a>
+			<img src="/images/photos/photo.jpg" alt="My Photo" class="profile profile_rotate"><br>
+			<img src="/images/photos/pin.png" alt="pin" class="profile_pin"><br>
+			<img src="/images/name_png.png" class="name_img profile_rotate" alt="Joel Eldo"><br>
+		</div>
+		<br>
+		<!-- <h3>Joel Eldo</h3> -->
+		Solutions Engineer @<a href="https://www.digitate.com" target="_blank">Digitate</a><br>
+		<small>
+			Chennai ● Kochi<br><br>
+		</small>
+	</center>
+
+	<hr class="shadow-hr">
+
+	<nav class="navigation">
+		<ul>
+			<li><a href="/index.html">Home</a></li>
+			<li><a href="/read.html">Read</a>
+				<ul class="submenu">
+					<li><a href="/blogs.html">Blogs</a></li>
+					<li><a href="/articles.html">Articles</a></li>
+					<li><a href="#" class="disabled-anchor">Archives</a></li>
+				</ul>
+			</li>
+			<li><a href="/misc.html">Misc.</a>
+				<ul class="submenu">
+					<li><a href="/downloads.html">Downloads <img src="/images/download" style="height: 1em;width: 1em;" alt=""></a></li>
+					<li><a href="/links.html">Links 🔗️</a></li>
+				</ul>
+			</li>
+			<!-- <li><a href="#" class="disabled-anchor"> Contact</a></li> -->
+			<li><a href="/sitemap.html">Sitemap</a></li>
+		</ul>
+	</nav>
+	
+
+	<hr>
+
+	<table style="width: 100%;text-align: center;">
+		<tr>
+			<td>
+				<a target="_blank" href="https://github.com/bruhmese-python">
+					<img src="/images/github.png" width="25px" alt="">
+				</a>
+			</td>
+			<td>
+				<a target="_blank" href="https://in.linkedin.com/in/joel-eldo-a92616244">
+					<img src="/images/linkedin.png" width="25px" alt="">
+				</a>
+			</td>
+			<td>
+				<a target="_blank" href="mailto:joeldo.mailbox@gmail.com">
+					<img src="/images/email.png" width="25px" alt="">
+				</a>
+			</td>
+		</tr>
+	</table>
+
+	<br>
+	<b>&nbsp;- "<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">Roll</a> against the tide<span
+			id="dots">..</span>"</b>
+</div>
+<script>
+	const dots = document.getElementById('dots');
+	let toggle = true;
+
+	setInterval(() => {
+		dots.textContent = toggle ? '.' : '..';
+		toggle = !toggle;
+	}, 500);
+</script>
+
+			<!-- Main Content -->
+			<div class="main-content">
+				<br>
+				
+<h1 class="paragraph-P1"><a id="a__Creating_realtime_dashboards_in_libreoffice_calc"><span/></a>Creating realtime dashboards in libreoffice calc</h1>
+<p class="paragraph-P2"> </p>
+<p class="paragraph-P3">The libreoffice suite is capable of great many things. The libreoffice <span class="text-T1">SDK lets programmers extend the features of the suite and do even more with it. <br/><br/>In this article I’ll show you how I setup a simple flask web application to serve data and how the spreadsheet updates the graph in real-time (well kinda..)</span></p>
+
+<p class="paragraph-P4">I really haven’t looked up the V<span class="text-T2">B</span>script documentation for similar functionality. But I’m pretty sure almost all of the information covered is transferable to MS Excel. </p>
+<p class="paragraph-P5"> </p>
+<p class="paragraph-P6"><span class="text-T3">The libreoffice SDK’s </span><a href="https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star.html" class="text-Internet_20_link"><span class="text-T3">star module</span></a><span class="text-T3"> should provide all the features you’ll need </span><span class="text-T4">for this project.</span></p>
+<h2 class="paragraph-P7"><a id="a__Writing_the_server"><span/></a>Writing the server</h2>
+
+<p class="paragraph-P8">So the flask app will do nothing more record the user’s mouse movements on a canvas and serve it to the spreadsheet.</p>
+<h3 class="paragraph-P9"><a id="a__Webpage"><span/></a>Webpage</h3>
+<h3 class="paragraph-P10"><a id="a__Server_program"><span/></a>Server program</h3>
+<p class="paragraph-P8"> </p><h2 class="paragraph-P7"><a id="a__Building_the_dashboard"><span/></a>Building the dashboard</h2>
+<h3 class="paragraph-P10"><a id="a__The_Graph"><span/></a>The Graph</h3>
+<h3 class="paragraph-P10"><a id="a__The_Code"><span/></a>The Code</h3>
+<h3 class="paragraph-P10"><a id="a__Start_Stop_listening"><span/></a>Start/Stop listening</h3>
+<p class="paragraph-P11"> </p><h2 class="paragraph-P7"><a id="a__Bringing_everything_together__"><span/></a>Bringing everything together..</h2>
+
+			</div>
+		</div>
+			<center>
+		<small style="padding: 2px 1em;" class="deprecated">
+			<a href="https://www.namecheap.com/">Namecheap</a>
+			|
+			Github Pages
+		</small>
+	</center>
+	<br>
+	</div>
+
+	<!-- Modal Structure -->
+<div id="screenshotModal" class="modal">
+	<span id="closeModal" class="close">&times;</span>
+	<img id="modalImage" src="" alt="Screenshot">
+</div>
+<script src="/scripts/script.js"></script>
+</body>
+
+</html>

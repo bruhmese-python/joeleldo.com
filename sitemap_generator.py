@@ -58,7 +58,7 @@ def generate_sitemap_from_json(tree_json, depth=0, is_last=False):
     # print('tree json:',tree_json)
 
     filtered_items = filter_items(name_list, exclude_patterns)
-    # print('filtered items:',filtered_items)
+    print('filtered items:',filtered_items)
 
     for index, item in enumerate(tree_json):
         name = item['name']
@@ -72,7 +72,7 @@ def generate_sitemap_from_json(tree_json, depth=0, is_last=False):
             
             if item_type == 'directory':
                 parents.append(name)
-                details = f'{indent}{tree_symbol}<details><summary class="sitemap-folder"><img width="16" src="images/dir.png" class>&nbsp;{name}</summary>'
+                details = f'{indent}{tree_symbol}<details><summary class="sitemap-folder"><img width="16" src="/images/dir.png" class>&nbsp;{name}</summary>'
 
                 if 'contents' in item:
                     content = generate_sitemap_from_json(item['contents'], depth + 1, is_last_item)
@@ -85,10 +85,12 @@ def generate_sitemap_from_json(tree_json, depth=0, is_last=False):
 
             elif item_type == 'file':
                 href = ('/'.join(parents) + '/' + name) if parents else name
+                #root relative
+                href = "/" + href
                 html_content.append(f'{indent}{tree_symbol} <a href="{href}" class="sitemap-anchor">{name}</a>')
 
                 if parents: 
-                    if is_last or index == len(tree_json) - 1:
+                    if is_last or index == len(filtered_items) - 1:
                         parents = parents[:-1]
 
 

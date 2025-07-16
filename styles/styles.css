@@ -63,7 +63,7 @@ img {
 
 .shadow-hr {
     padding: 0.5em;
-    background: url('../images/shadow-hr.png');
+    background: url('/images/shadow-hr.png');
     background-size: cover;
     background-position: center center;
     margin: 0;
@@ -71,7 +71,7 @@ img {
 
 .banner {
     padding: 2em;
-    background: url('../images/banner.png');
+    background: url('/images/banner.png');
     background-size: contain;
     background-position: center center;
     background-repeat: repeat;
