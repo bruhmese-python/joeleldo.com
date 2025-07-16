@@ -1,22 +1,12 @@
-vi-graph is last item
-vigraph_help.txt is last item
-content.html is last item
-midi is last item
-content.html is last item
-article_links.html is last item
-iworkflow_compiler_extension.zip is last item
-www.jpg is last item
-vi_graph.png is last item
-vi_graph.png is last item
-under_construction.gif is last item
-styles.css is last item
-read.html is last item
 <pre><div class="navigation">
 ├──<details><summary class="sitemap-folder"><img width="16" src="/images/dir.png" class>&nbsp;apps</summary>  └──<details><summary class="sitemap-folder"><img width="16" src="/images/dir.png" class>&nbsp;vi-graph</summary>    ├── <a href="/apps/vi-graph/index.html" class="sitemap-anchor">index.html</a>
     ├── <a href="/apps/vi-graph/style.css" class="sitemap-anchor">style.css</a>
     └── <a href="/apps/vi-graph/vigraph_help.txt" class="sitemap-anchor">vigraph_help.txt</a></details></details>
 ├──<details><summary class="sitemap-folder"><img width="16" src="/images/dir.png" class>&nbsp;articles</summary>  ├──<details><summary class="sitemap-folder"><img width="16" src="/images/dir.png" class>&nbsp;rendered</summary>    ├──<details><summary class="sitemap-folder"><img width="16" src="/images/dir.png" class>&nbsp;calc_dashboards</summary>      └── <a href="/articles/rendered/calc_dashboards/content.html" class="sitemap-anchor">content.html</a></details>
-    └──<details><summary class="sitemap-folder"><img width="16" src="/images/dir.png" class>&nbsp;midi</summary>      └── <a href="/articles/rendered/midi/content.html" class="sitemap-anchor">content.html</a></details></details>
+    ├──<details><summary class="sitemap-folder"><img width="16" src="/images/dir.png" class>&nbsp;midi</summary>      └── <a href="/articles/rendered/midi/content.html" class="sitemap-anchor">content.html</a></details>
+    ├──<details><summary class="sitemap-folder"><img width="16" src="/images/dir.png" class>&nbsp;parsers</summary>      └── <a href="/articles/rendered/parsers/content.html" class="sitemap-anchor">content.html</a></details>
+    ├──<details><summary class="sitemap-folder"><img width="16" src="/images/dir.png" class>&nbsp;vim_lang</summary>      └── <a href="/articles/rendered/vim_lang/content.html" class="sitemap-anchor">content.html</a></details>
+    └──<details><summary class="sitemap-folder"><img width="16" src="/images/dir.png" class>&nbsp;website</summary>      └── <a href="/articles/rendered/website/content.html" class="sitemap-anchor">content.html</a></details></details>
   └── <a href="/articles/article_links.html" class="sitemap-anchor">article_links.html</a></details>
 ├──<details><summary class="sitemap-folder"><img width="16" src="/images/dir.png" class>&nbsp;downloads</summary>  ├── <a href="/downloads/iworkflow_compiler_agent.zip" class="sitemap-anchor">iworkflow_compiler_agent.zip</a>
   └── <a href="/downloads/iworkflow_compiler_extension.zip" class="sitemap-anchor">iworkflow_compiler_extension.zip</a></details>
@@ -56,16 +46,16 @@ read.html is last item
   ├── <a href="/images/linkedin.png" class="sitemap-anchor">linkedin.png</a>
   ├── <a href="/images/name_png.png" class="sitemap-anchor">name_png.png</a>
   ├── <a href="/images/new_window_glyph.png" class="sitemap-anchor">new_window_glyph.png</a>
+  ├── <a href="/images/peeking_cat.png" class="sitemap-anchor">peeking_cat.png</a>
+  ├── <a href="/images/peeking_cat__.png" class="sitemap-anchor">peeking_cat__.png</a>
   ├── <a href="/images/qmark.webp" class="sitemap-anchor">qmark.webp</a>
   ├── <a href="/images/rick_and_morty.webp" class="sitemap-anchor">rick_and_morty.webp</a>
   ├── <a href="/images/rick_and_morty__.webp" class="sitemap-anchor">rick_and_morty__.webp</a>
   ├── <a href="/images/shadow-hr.png" class="sitemap-anchor">shadow-hr.png</a>
   ├── <a href="/images/tux.png" class="sitemap-anchor">tux.png</a>
-  ├── <a href="/images/tux_.png" class="sitemap-anchor">tux_.png</a>
+  ├── <a href="/images/tux__.png" class="sitemap-anchor">tux__.png</a>
   └── <a href="/under_construction.gif" class="sitemap-anchor">under_construction.gif</a></details>
 ├──<details><summary class="sitemap-folder"><img width="16" src="/images/dir.png" class>&nbsp;plugins</summary></details>
-├──<details><summary class="sitemap-folder"><img width="16" src="/images/dir.png" class>&nbsp;styles</summary>  └── <a href="/styles/styles.css" class="sitemap-anchor">styles.css</a></details>
-├── <a href="/article.html" class="sitemap-anchor">article.html</a>
 ├── <a href="/articles.html" class="sitemap-anchor">articles.html</a>
 ├── <a href="/blogs.html" class="sitemap-anchor">blogs.html</a>
 ├── <a href="/downloads.html" class="sitemap-anchor">downloads.html</a>

@@ -3,8 +3,10 @@ CNAME
 sitemap.exclude
 ^_.*
 .*_.html
+.*_.css
 .*.py
 .*.tmp
 .*.js
 .*.odt
 scripts
+styles
