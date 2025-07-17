@@ -36,6 +36,14 @@ html {
     /* animation-direction: alternate; */
 }
 
+.article-container{
+    font-family: Noto Sans Display;
+    font-size: 1em;
+    line-height: 1;
+    letter-spacing: normal;
+    text-shadow: none;
+}
+
 @keyframes textflicker {
     from {
         text-shadow: 1px 0 0 #ea36af, -2px 0 0 #75fa69;
