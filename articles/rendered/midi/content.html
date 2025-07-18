@@ -92,33 +92,38 @@
 
 			<!-- Main Content -->
 			<div class="main-content">
+				<p>
+					<a href="/articles.html">◄&nbsp;Articles</a>
+				</p>
 				<br>
 				<div class="article-container">
 					
 <h1 class="paragraph-Heading_20_1"><a id="a__Building_MIDI_styles_for_Yamaha_from_scratch"><span/></a>Building MIDI styles for Yamaha from scratch</h1>
 
-<p class="paragraph-P1">17/07/2025</p>
+<p class="paragraph-P1"><span class="text-T1">Thursday </span>17/07/2025</p>
 
 <p class="paragraph-P2">Before we dive deep, here are a few links to primer your MIDI knowledge:</p>
 
 <p class="paragraph-P2"><a href="https://usa.yamaha.com/files/download/other_assets/3/314193/midi_basics_en_v10a.pdf" class="text-Internet_20_link">MIDI basics</a></p>
 
-<p class="paragraph-P2">I have a Yamaha PSR-E473, but we’ll be creating model-generic style files targeting General MIDI.<br/>However here are the reference guides for PSR-E473:</p>
+<p class="paragraph-P2"><span class="text-T2">Mine is a</span> Yamaha PSR-E473, but we’ll be creating model-generic style files targeting General MIDI.<br/>However here are the reference guides for PSR-E473:</p>
 
 <p class="paragraph-P2"><a href="https://jp.yamaha.com/files/download/other_assets/4/1544204/psre473_en_fr_es_de_ja_dl_b0.pdf" class="text-Internet_20_link">PSR-E473 Data List</a><br/><a href="https://jp.yamaha.com/files/download/other_assets/3/1544203/psre473_en_rm_a0.pdf" class="text-Internet_20_link">PSR-E473 Reference manual</a></p>
-<h2 class="paragraph-Heading_20_2"><a id="a__Basic_theory"><span/></a>Basic theory</h2>
+<h2 class="paragraph-P3"><a id="a__What_we_need?"><span/></a>What we need?</h2>
+<ul><li><p class="P4" style="margin-left:0cm;"><span class="Bullet_20_Symbols" style="display:block;float:left;min-width:0.635cm;">•</span>A midi sequencer like <a href="https://muse-sequencer.github.io/" class="text-Internet_20_link">MuSE Sequencer</a><span class="odfLiEnd"/> </p></li><li><p class="P5" style="margin-left:0cm;"><span class="Bullet_20_Symbols" style="display:block;float:left;min-width:0.635cm;">•</span><span class="text-T3">Midi to style converter  - </span><a href="http://www.jososoft.dk/yamaha/software/midi2style/index.htm" class="text-Internet_20_link"><span class="text-T4">midi2style</span></a><span class="odfLiEnd"/> </p></li><li><p class="P6" style="margin-left:0cm;"><span class="Bullet_20_Symbols" style="display:block;float:left;min-width:0.635cm;">•</span><span class="text-T5">General MIDI soundfont for desktop </span><span class="text-T6">playback like </span><a href="https://musical-artifacts.com/artifacts/713/gm.sf2" class="text-Internet_20_link"><span class="text-T6">windows gm.sf2</span></a><span class="text-T6"> </span><span class="text-T7">📥</span><span class="odfLiEnd"/> </p></li></ul><h2 class="paragraph-Heading_20_2"><a id="a__Basic_theory"><span/></a>Basic theory</h2>
 
-<p class="paragraph-P3"><span class="text-T1">MIDI</span> is analogous to the text in a document – its just data about something. The document viewer renders the text using fonts, colours and other formatting, like how a synthesizer (could be software or hardware) plays this MIDI file using its own tones/voices and other configurations. </p>
+<p class="paragraph-P7"><span class="text-T8">MIDI</span> is analogous to the text in a document – its just data about something. The document viewer renders the text using fonts, colours and other formatting, like how a synthesizer (could be software or hardware) plays this MIDI file using its own tones/voices and other configurations. </p>
 
-<p class="paragraph-P4">Speaking about fonts, ‘<span class="text-T2">soundfonts</span>’ are exactly that, these are a <span class="text-T3">file </span>format <span class="text-T4">(.sf2)</span> for note sounds similar to <span class="text-T5">how </span>text fonts <span class="text-T5">work </span>for text characters. Soundfonts can be used with a software synthesizer to produce music and render it to an audio file. </p>
+<p class="paragraph-P8">Speaking about fonts, ‘<span class="text-T9">soundfonts</span>’ are exactly that, these are a <span class="text-T10">file </span>format <span class="text-T11">(.sf2)</span> for note sounds similar to <span class="text-T12">how </span>text fonts <span class="text-T12">work </span>for text characters. Soundfonts can be used with a software synthesizer to produce music and render it to an audio file. </p>
 
-<p class="paragraph-P4">But unfortunately, MIDI files can’t embed audio information, just the note data. <span class="text-T6">On the other hand your hardware synthesizer/</span><span class="text-T7">keyboard</span><span class="text-T6"> will have its own sound engine that can render midi data and produce </span><span class="text-T8">sound</span><span class="text-T6">.</span></p>
+<p class="paragraph-P8">But unfortunately, MIDI files can’t embed audio information, just the note data. <span class="text-T13">On the other hand your hardware synthesizer/</span><span class="text-T14">keyboard</span><span class="text-T13"> will have its own sound engine that can render midi data and produce </span><span class="text-T15">sound</span><span class="text-T13">.</span></p>
 
-<p class="paragraph-P5">MIDI comes in various flavours depending on the vendor that supports this format. Mainly there are:</p>
-<ul><li><p class="P6" style="margin-left:0cm;"><span class="Bullet_20_Symbols" style="display:block;float:left;min-width:0.635cm;">•</span>General MIDI (Universal Standard)<span class="odfLiEnd"/> </p></li><li><p class="P6" style="margin-left:0cm;"><span class="Bullet_20_Symbols" style="display:block;float:left;min-width:0.635cm;">•</span>General MIDI 2 (Slightly advanced General MIDI - Universal Standard)<span class="odfLiEnd"/> </p></li></ul>
-<p class="paragraph-P5">And vendor specific standards like</p>
-<ul><li><p class="P6" style="margin-left:0cm;"><span class="Bullet_20_Symbols" style="display:block;float:left;min-width:0.635cm;">•</span>XG (Yamaha standard)<span class="odfLiEnd"/> </p></li><li><p class="P6" style="margin-left:0cm;"><span class="Bullet_20_Symbols" style="display:block;float:left;min-width:0.635cm;">•</span>XGLite (Yamaha standard)<span class="odfLiEnd"/> </p></li></ul><p class="paragraph-P7"> </p>
-<p class="paragraph-P8">In this project, we’ll go with General MIDI <span class="text-T9">as it is much easier to work with.</span></p>
+<p class="paragraph-P9">MIDI comes in various flavours depending on the vendor that supports this format. Mainly there are:</p>
+<ul><li><p class="P10" style="margin-left:0cm;"><span class="Bullet_20_Symbols" style="display:block;float:left;min-width:0.635cm;">•</span>General MIDI (Universal Standard)<span class="odfLiEnd"/> </p></li><li><p class="P10" style="margin-left:0cm;"><span class="Bullet_20_Symbols" style="display:block;float:left;min-width:0.635cm;">•</span>General MIDI 2 (Slightly advanced General MIDI - Universal Standard)<span class="odfLiEnd"/> </p></li></ul>
+<p class="paragraph-P9">And vendor specific standards like</p>
+<ul><li><p class="P10" style="margin-left:0cm;"><span class="Bullet_20_Symbols" style="display:block;float:left;min-width:0.635cm;">•</span>XG (Yamaha standard)<span class="odfLiEnd"/> </p></li><li><p class="P10" style="margin-left:0cm;"><span class="Bullet_20_Symbols" style="display:block;float:left;min-width:0.635cm;">•</span>XGLite (Yamaha standard)<span class="odfLiEnd"/> </p></li></ul>
+<p class="paragraph-P11"><span class="text-T16">In this project, we’ll go with General MIDI </span><span class="text-T17">as it is much easier to work with.</span></p>
+<h2 class="paragraph-Heading_20_2"><a id="a__Creating_a_MIDI_file"><span/></a>Creating <span class="text-T18">a MIDI file</span></h2>
 
 				</div>
 			</div>
@@ -133,12 +138,46 @@
 	<br>
 	</div>
 
+	<script>
+		// Wait for the document to fully load
+		document.addEventListener('DOMContentLoaded', () => {
+			// Select all span elements with the class 'Bullet_20_Symbols'
+			const spans = document.querySelectorAll('span.Bullet_20_Symbols');
+
+			// Loop through each span and remove it from the DOM
+			spans.forEach(span => {
+				span.remove();
+			});
+
+			const tr_paras = document.querySelectorAll('.paragraph-Table_20_Contents');
+
+			tr_paras.forEach(para => {
+				const parent = para.parentElement;  // Get the parent of the <tr> element
+				const paraHTML = para.innerHTML;    // Get the inner HTML of the <tr> element
+
+				para.remove();  // Remove the <tr> element from the DOM
+
+				parent.innerHTML += paraHTML;  // Append the inner HTML of <tr> to the parent element
+			});
+
+			const images = document.querySelectorAll('img');  // Select all <img> tags
+
+			images.forEach(img => {
+				img.classList.add('modal_img');  // Add 'modal_img' class to each image
+			});
+
+
+		});
+
+	</script>
+
 	<!-- Modal Structure -->
 <div id="screenshotModal" class="modal">
 	<span id="closeModal" class="close">&times;</span>
 	<img id="modalImage" src="" alt="Screenshot">
 </div>
 <script src="/scripts/script.js"></script>
+
 </body>
 
 </html>

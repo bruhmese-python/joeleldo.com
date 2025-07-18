@@ -28,12 +28,21 @@ html {
     color: #eee;
     font-size: 1em;
     line-height: 1;
-    letter-spacing: 0.125em;
+    letter-spacing: 0.062em;
+    /* letter-spacing: 0.125em; */
     text-shadow: 1px 0 0 #ea36af, -1px 0 0 #75fa69;
     /* mation-duration: 0.01s; */
     /* animation-name: textflicker; */
     /* animation-iteration-count: infinite; */
     /* animation-direction: alternate; */
+}
+
+.paragraph-Table_20_Contents{
+    margin: none;
+}
+
+table tr:first-child {
+    font-weight: bold;
 }
 
 .article-container{

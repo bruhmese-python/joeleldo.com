@@ -92,6 +92,9 @@
 
 			<!-- Main Content -->
 			<div class="main-content">
+				<p>
+					<a href="/articles.html">◄&nbsp;Articles</a>
+				</p>
 				<br>
 				<div class="article-container">
 					
@@ -126,12 +129,46 @@
 	<br>
 	</div>
 
+	<script>
+		// Wait for the document to fully load
+		document.addEventListener('DOMContentLoaded', () => {
+			// Select all span elements with the class 'Bullet_20_Symbols'
+			const spans = document.querySelectorAll('span.Bullet_20_Symbols');
+
+			// Loop through each span and remove it from the DOM
+			spans.forEach(span => {
+				span.remove();
+			});
+
+			const tr_paras = document.querySelectorAll('.paragraph-Table_20_Contents');
+
+			tr_paras.forEach(para => {
+				const parent = para.parentElement;  // Get the parent of the <tr> element
+				const paraHTML = para.innerHTML;    // Get the inner HTML of the <tr> element
+
+				para.remove();  // Remove the <tr> element from the DOM
+
+				parent.innerHTML += paraHTML;  // Append the inner HTML of <tr> to the parent element
+			});
+
+			const images = document.querySelectorAll('img');  // Select all <img> tags
+
+			images.forEach(img => {
+				img.classList.add('modal_img');  // Add 'modal_img' class to each image
+			});
+
+
+		});
+
+	</script>
+
 	<!-- Modal Structure -->
 <div id="screenshotModal" class="modal">
 	<span id="closeModal" class="close">&times;</span>
 	<img id="modalImage" src="" alt="Screenshot">
 </div>
 <script src="/scripts/script.js"></script>
+
 </body>
 
 </html>
