@@ -37,7 +37,7 @@ html {
     /* animation-direction: alternate; */
 }
 
-.paragraph-Table_20_Contents{
+.paragraph-Table_20_Contents {
     margin: none;
 }
 
@@ -45,13 +45,32 @@ table tr:first-child {
     font-weight: bold;
 }
 
-.article-container{
+.article-container {
     font-family: Noto Sans Display;
     font-size: 1em;
     line-height: 1;
     letter-spacing: normal;
     text-shadow: none;
 }
+
+.article_list {
+    display: grid;
+    grid-template-columns: 80% 20%;
+    grid-template-rows: 1fr;
+    gap: 0% 0%;
+    grid-auto-flow: row;
+    grid-template-areas:
+        "a span";
+}
+
+.article_list>article {
+    grid-area: a;
+}
+
+.article_list>date {
+    grid-area: span;
+}
+
 
 @keyframes textflicker {
     from {
