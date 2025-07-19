@@ -23,11 +23,11 @@ rendered/%: %.odt
 	    echo "Error: HTML file $$src_html not found."; \
 	fi
 	@echo "Copying temporary template"
-	cp $@/content.html ../content.html
+	@cp $@/content.html ../content.html
 	@echo "Rendering article"
-	cd $@ && $(JINJA_CMD)  ../../../article_.html > content.html
+	@cd $@ && $(JINJA_CMD)  ../../../article_.html > content.html
 	@echo "Cleaning up temp template"
-	rm ../content.html
+	@rm ../content.html
 
 links:
 	@echo "Rendering article links.."
