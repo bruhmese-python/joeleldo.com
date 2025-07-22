@@ -4,6 +4,7 @@ JINJA_CMD = jinja2
 ODT_FILES := $(wildcard *.odt)
 TARGETS := $(patsubst %.odt,rendered/%,${ODT_FILES})
 STRIP_SCRIPT := strip_outer_tags.py
+GLOSSARY_SCRIPT := add_glossary.py
 
 .PHONY: all clean
 
@@ -19,6 +20,7 @@ rendered/%: %.odt
 	    mv "$$src_html" "$$dst_html"; \
 	    echo "Renamed $$src_html to $$dst_html"; \
 	    python3 $(STRIP_SCRIPT) "$$dst_html"; \
+	    python3 $(GLOSSARY_SCRIPT) "$$dst_html"; \
 	else \
 	    echo "Error: HTML file $$src_html not found."; \
 	fi

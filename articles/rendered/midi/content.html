@@ -98,6 +98,14 @@
 				<br>
 				<div class="article-container">
 					
+<div class="glossary">
+    <div class="updates_box">
+        <h2>Contents</h2>
+        <div id="toc">
+        </div>
+    </div>
+</div>
+<div class="level1">
 <h4 class="paragraph-Heading_20_4"><a id="a__This_article_is_currently_a_work_in_progress__Please_check_back_soon!"><span/></a>This article is currently a work in progress. Please check back soon!</h4>
 <h1 class="paragraph-Heading_20_1"><a id="a__Building_MIDI_styles_for_Yamaha_from_scratch"><span/></a>Building MIDI styles for Yamaha from scratch</h1>
 
@@ -110,8 +118,10 @@
 <p class="paragraph-P2"><span class="text-T2">Mine is a</span> Yamaha PSR-E473, but we’ll be creating model-generic style files targeting General MIDI.<br/>However here are the reference guides for PSR-E473:</p>
 
 <p class="paragraph-P2"><a href="https://jp.yamaha.com/files/download/other_assets/4/1544204/psre473_en_fr_es_de_ja_dl_b0.pdf" class="text-Internet_20_link">PSR-E473 Data List</a><br/><a href="https://jp.yamaha.com/files/download/other_assets/3/1544203/psre473_en_rm_a0.pdf" class="text-Internet_20_link">PSR-E473 Reference manual</a></p>
-<h2 class="paragraph-P3"><a id="a__What_we_need?"><span/></a>What we need?</h2>
-<ul><li><p class="P4" style="margin-left:0cm;"><span class="Bullet_20_Symbols" style="display:block;float:left;min-width:0.635cm;">•</span>A midi sequencer like <a href="https://muse-sequencer.github.io/" class="text-Internet_20_link">MuSE Sequencer</a><span class="odfLiEnd"/> </p></li><li><p class="P5" style="margin-left:0cm;"><span class="Bullet_20_Symbols" style="display:block;float:left;min-width:0.635cm;">•</span><span class="text-T3">Midi to style converter  - </span><a href="http://www.jososoft.dk/yamaha/software/midi2style/index.htm" class="text-Internet_20_link"><span class="text-T4">midi2style</span></a><span class="odfLiEnd"/> </p></li><li><p class="P6" style="margin-left:0cm;"><span class="Bullet_20_Symbols" style="display:block;float:left;min-width:0.635cm;">•</span><span class="text-T5">General MIDI soundfont for desktop </span><span class="text-T6">playback like </span><a href="https://musical-artifacts.com/artifacts/713/gm.sf2" class="text-Internet_20_link"><span class="text-T6">windows gm.sf2</span></a><span class="text-T6"> </span><span class="text-T7">📥</span><span class="odfLiEnd"/> </p></li></ul><h2 class="paragraph-Heading_20_2"><a id="a__Basic_theory"><span/></a>Basic theory</h2>
+</div>
+<div class="level2"><h2 class="paragraph-P3"><a id="a__What_we_need?"><span/></a>What we need?</h2>
+<ul><li><p class="P4" style="margin-left:0cm;"><span class="Bullet_20_Symbols" style="display:block;float:left;min-width:0.635cm;">•</span>A midi sequencer like <a href="https://muse-sequencer.github.io/" class="text-Internet_20_link">MuSE Sequencer</a><span class="odfLiEnd"/> </p></li><li><p class="P5" style="margin-left:0cm;"><span class="Bullet_20_Symbols" style="display:block;float:left;min-width:0.635cm;">•</span><span class="text-T3">Midi to style converter  - </span><a href="http://www.jososoft.dk/yamaha/software/midi2style/index.htm" class="text-Internet_20_link"><span class="text-T4">midi2style</span></a><span class="odfLiEnd"/> </p></li><li><p class="P6" style="margin-left:0cm;"><span class="Bullet_20_Symbols" style="display:block;float:left;min-width:0.635cm;">•</span><span class="text-T5">General MIDI soundfont for desktop </span><span class="text-T6">playback like </span><a href="https://musical-artifacts.com/artifacts/713/gm.sf2" class="text-Internet_20_link"><span class="text-T6">windows gm.sf2</span></a><span class="text-T6"> </span><span class="text-T7">📥</span><span class="odfLiEnd"/> </p></li></ul></div>
+<div class="level3"><h2 class="paragraph-Heading_20_2"><a id="a__Basic_theory"><span/></a>Basic theory</h2>
 
 <p class="paragraph-P7"><span class="text-T8">MIDI</span> is analogous to the text in a document – its just data about something. The document viewer renders the text using fonts, colours and other formatting, like how a synthesizer (could be software or hardware) plays this MIDI file using its own tones/voices and other configurations. </p>
 
@@ -125,7 +135,8 @@
 <ul><li><p class="P10" style="margin-left:0cm;"><span class="Bullet_20_Symbols" style="display:block;float:left;min-width:0.635cm;">•</span>XG (Yamaha standard)<span class="odfLiEnd"/> </p></li><li><p class="P10" style="margin-left:0cm;"><span class="Bullet_20_Symbols" style="display:block;float:left;min-width:0.635cm;">•</span>XGLite (Yamaha standard)<span class="odfLiEnd"/> </p></li></ul>
 <p class="paragraph-P11"><span class="text-T16">In this project, we’ll go with General MIDI </span><span class="text-T17">as it is much easier to work with.</span></p>
 <h2 class="paragraph-Heading_20_2"><a id="a__Creating_a_MIDI_file"><span/></a>Creating <span class="text-T18">a MIDI file</span></h2>
-
+</div>
+    
 				</div>
 			</div>
 		</div>
@@ -166,6 +177,49 @@
 			images.forEach(img => {
 				img.classList.add('modal_img');  // Add 'modal_img' class to each image
 			});
+
+			// Create a table of contents
+			// This will create a list of all headings (h2, h3) in the document
+			// and link them to their respective sections.
+			const headings = document.querySelectorAll("h2, h3");
+			const toc = document.getElementById("toc");
+
+			if (!toc) {
+				console.warn("No element with ID 'table-of-contents' found.");
+				return;
+			}
+
+			const tocList = document.createElement("ul");
+
+			headings.forEach((heading, index) => {
+				let id = heading.id;
+
+				// If the heading doesn't have an ID, generate one
+				if (!id) {
+					id = heading.textContent
+						.toLowerCase()
+						.trim()
+						.replace(/[^\w]+/g, "-")
+						.replace(/^-+|-+$/g, "") + "-" + index;
+					heading.id = id;
+				}
+
+				const link = document.createElement("a");
+				link.href = `#${id}`;
+				link.textContent = heading.textContent;
+
+				const listItem = document.createElement("li");
+				listItem.appendChild(link);
+
+				// Add class for h3 to style indents, etc.
+				if (heading.tagName.toLowerCase() === "h3") {
+					listItem.classList.add("toc-nested-list-item");
+				}
+
+				tocList.appendChild(listItem);
+			});
+
+			toc.appendChild(tocList);
 
 		});
 

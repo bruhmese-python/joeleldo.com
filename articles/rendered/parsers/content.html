@@ -98,9 +98,20 @@
 				<br>
 				<div class="article-container">
 					
+<div class="glossary">
+    <div class="updates_box">
+        <h2>Contents</h2>
+        <div id="toc">
+        </div>
+    </div>
+</div>
+<div class="level1">
 <h4 class="paragraph-Heading_20_4"><a id="a__This_article_is_currently_a_work_in_progress__Please_check_back_soon!"><span/></a>This article is currently a work in progress. Please check back soon!</h4>
 <h1 class="paragraph-P1"><a id="a__Writing_parsers_for_your_applications"><span/></a>Writing parsers for your applications</h1>
-
+</div>
+<div class="level2"></div>
+<div class="level3"></div>
+    
 				</div>
 			</div>
 		</div>
@@ -141,6 +152,49 @@
 			images.forEach(img => {
 				img.classList.add('modal_img');  // Add 'modal_img' class to each image
 			});
+
+			// Create a table of contents
+			// This will create a list of all headings (h2, h3) in the document
+			// and link them to their respective sections.
+			const headings = document.querySelectorAll("h2, h3");
+			const toc = document.getElementById("toc");
+
+			if (!toc) {
+				console.warn("No element with ID 'table-of-contents' found.");
+				return;
+			}
+
+			const tocList = document.createElement("ul");
+
+			headings.forEach((heading, index) => {
+				let id = heading.id;
+
+				// If the heading doesn't have an ID, generate one
+				if (!id) {
+					id = heading.textContent
+						.toLowerCase()
+						.trim()
+						.replace(/[^\w]+/g, "-")
+						.replace(/^-+|-+$/g, "") + "-" + index;
+					heading.id = id;
+				}
+
+				const link = document.createElement("a");
+				link.href = `#${id}`;
+				link.textContent = heading.textContent;
+
+				const listItem = document.createElement("li");
+				listItem.appendChild(link);
+
+				// Add class for h3 to style indents, etc.
+				if (heading.tagName.toLowerCase() === "h3") {
+					listItem.classList.add("toc-nested-list-item");
+				}
+
+				tocList.appendChild(listItem);
+			});
+
+			toc.appendChild(tocList);
 
 		});
 

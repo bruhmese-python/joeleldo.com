@@ -98,6 +98,14 @@
 				<br>
 				<div class="article-container">
 					
+<div class="glossary">
+    <div class="updates_box">
+        <h2>Contents</h2>
+        <div id="toc">
+        </div>
+    </div>
+</div>
+<div class="level1">
 <h4 class="paragraph-Heading_20_4"><a id="a__This_article_is_currently_a_work_in_progress__Please_check_back_soon!"><span/></a>This article is currently a work in progress. Please check back soon!</h4>
 <h1 class="paragraph-P1"><a id="a__Creating_realtime_dashboards_in_libreoffice_calc"><span/></a>Creating realtime dashboards in libreoffice calc</h1>
 
@@ -106,17 +114,20 @@
 <p class="paragraph-P3">I really haven’t looked up the V<span class="text-T3">B</span>script documentation for similar functionality. But I’m pretty sure almost all of the information covered <span class="text-T4">here </span>is transferable to MS Excel. </p>
 
 <p class="paragraph-P4"><span class="text-T5">The libreoffice SDK’s </span><a href="https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star.html" class="text-Internet_20_link"><span class="text-T5">star module</span></a><span class="text-T5"> should provide all the features you’ll need </span><span class="text-T6">for this project.</span></p>
-<h2 class="paragraph-P5"><a id="a__Writing_the_server"><span/></a>Writing the server</h2>
+</div>
+<div class="level2"><h2 class="paragraph-P5"><a id="a__Writing_the_server"><span/></a>Writing the server</h2>
 
 <p class="paragraph-P6">So the flask app will do nothing more record the user’s mouse movements on a canvas and serve it to the spreadsheet.</p>
-<h3 class="paragraph-P7"><a id="a__Webpage"><span/></a>Webpage</h3>
+</div>
+<div class="level3"><h3 class="paragraph-P7"><a id="a__Webpage"><span/></a>Webpage</h3>
 <h3 class="paragraph-P8"><a id="a__Server_program"><span/></a>Server program</h3>
 <p class="paragraph-P6"> </p><h2 class="paragraph-P5"><a id="a__Building_the_dashboard"><span/></a>Building the dashboard</h2>
 <h3 class="paragraph-P8"><a id="a__The_Graph"><span/></a>The Graph</h3>
 <h3 class="paragraph-P8"><a id="a__The_Code"><span/></a>The Code</h3>
 <h3 class="paragraph-P8"><a id="a__Start_Stop_listening"><span/></a>Start/Stop listening</h3>
 <p class="paragraph-P9"> </p><h2 class="paragraph-P5"><a id="a__Bringing_everything_together__"><span/></a>Bringing everything together..</h2>
-
+</div>
+    
 				</div>
 			</div>
 		</div>
@@ -157,6 +168,49 @@
 			images.forEach(img => {
 				img.classList.add('modal_img');  // Add 'modal_img' class to each image
 			});
+
+			// Create a table of contents
+			// This will create a list of all headings (h2, h3) in the document
+			// and link them to their respective sections.
+			const headings = document.querySelectorAll("h2, h3");
+			const toc = document.getElementById("toc");
+
+			if (!toc) {
+				console.warn("No element with ID 'table-of-contents' found.");
+				return;
+			}
+
+			const tocList = document.createElement("ul");
+
+			headings.forEach((heading, index) => {
+				let id = heading.id;
+
+				// If the heading doesn't have an ID, generate one
+				if (!id) {
+					id = heading.textContent
+						.toLowerCase()
+						.trim()
+						.replace(/[^\w]+/g, "-")
+						.replace(/^-+|-+$/g, "") + "-" + index;
+					heading.id = id;
+				}
+
+				const link = document.createElement("a");
+				link.href = `#${id}`;
+				link.textContent = heading.textContent;
+
+				const listItem = document.createElement("li");
+				listItem.appendChild(link);
+
+				// Add class for h3 to style indents, etc.
+				if (heading.tagName.toLowerCase() === "h3") {
+					listItem.classList.add("toc-nested-list-item");
+				}
+
+				tocList.appendChild(listItem);
+			});
+
+			toc.appendChild(tocList);
 
 		});
 

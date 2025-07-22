@@ -58,6 +58,49 @@
 				img.classList.add('modal_img');  // Add 'modal_img' class to each image
 			});
 
+			// Create a table of contents
+			// This will create a list of all headings (h2, h3) in the document
+			// and link them to their respective sections.
+			const headings = document.querySelectorAll("h2, h3");
+			const toc = document.getElementById("toc");
+
+			if (!toc) {
+				console.warn("No element with ID 'table-of-contents' found.");
+				return;
+			}
+
+			const tocList = document.createElement("ul");
+
+			headings.forEach((heading, index) => {
+				let id = heading.id;
+
+				// If the heading doesn't have an ID, generate one
+				if (!id) {
+					id = heading.textContent
+						.toLowerCase()
+						.trim()
+						.replace(/[^\w]+/g, "-")
+						.replace(/^-+|-+$/g, "") + "-" + index;
+					heading.id = id;
+				}
+
+				const link = document.createElement("a");
+				link.href = `#${id}`;
+				link.textContent = heading.textContent;
+
+				const listItem = document.createElement("li");
+				listItem.appendChild(link);
+
+				// Add class for h3 to style indents, etc.
+				if (heading.tagName.toLowerCase() === "h3") {
+					listItem.classList.add("toc-nested-list-item");
+				}
+
+				tocList.appendChild(listItem);
+			});
+
+			toc.appendChild(tocList);
+
 		});
 
 	</script>

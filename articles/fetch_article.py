@@ -65,8 +65,7 @@ def main():
                                 {creation_date}
                             </date>
                         </div>
-                    </li>
-                    <br>''')
+                    </li>''')
     print('</ul>')
 
 if __name__ == '__main__':
