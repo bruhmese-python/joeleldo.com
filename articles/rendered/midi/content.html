@@ -122,19 +122,27 @@
 <div class="level2"><h2 class="paragraph-P3"><a id="a__What_we_need?"><span/></a>What we need?</h2>
 <ul><li><p class="P4" style="margin-left:0cm;"><span class="Bullet_20_Symbols" style="display:block;float:left;min-width:0.635cm;">•</span>A midi sequencer like <a href="https://muse-sequencer.github.io/" class="text-Internet_20_link">MuSE Sequencer</a><span class="odfLiEnd"/> </p></li><li><p class="P5" style="margin-left:0cm;"><span class="Bullet_20_Symbols" style="display:block;float:left;min-width:0.635cm;">•</span><span class="text-T3">Midi to style converter  - </span><a href="http://www.jososoft.dk/yamaha/software/midi2style/index.htm" class="text-Internet_20_link"><span class="text-T4">midi2style</span></a><span class="odfLiEnd"/> </p></li><li><p class="P6" style="margin-left:0cm;"><span class="Bullet_20_Symbols" style="display:block;float:left;min-width:0.635cm;">•</span><span class="text-T5">General MIDI soundfont for desktop </span><span class="text-T6">playback like </span><a href="https://musical-artifacts.com/artifacts/713/gm.sf2" class="text-Internet_20_link"><span class="text-T6">windows gm.sf2</span></a><span class="text-T6"> </span><span class="text-T7">📥</span><span class="odfLiEnd"/> </p></li></ul></div>
 <div class="level3"><h2 class="paragraph-Heading_20_2"><a id="a__Basic_theory"><span/></a>Basic theory</h2>
+<h3 class="paragraph-Heading_20_3"><a id="a__MIDI"><span/></a>MIDI</h3>
 
 <p class="paragraph-P7"><span class="text-T8">MIDI</span> is analogous to the text in a document – its just data about something. The document viewer renders the text using fonts, colours and other formatting, like how a synthesizer (could be software or hardware) plays this MIDI file using its own tones/voices and other configurations. </p>
+<h3 class="paragraph-P8"><a id="a__Soundfonts"><span/></a>Soundfonts</h3>
 
-<p class="paragraph-P8">Speaking about fonts, ‘<span class="text-T9">soundfonts</span>’ are exactly that, these are a <span class="text-T10">file </span>format <span class="text-T11">(.sf2)</span> for note sounds similar to <span class="text-T12">how </span>text fonts <span class="text-T12">work </span>for text characters. Soundfonts can be used with a software synthesizer to produce music and render it to an audio file. </p>
+<p class="paragraph-P9">Speaking about fonts, ‘<span class="text-T9">soundfonts</span>’ are exactly that, these are a <span class="text-T10">file </span>format <span class="text-T11">(.sf2)</span> for note sounds similar to <span class="text-T12">how </span>text fonts <span class="text-T12">work </span>for text characters. Soundfonts can be used with a software synthesizer to produce music and render it to an audio file. </p>
+<h3 class="paragraph-P10"><a id="a__MIDI_standards"><span/></a>MIDI <span class="text-T13">standards</span></h3>
 
-<p class="paragraph-P8">But unfortunately, MIDI files can’t embed audio information, just the note data. <span class="text-T13">On the other hand your hardware synthesizer/</span><span class="text-T14">keyboard</span><span class="text-T13"> will have its own sound engine that can render midi data and produce </span><span class="text-T15">sound</span><span class="text-T13">.</span></p>
+<p class="paragraph-P9"><span class="text-T14">U</span>nfortunately, MIDI files can’t embed audio information, just the note data. <span class="text-T15">On the other hand your hardware synthesizer/</span><span class="text-T16">keyboard</span><span class="text-T15"> will have its own sound engine that can render midi data and produce </span><span class="text-T17">sound</span><span class="text-T15">.</span></p>
 
-<p class="paragraph-P9">MIDI comes in various flavours depending on the vendor that supports this format. Mainly there are:</p>
-<ul><li><p class="P10" style="margin-left:0cm;"><span class="Bullet_20_Symbols" style="display:block;float:left;min-width:0.635cm;">•</span>General MIDI (Universal Standard)<span class="odfLiEnd"/> </p></li><li><p class="P10" style="margin-left:0cm;"><span class="Bullet_20_Symbols" style="display:block;float:left;min-width:0.635cm;">•</span>General MIDI 2 (Slightly advanced General MIDI - Universal Standard)<span class="odfLiEnd"/> </p></li></ul>
-<p class="paragraph-P9">And vendor specific standards like</p>
-<ul><li><p class="P10" style="margin-left:0cm;"><span class="Bullet_20_Symbols" style="display:block;float:left;min-width:0.635cm;">•</span>XG (Yamaha standard)<span class="odfLiEnd"/> </p></li><li><p class="P10" style="margin-left:0cm;"><span class="Bullet_20_Symbols" style="display:block;float:left;min-width:0.635cm;">•</span>XGLite (Yamaha standard)<span class="odfLiEnd"/> </p></li></ul>
-<p class="paragraph-P11"><span class="text-T16">In this project, we’ll go with General MIDI </span><span class="text-T17">as it is much easier to work with.</span></p>
-<h2 class="paragraph-Heading_20_2"><a id="a__Creating_a_MIDI_file"><span/></a>Creating <span class="text-T18">a MIDI file</span></h2>
+<p class="paragraph-P11">MIDI comes in various flavours depending on the vendor that supports this format. Mainly there are:</p>
+<ul><li><p class="P12" style="margin-left:0cm;"><span class="Bullet_20_Symbols" style="display:block;float:left;min-width:0.635cm;">•</span>General MIDI (Universal Standard)<span class="odfLiEnd"/> </p></li><li><p class="P12" style="margin-left:0cm;"><span class="Bullet_20_Symbols" style="display:block;float:left;min-width:0.635cm;">•</span>General MIDI 2 (Slightly advanced General MIDI - Universal Standard)<span class="odfLiEnd"/> </p></li></ul>
+<p class="paragraph-P11">And vendor specific standards like</p>
+<ul><li><p class="P12" style="margin-left:0cm;"><span class="Bullet_20_Symbols" style="display:block;float:left;min-width:0.635cm;">•</span>XG (Yamaha standard)<span class="odfLiEnd"/> </p></li><li><p class="P12" style="margin-left:0cm;"><span class="Bullet_20_Symbols" style="display:block;float:left;min-width:0.635cm;">•</span>XGLite (Yamaha standard)<span class="odfLiEnd"/> </p></li></ul>
+<p class="paragraph-P13"><span class="text-T18">In this project, we’ll go with General MIDI </span><span class="text-T19">as it is much easier to work with.</span></p>
+<h2 class="paragraph-P14"><a id="a__Building_a_MIDI_project"><span/></a>Building a MIDI project</h2>
+
+<p class="paragraph-P15">Beats, chords, melody and accompaniment are the basic <span class="text-T20">components</span> of a song <span class="text-T20">track</span>. <span class="text-T21">We’ll build each of these for our project.</span></p>
+<h3 class="paragraph-Heading_20_3"><a id="a__Chord_progressions"><span/></a>Chord progressions</h3>
+
+<p class="paragraph-P16">Popular chord progressions are available for download from this beautiful <a href="https://github.com/ldrolez/free-midi-chords/releases" class="text-Internet_20_link">repository </a><span class="text-T7">📥</span>. <span class="text-T22">These will be the most important backing along with the rhythmic beats for our song.</span></p>
 </div>
     
 				</div>
