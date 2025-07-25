@@ -18,6 +18,7 @@ def strip_html_body(filename):
 
     # Overwrite the original file (or you can write to another file)
     with open(filename, 'w', encoding='utf-8') as f:
+        f.write(R'<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Display&display=swap" rel="stylesheet">')
         f.write(stripped_content)
 
     print(f"Stripped HTML tags in {filename}")
