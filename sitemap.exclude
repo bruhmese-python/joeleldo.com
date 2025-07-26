@@ -8,5 +8,6 @@ sitemap.exclude
 .*.tmp
 .*.js
 .*.odt
+.*.sh
 scripts
 styles

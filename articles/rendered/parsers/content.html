@@ -147,11 +147,12 @@
 				parent.innerHTML += paraHTML;  // Append the inner HTML of <tr> to the parent element
 			});
 
-			const images = document.querySelectorAll('img');  // Select all <img> tags
+			const images = document.querySelectorAll('.article-container img'); // Select all <img> tags within #article-container
 
 			images.forEach(img => {
-				img.classList.add('modal_img');  // Add 'modal_img' class to each image
+				img.classList.add('modal_img'); // Add 'modal_img' class to each image
 			});
+
 
 			// Create a table of contents
 			// This will create a list of all headings (h2, h3) in the document
