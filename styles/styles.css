@@ -42,10 +42,10 @@ html {
   padding: 1em;
   border: 1px solid #ddd;
   border-radius: 6px;
+  overflow-x: auto;
   white-space: pre;
   line-height: 1.5;
   box-sizing: border-box;
-  overflow-x: scroll;
 }
 
 .paragraph-Table_20_Contents {
