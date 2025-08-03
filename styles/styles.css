@@ -211,7 +211,7 @@ details {
     flex-direction: column;
     width: 80%;
     /* Main content wrapper with 80% width */
-    max-width: 1200px;
+    /* max-width: 1200px; */
     /* Optional: limit maximum width for large screens */
 }
 
