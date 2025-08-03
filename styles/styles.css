@@ -44,9 +44,10 @@ html {
   border: 1px solid #ddd;
   border-radius: 6px;
   overflow-x: auto;
-  white-space: pre;
+  white-space: pre; */
   line-height: 1.5;
   box-sizing: border-box;
+  overflow-x: scroll;
 }
 
 .paragraph-Table_20_Contents {
@@ -211,7 +212,6 @@ details {
     display: flex;
     flex-direction: column;
     width: 80%; 
-    /* margin: 0 10vw; */
     /* ontent wrapper with 80% width */
     /* max-width: 1200px; */
     /* Optional: limit maximum width for large screens */
@@ -224,7 +224,6 @@ details {
 /* Page wrapper using flex layout */
 .page-wrapper {
     display: flex;
-    flex-wrap: wrap;
     background-color: #f9f9ff;
     border-radius: 5px;
     margin: 2em 0 1em 0;
@@ -234,7 +233,7 @@ details {
 }
 
 .sidebar {
-    /* max-width: 240px; */
+    width: 240px;
     /* background-color: #f9f9ff; */
     border-right: 1px solid #ccc;
     padding: 15px;
@@ -251,7 +250,6 @@ details {
 
 .main-content {
     flex: 1;
-    width: 100%;
     /* background-color: #ffffff; */
     padding: 0 20px 20px 20px;
     /* font-family: Verdana, sans-serif; */
