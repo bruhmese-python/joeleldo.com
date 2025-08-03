@@ -31,6 +31,13 @@
 	</div>
 
 	<script>
+		(function () {
+			if (/Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+				const sidebar = document.querySelector('.sidebar');
+				if (sidebar) sidebar.innerHTML = '';
+			}
+		})();
+
 		// Wait for the document to fully load
 		document.addEventListener('DOMContentLoaded', () => {
 			// Select all span elements with the class 'Bullet_20_Symbols'
