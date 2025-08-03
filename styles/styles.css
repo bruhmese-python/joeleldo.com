@@ -209,7 +209,7 @@ details {
 .site-container {
     display: flex;
     flex-direction: column;
-    width: 80%;
+    margin: 0 10vw;
     /* Main content wrapper with 80% width */
     /* max-width: 1200px; */
     /* Optional: limit maximum width for large screens */
@@ -231,7 +231,7 @@ details {
 }
 
 .sidebar {
-    width: 240px;
+    /* width: 240px; */
     /* background-color: #f9f9ff; */
     border-right: 1px solid #ccc;
     padding: 15px;
