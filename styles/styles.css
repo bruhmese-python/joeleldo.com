@@ -37,6 +37,17 @@ html {
     /* animation-direction: alternate; */
 }
 
+.code-snippet {
+  background-color: #f5f5f5;
+  padding: 1em;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  overflow-x: auto;
+  white-space: pre;
+  line-height: 1.5;
+  box-sizing: border-box;
+}
+
 .paragraph-Table_20_Contents {
     margin: none;
 }

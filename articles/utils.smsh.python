@@ -1,0 +1,39 @@
+
+@python3 -c
+Click:
+	import pyautogui
+	pyautogui.mouseDown(%args%, 'left')
+
+@python3 -c
+Press:
+	import pyautogui
+	pyautogui.hotkey(%args%)
+	#echo Button %args% was pressed
+
+@python3 -c
+Type:
+	import pyautogui
+	pyautogui.write('%args%')
+	#echo Sequence of characters %args% was simulated on keyboard
+
+Open async:
+	xfce4-terminal -e %args%
+
+Screenshot:
+	Open async xfce4-screenshooter
+	Press 'Up'
+	Press 'Up'
+	Press 'Up'
+	Press 'Enter'
+	sleep 2
+	Press 'Up'
+	Press 'Up'
+	Press 'Up'
+	Press 'Down'
+	Press 'Enter'
+
+Exit screenshot window:
+	Press 'Alt', 'F4' 
+
+Wait:
+	sleep %args%

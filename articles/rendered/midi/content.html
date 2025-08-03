@@ -230,6 +230,14 @@
 
 			toc.appendChild(tocList);
 
+			// Select all divs with id starting with "Text_Frame"
+			const divs = document.querySelectorAll('div[id^="Text_Frame"]');
+
+			divs.forEach(div => {
+				// Remove inline styles
+				div.removeAttribute('style');
+			});
+
 		});
 
 	</script>

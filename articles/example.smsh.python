@@ -1,0 +1,21 @@
+using utils
+
+Open browser:
+	Open async firefox
+	#Open async google-chrome
+Goto URL:
+	#Press 'F6'
+	echo 'Going to url %args%'
+	Type %args%
+	Press 'Enter'
+New tab:
+	Press 'Ctrl', 'T' 
+Close browser:
+	Press 'Alt', 'F4' 
+
+Open browser
+New tab
+Goto URL "www.google.com"
+Close browser
+
+
