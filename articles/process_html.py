@@ -41,7 +41,7 @@ def process_snippets(file_path :str):
         code_highlighted_html = file.read()
 
     # find span tags with content of the format .*\..*
-    pattern = r'<p[^>]*>\s*[\w\-\.]+\.[\w]+\s*</p>'
+    pattern = r'<p[^>]*>\s*[^\.]*[\w\-\.]+\.[\w]+\s*</p>'
     matches = re.findall(pattern, code_highlighted_html)
 
     print('Snippets found:', list(matches))
