@@ -209,7 +209,7 @@ details {
 .site-container {
     display: flex;
     flex-direction: column;
-    margin: 0 10vw;
+    margin: 0 10vw; 
     /* Main content wrapper with 80% width */
     /* max-width: 1200px; */
     /* Optional: limit maximum width for large screens */
