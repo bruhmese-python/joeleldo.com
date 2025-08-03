@@ -15,7 +15,6 @@
 		<div class="page-wrapper">
 
 			<!-- Sidebar -->
-			{% include 'sidebar_.html' %}
 
 			<!-- Main Content -->
 			<div class="main-content">
@@ -35,7 +34,7 @@
 		(function () {
 			if (/Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
 				const sidebar = document.querySelector('.sidebar');
-				if (sidebar) sidebar.innerHTML = '';
+				// if (sidebar) sidebar.innerHTML = '';
 			}
 		})();
 
