@@ -179,8 +179,11 @@
 	<script>
 		(function () {
 			if (/Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-				const sidebar = document.querySelector('.sidebar');
+				const sidebar = document.querySelector('.site-container');
 				// if (sidebar) sidebar.innerHTML = '';
+				if (sidebar) {
+					sidebar.style.width = 'auto';
+				}
 			}
 		})();
 
