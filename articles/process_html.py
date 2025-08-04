@@ -40,11 +40,17 @@ def process_snippets(file_path :str):
     with open(file_path, 'r', encoding='utf-8') as file:
         code_highlighted_html = file.read()
 
-    # find span tags with content of the format .*\..*
+    # find p tags with content of the format .*\..*
     pattern = r'<p[^>]*>\s*[^\.]*[\w\-\.]+\.[\w]+\s*</p>'
-    matches = re.findall(pattern, code_highlighted_html)
+    matches = list(re.findall(pattern, code_highlighted_html))
 
-    print('Snippets found:', list(matches))
+    # find span tags with content of the format .*\..*
+    pattern = r'<span[^>]*>\s*[^\.]*[\w\-\.]+\.[\w]+\s*</span>'
+    matches += list(re.findall(pattern, code_highlighted_html))
+
+    print('Snippets found:') 
+    [print(x) for x in matches]
+
     #if files with their content's fielnames exist in the current directory, replace them with the content inside the span tag
     for match in matches:
         file_name = match.split('>')[1].split('<')[0]

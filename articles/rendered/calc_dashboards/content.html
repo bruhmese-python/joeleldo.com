@@ -367,7 +367,32 @@ mouse_position <span style="color: #333">=</span> {<span style="background-color
 <div style="height:0.3843in;width:7.3358in; padding:0;  float:left; position:relative; left:0.095cm; " id="Text_Frame_3" class="graphic-gr1 graphic-P22">
 <!--Next 'div' was a 'draw:text-box'.-->
 <div>
-<p><span class="text-T22">/media/admin/New Volume/prog_stuff_calc/mouse-tracker/snippets_for_joeleldo_com/getMousePos.vbscript</span></p>
+<p><div class="code-snippet">
+<pre style="margin: 0; line-height: 125%;"><span></span><span style="color: #080; font-weight: bold">Function</span><span style="color: #BBB"> </span><span style="color: #06B; font-weight: bold">GetMousePositionFromServer</span>()<span style="color: #BBB"> </span>As<span style="color: #BBB"> </span><span style="color: #007020">String</span>
+<span style="color: #BBB">    </span>On<span style="color: #BBB"> </span>Error<span style="color: #BBB"> </span>GoTo<span style="color: #BBB"> </span>ErrorHandler
+
+<span style="color: #BBB">    </span><span style="color: #888">' Create FunctionAccess object to call spreadsheet functions</span>
+<span style="color: #BBB">    </span><span style="color: #080; font-weight: bold">Dim</span><span style="color: #BBB"> </span><span style="color: #963">functionAccess</span><span style="color: #BBB"> </span>As<span style="color: #BBB"> </span>Object
+<span style="color: #BBB">    </span>functionAccess<span style="color: #BBB"> </span><span style="color: #333">=</span><span style="color: #BBB"> </span>CreateUnoService(<span style="background-color: #FFF0F0">"com.sun.star.sheet.FunctionAccess"</span>)
+
+<span style="color: #BBB">    </span><span style="color: #888">' URL of the Flask server that returns mouse position (JSON response)</span>
+<span style="color: #BBB">    </span><span style="color: #080; font-weight: bold">Dim</span><span style="color: #BBB"> </span><span style="color: #963">url</span><span style="color: #BBB"> </span>As<span style="color: #BBB"> </span><span style="color: #007020">String</span>
+<span style="color: #BBB">    </span>url<span style="color: #BBB"> </span><span style="color: #333">=</span><span style="color: #BBB"> </span><span style="background-color: #FFF0F0">"http://192.168.1.35:8080/get-mouse-position"</span><span style="color: #BBB"> </span><span style="color: #888">' Replace with your Flask server IP</span>
+<span style="color: #BBB">    </span>
+<span style="color: #BBB">    </span><span style="color: #888">' Call WEBSERVICE function to get the response from the server</span>
+<span style="color: #BBB">    </span><span style="color: #080; font-weight: bold">Dim</span><span style="color: #BBB"> </span><span style="color: #963">response</span><span style="color: #BBB"> </span>As<span style="color: #BBB"> </span><span style="color: #007020">String</span>
+<span style="color: #BBB">    </span>response<span style="color: #BBB"> </span><span style="color: #333">=</span><span style="color: #BBB"> </span>functionAccess.callFunction(<span style="background-color: #FFF0F0">"WEBSERVICE"</span>,<span style="color: #BBB"> </span><span style="color: #007020">Array</span>(url))
+<span style="color: #BBB">    </span>
+<span style="color: #BBB">    </span><span style="color: #888">' Return the response (JSON data) from the server</span>
+<span style="color: #BBB">    </span>GetMousePositionFromServer<span style="color: #BBB"> </span><span style="color: #333">=</span><span style="color: #BBB"> </span>response
+<span style="color: #BBB">    </span><span style="color: #080; font-weight: bold">Exit</span><span style="color: #BBB"> </span><span style="color: #080; font-weight: bold">Function</span>
+
+<span style="color: #06B; font-weight: bold">ErrorHandler</span>:
+<span style="color: #BBB">    </span>GetMousePositionFromServer<span style="color: #BBB"> </span><span style="color: #333">=</span><span style="color: #BBB"> </span><span style="background-color: #FFF0F0">"Error "</span><span style="color: #BBB"> </span><span style="color: #333">&amp;</span><span style="color: #BBB"> </span><span style="color: #007020">Err</span>
+<span style="color: #080; font-weight: bold">End</span><span style="color: #BBB"> </span><span style="color: #080; font-weight: bold">Function</span>
+</pre>
+</div>
+</p>
 </div></div><div style="clear:both; line-height:0; width:0; height:0; margin:0; padding:0;"> </div><br/>Next, we populate the data fetched in the step above into the “<span class="text-T23">M</span><span class="text-T24">ouse Position </span><span class="text-T25">T</span><span class="text-T24">racked”</span> cell<span class="text-T23">s</span>.</div>
 
 <!--Next 'div' was a 'text:p'.-->
@@ -376,7 +401,43 @@ mouse_position <span style="color: #333">=</span> {<span style="background-color
 <div style="height:0.3224in;width:7.5232in; padding:0;  float:left; position:relative; left:0.1161cm; top:-0.016cm; " id="Text_Frame_4" class="graphic-gr2 graphic-P23">
 <!--Next 'div' was a 'draw:text-box'.-->
 <div>
-<p><span class="text-T26">/media/admin/New Volume/prog_stuff_calc/mouse-tracker/snippets_for_joeleldo_com/parseAndInsert.vbscript</span></p>
+<p><div class="code-snippet">
+<pre style="margin: 0; line-height: 125%;"><span></span><span style="color: #080; font-weight: bold">Sub</span><span style="color: #BBB"> </span><span style="color: #06B; font-weight: bold">ParseAndInsertMousePosition</span>()
+<span style="color: #BBB">    </span><span style="color: #888">' Call GetMousePositionFromServer to get the JSON response</span>
+<span style="color: #BBB">    </span><span style="color: #080; font-weight: bold">Dim</span><span style="color: #BBB"> </span><span style="color: #963">jsonResponse</span><span style="color: #BBB"> </span>As<span style="color: #BBB"> </span><span style="color: #007020">String</span>
+<span style="color: #BBB">    </span>jsonResponse<span style="color: #BBB"> </span><span style="color: #333">=</span><span style="color: #BBB"> </span>GetMousePositionFromServer()
+<span style="color: #BBB">    </span>
+<span style="color: #BBB">    </span><span style="color: #888">' Check if the response is valid</span>
+<span style="color: #BBB">    </span><span style="color: #080; font-weight: bold">If</span><span style="color: #BBB"> </span><span style="color: #007020">InStr</span>(jsonResponse,<span style="color: #BBB"> </span><span style="background-color: #FFF0F0">"Error"</span>)<span style="color: #BBB"> </span><span style="color: #333">=</span><span style="color: #BBB"> </span><span style="color: #00D; font-weight: bold">0</span><span style="color: #BBB"> </span><span style="color: #080; font-weight: bold">Then</span>
+<span style="color: #BBB">        </span><span style="color: #888">' Parse the JSON response to get the mouse position</span>
+<span style="color: #BBB">        </span><span style="color: #080; font-weight: bold">Dim</span><span style="color: #BBB"> </span><span style="color: #963">x</span><span style="color: #BBB"> </span>As<span style="color: #BBB"> </span>Double
+<span style="color: #BBB">        </span><span style="color: #080; font-weight: bold">Dim</span><span style="color: #BBB"> </span><span style="color: #963">y</span><span style="color: #BBB"> </span>As<span style="color: #BBB"> </span>Double
+<span style="color: #BBB">        </span>
+<span style="color: #BBB">        </span><span style="color: #888">' Use basic string manipulation to extract X and Y values (simple example)</span>
+<span style="color: #BBB">        </span><span style="color: #080; font-weight: bold">Dim</span><span style="color: #BBB"> </span><span style="color: #963">xPos</span><span style="color: #BBB"> </span>As<span style="color: #BBB"> </span>Integer
+<span style="color: #BBB">        </span><span style="color: #080; font-weight: bold">Dim</span><span style="color: #BBB"> </span><span style="color: #963">yPos</span><span style="color: #BBB"> </span>As<span style="color: #BBB"> </span>Integer
+<span style="color: #BBB">        </span>
+<span style="color: #BBB">        </span>xPos<span style="color: #BBB"> </span><span style="color: #333">=</span><span style="color: #BBB"> </span><span style="color: #007020">InStr</span>(jsonResponse,<span style="color: #BBB"> </span><span style="background-color: #FFF0F0">"""x"":"</span>)<span style="color: #BBB"> </span><span style="color: #333">+</span><span style="color: #BBB"> </span><span style="color: #00D; font-weight: bold">5</span>
+<span style="color: #BBB">        </span>yPos<span style="color: #BBB"> </span><span style="color: #333">=</span><span style="color: #BBB"> </span><span style="color: #007020">InStr</span>(jsonResponse,<span style="color: #BBB"> </span><span style="background-color: #FFF0F0">"""y"":"</span>)<span style="color: #BBB"> </span><span style="color: #333">+</span><span style="color: #BBB"> </span><span style="color: #00D; font-weight: bold">5</span>
+<span style="color: #BBB">        </span>
+<span style="color: #BBB">        </span><span style="color: #080; font-weight: bold">If</span><span style="color: #BBB"> </span>xPos<span style="color: #BBB"> </span><span style="color: #333">&gt;</span><span style="color: #BBB"> </span><span style="color: #00D; font-weight: bold">0</span><span style="color: #BBB"> </span><span style="color: #000; font-weight: bold">And</span><span style="color: #BBB"> </span>yPos<span style="color: #BBB"> </span><span style="color: #333">&gt;</span><span style="color: #BBB"> </span><span style="color: #00D; font-weight: bold">0</span><span style="color: #BBB"> </span><span style="color: #080; font-weight: bold">Then</span>
+<span style="color: #BBB">            </span><span style="color: #888">' Extract values after "x" and "y"</span>
+<span style="color: #BBB">            </span>x<span style="color: #BBB"> </span><span style="color: #333">=</span><span style="color: #BBB"> </span>Val(<span style="color: #007020">Mid</span>(jsonResponse,<span style="color: #BBB"> </span>xPos,<span style="color: #BBB"> </span><span style="color: #007020">InStr</span>(xPos,<span style="color: #BBB"> </span>jsonResponse,<span style="color: #BBB"> </span><span style="background-color: #FFF0F0">","</span>)<span style="color: #BBB"> </span><span style="color: #333">-</span><span style="color: #BBB"> </span>xPos))
+<span style="color: #BBB">            </span>y<span style="color: #BBB"> </span><span style="color: #333">=</span><span style="color: #BBB"> </span>Val(<span style="color: #007020">Mid</span>(jsonResponse,<span style="color: #BBB"> </span>yPos,<span style="color: #BBB"> </span><span style="color: #007020">InStr</span>(yPos,<span style="color: #BBB"> </span>jsonResponse,<span style="color: #BBB"> </span><span style="background-color: #FFF0F0">"}"</span>)<span style="color: #BBB"> </span><span style="color: #333">-</span><span style="color: #BBB"> </span>yPos))
+<span style="color: #BBB">            </span>
+<span style="color: #BBB">            </span><span style="color: #888">' Insert the mouse position into the spreadsheet (cells A1 and B1)</span>
+<span style="color: #BBB">            </span>ThisComponent.Sheets(<span style="color: #00D; font-weight: bold">0</span>).getCellByPosition(<span style="color: #00D; font-weight: bold">0</span>,<span style="color: #BBB"> </span><span style="color: #00D; font-weight: bold">1</span>).Value<span style="color: #BBB"> </span><span style="color: #333">=</span><span style="color: #BBB"> </span>x<span style="color: #BBB"> </span><span style="color: #888">' A1</span>
+<span style="color: #BBB">            </span>ThisComponent.Sheets(<span style="color: #00D; font-weight: bold">0</span>).getCellByPosition(<span style="color: #00D; font-weight: bold">1</span>,<span style="color: #BBB"> </span><span style="color: #00D; font-weight: bold">1</span>).Value<span style="color: #BBB"> </span><span style="color: #333">=</span><span style="color: #BBB"> </span>y<span style="color: #BBB"> </span><span style="color: #888">' B1</span>
+<span style="color: #BBB">        </span><span style="color: #080; font-weight: bold">Else</span>
+<span style="color: #BBB">            </span><span style="color: #007020">MsgBox</span><span style="color: #BBB"> </span><span style="background-color: #FFF0F0">"Invalid response format."</span>
+<span style="color: #BBB">        </span><span style="color: #080; font-weight: bold">End</span><span style="color: #BBB"> </span><span style="color: #080; font-weight: bold">If</span>
+<span style="color: #BBB">    </span><span style="color: #080; font-weight: bold">Else</span>
+<span style="color: #BBB">        </span><span style="color: #007020">MsgBox</span><span style="color: #BBB"> </span><span style="background-color: #FFF0F0">"Error in response: "</span><span style="color: #BBB"> </span><span style="color: #333">&amp;</span><span style="color: #BBB"> </span>jsonResponse
+<span style="color: #BBB">    </span><span style="color: #080; font-weight: bold">End</span><span style="color: #BBB"> </span><span style="color: #080; font-weight: bold">If</span>
+<span style="color: #080; font-weight: bold">End</span><span style="color: #BBB"> </span><span style="color: #080; font-weight: bold">Sub</span>
+</pre>
+</div>
+</p>
 </div></div><div style="clear:both; line-height:0; width:0; height:0; margin:0; padding:0;"> </div><br/><span class="text-T27">Upon the code updating those fields, it </span><span class="text-T28">should automatically </span><span class="text-T27">update the “Converted value” cell as well, which is nothing but the average of the x and y coordinates; </span><span class="text-T29">which in turn pushes the value to the history queue, ultimately updating the graph.</span></div>
 <h4 class="paragraph-Heading_20_4"><a id="a__updateHistory"><span/></a><span class="text-T30"><br/>u</span><span class="text-T31">pdateHistory</span></h4>
 
@@ -392,7 +453,33 @@ mouse_position <span style="color: #333">=</span> {<span style="background-color
 <div style="height:0.337in;width:7.5661in; padding:0;  float:left; position:relative; left:0.0391cm; " id="Text_Frame_7" class="graphic-gr3 graphic-P22">
 <!--Next 'div' was a 'draw:text-box'.-->
 <div>
-<p><span class="text-T22">/media/admin/New Volume/prog_stuff_calc/mouse-tracker/snippets_for_joeleldo_com/updateHistory.vbscript</span></p>
+<p><div class="code-snippet">
+<pre style="margin: 0; line-height: 125%;"><span></span><span style="color: #888">REM  *****  BASIC  *****</span>
+
+<span style="color: #080; font-weight: bold">Sub</span><span style="color: #BBB"> </span><span style="color: #06B; font-weight: bold">updateHistory</span>
+<span style="color: #BBB">    </span><span style="color: #080; font-weight: bold">Dim</span><span style="color: #BBB"> </span><span style="color: #963">oSheet</span><span style="color: #BBB"> </span>As<span style="color: #BBB"> </span>Object
+<span style="color: #BBB">    </span><span style="color: #080; font-weight: bold">Dim</span><span style="color: #BBB"> </span><span style="color: #963">c4Value</span><span style="color: #BBB"> </span>As<span style="color: #BBB"> </span>Variant
+<span style="color: #BBB">    </span><span style="color: #080; font-weight: bold">Dim</span><span style="color: #BBB"> </span><span style="color: #963">c2Value</span><span style="color: #BBB"> </span>As<span style="color: #BBB"> </span>Variant
+<span style="color: #BBB">    </span><span style="color: #080; font-weight: bold">Dim</span><span style="color: #BBB"> </span><span style="color: #963">i</span><span style="color: #BBB"> </span>As<span style="color: #BBB"> </span>Integer
+<span style="color: #BBB">    </span>
+<span style="color: #BBB">    </span><span style="color: #888">' Get the current active sheet</span>
+<span style="color: #BBB">    </span>oSheet<span style="color: #BBB"> </span><span style="color: #333">=</span><span style="color: #BBB"> </span>ThisComponent.CurrentController.ActiveSheet
+<span style="color: #BBB">    </span>
+<span style="color: #BBB">    </span><span style="color: #888">' Get the value of C4 and C2</span>
+<span style="color: #BBB">    </span>c4Value<span style="color: #BBB"> </span><span style="color: #333">=</span><span style="color: #BBB"> </span>oSheet.getCellRangeByName(<span style="background-color: #FFF0F0">"C4"</span>).Value
+<span style="color: #BBB">    </span>c2Value<span style="color: #BBB"> </span><span style="color: #333">=</span><span style="color: #BBB"> </span>oSheet.getCellRangeByName(<span style="background-color: #FFF0F0">"C2"</span>).Value
+<span style="color: #BBB">    </span>
+<span style="color: #BBB">    </span><span style="color: #888">' Push values from C4 to C5:C14 (next 10 cells)</span>
+<span style="color: #BBB">    </span><span style="color: #080; font-weight: bold">For</span><span style="color: #BBB"> </span>i<span style="color: #BBB"> </span><span style="color: #333">=</span><span style="color: #BBB"> </span><span style="color: #00D; font-weight: bold">10</span><span style="color: #BBB"> </span>To<span style="color: #BBB"> </span><span style="color: #00D; font-weight: bold">1</span><span style="color: #BBB"> </span>Step<span style="color: #BBB"> </span><span style="color: #333">-</span><span style="color: #00D; font-weight: bold">1</span>
+<span style="color: #BBB">        </span>oSheet.getCellByPosition(<span style="color: #00D; font-weight: bold">2</span>,<span style="color: #BBB"> </span><span style="color: #00D; font-weight: bold">3</span><span style="color: #BBB"> </span><span style="color: #333">+</span><span style="color: #BBB"> </span>i).Value<span style="color: #BBB"> </span><span style="color: #333">=</span><span style="color: #BBB"> </span>oSheet.getCellByPosition(<span style="color: #00D; font-weight: bold">2</span>,<span style="color: #BBB"> </span><span style="color: #00D; font-weight: bold">2</span><span style="color: #BBB"> </span><span style="color: #333">+</span><span style="color: #BBB"> </span>i).Value
+<span style="color: #BBB">    </span><span style="color: #080; font-weight: bold">Next</span><span style="color: #BBB"> </span>i
+<span style="color: #BBB">    </span>
+<span style="color: #BBB">    </span><span style="color: #888">' Update C4 with the value of C2</span>
+<span style="color: #BBB">    </span>oSheet.getCellRangeByName(<span style="background-color: #FFF0F0">"C4"</span>).Value<span style="color: #BBB"> </span><span style="color: #333">=</span><span style="color: #BBB"> </span>c2Value
+<span style="color: #080; font-weight: bold">End</span><span style="color: #BBB"> </span><span style="color: #080; font-weight: bold">Sub</span>
+</pre>
+</div>
+</p>
 </div></div><div style="clear:both; line-height:0; width:0; height:0; margin:0; padding:0;"> </div></div>
 <h3 class="paragraph-Heading_20_3"><a id="a__Start_Stop_listening"><span/></a><br/><span class="text-T35">Start/Stop listening</span></h3>
 <h4 class="paragraph-P26"><a id="a__triggerMacro"><span/></a><span class="text-T36">t</span><span class="text-T37">riggerMacro</span></h4>
