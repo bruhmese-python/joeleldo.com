@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Links</title>
+	<link rel="stylesheet" href="/styles/styles.css">
+
+</head>
+
+<body>
+
+	<div class="site-container">
+		<div class="page-wrapper">
+
+			<!-- Sidebar -->
+			<aside class="sidebar">
+	<center>
+		<div class="profile-container">
+			<a href="/images/photos/photo.jpg" target="_blank" class="extra_pad_link"><img src="/images/new_window_glyph.png" alt=""></a>
+			<img src="/images/photos/photo.jpg" alt="My Photo" class="profile profile_rotate"><br>
+			<img src="/images/photos/pin.png" alt="pin" class="profile_pin"><br>
+			<img src="/images/name_png.png" class="name_img profile_rotate" alt="Joel Eldo"><br>
+		</div>
+		<br>
+		<!-- <h3>Joel Eldo</h3> -->
+		Solutions Engineer @<a href="https://www.digitate.com" target="_blank">Digitate</a><br>
+		<small>
+			Chennai ● Kochi<br><br>
+		</small>
+	</center>
+
+	<hr class="shadow-hr">
+
+	<nav class="navigation">
+		<ul>
+			<li><a href="/index.html">Home</a></li>
+			<li><a href="/read.html">Read</a>
+				<ul class="submenu">
+					<li><a href="/blogs.html">Blogs</a></li>
+					<li><a href="/articles.html">Articles</a></li>
+					<li><a href="#" class="disabled-anchor">Archives</a></li>
+				</ul>
+			</li>
+			<li><a href="/misc.html">Misc.</a>
+				<ul class="submenu">
+					<li><a href="/downloads.html">Downloads <img src="/images/download" style="height: 1em;width: 1em;" alt=""></a></li>
+					<li><a href="/links.html">Links 🔗️</a></li>
+				</ul>
+			</li>
+			<!-- <li><a href="#" class="disabled-anchor"> Contact</a></li> -->
+			<li><a href="/sitemap.html">Sitemap</a></li>
+		</ul>
+	</nav>
+	
+
+	<hr>
+
+	<table style="width: 100%;text-align: center;">
+		<tr>
+			<td>
+				<a target="_blank" href="https://github.com/bruhmese-python">
+					<img src="/images/github.png" width="25px" alt="">
+				</a>
+			</td>
+			<td>
+				<a target="_blank" href="https://in.linkedin.com/in/joel-eldo-a92616244">
+					<img src="/images/linkedin.png" width="25px" alt="">
+				</a>
+			</td>
+			<td>
+				<a target="_blank" href="mailto:joeldo.mailbox@gmail.com">
+					<img src="/images/email.png" width="25px" alt="">
+				</a>
+			</td>
+		</tr>
+	</table>
+
+	<br>
+	<b>&nbsp;- "<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">Roll</a> against the tide<span
+			id="dots">..</span>"</b>
+</aside>
+<script>
+	const dots = document.getElementById('dots');
+	let toggle = true;
+
+	setInterval(() => {
+		dots.textContent = toggle ? '.' : '..';
+		toggle = !toggle;
+	}, 500);
+</script>
+
+			<!-- Main Content -->
+			<div class="main-content">
+				<p>
+					<a href="/articles.html">◄&nbsp;Articles</a>
+				</p>
+				<br>
+				<div class="article-container">
+					
+<div class="glossary">
+    <div class="updates_box">
+        <h2>Contents</h2>
+        <div id="toc">
+        </div>
+    </div>
+</div>
+<div class="level1"><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Display&display=swap" rel="stylesheet">
+<h1 class="paragraph-P1"><a id="a__Writing_parsers_for_your_applications"><span/></a>Writing parsers for your applications</h1>
+
+<p class="paragraph-P2">Somewhere in the life of a programmer, you’ll encounter the need to parse data or even worse, parse data from a from a format that is not a standard like json, csv or xml. </p>
+
+<p class="paragraph-P2">For most such use cases writing a text processing script with python is possible. But what if you want to create your own data format, or even better your own programming language?</p>
+</div>
+<div class="level2"><h2 class="paragraph-Heading_20_2"><a id="a__Writing_a_CSS_transpiler"><span/></a>Writing a CSS transpiler</h2>
+
+<p class="paragraph-Normal">Transpilers are programs that convert one language into another. Many programming languages use compilers that are internally transpilers for some type of object code.</p>
+
+<p class="paragraph-Normal">In this example we’ll take a look at at transpiler that converts from a super-dialect of CSS to plain css. Let’s call it PSS. </p>
+</div>
+<div class="level3"><h2 class="paragraph-Heading_20_2"><a id="a__What_we’ll_need"><span/></a>What we’ll need</h2>
+<ul><li><p class="P3" style="margin-left:0cm;"><span class="Bullet_20_Symbols" style="display:block;float:left;min-width:0.635cm;">•</span>Flex/Bison and a C/C++ compiler like gcc/g++<span class="odfLiEnd"/> </p></li><li><p class="P3" style="margin-left:0cm;"><span class="Bullet_20_Symbols" style="display:block;float:left;min-width:0.635cm;">•</span>Basic understanding of compiler design<span class="odfLiEnd"/> </p></li></ul><h2 class="paragraph-Heading_20_2"><a id="a__Target_grammar"><span/></a>Target grammar</h2>
+
+<p class="paragraph-Normal">Mainly I wanted the language to implement inheritance. Imagine if a css block could inherit all the styles of another block. That plus a few more features like aliasing an existing class name can be implemented. </p>
+
+<p class="paragraph-Normal">Keep in mind that this is a hobby project that I use regularly for personal tools. But if you want an industry standard alternative, refer <a href="https://sass-lang.com/" class="text-Internet_20_link"><span class="text-Hyperlink">Sass</span></a>.</p>
+
+<p class="paragraph-Normal">This is what a sample pss file looks like.</p>
+
+<!--Next 'div' was a 'text:p'.-->
+<div class="paragraph-Normal">
+<!--Next 'div' is emulating the top height of a draw:frame.-->
+
+<!--Next 'div' is a draw:frame. -->
+<div style="height:0.2248in;width:6.4469in; padding:0;  float:left; position:relative; left:0.0391cm; " id="Text_Frame_1" class="graphic-gr1 graphic-P4">
+<!--Next 'div' was a 'draw:text-box'.-->
+<div>
+<div class="code-snippet">
+<pre style="margin: 0; line-height: 125%;"><span></span><span style="color: #333">$</span><span style="color: #070">alert_padding</span><span style="color: #BBB"> </span><span style="color: #333">=</span><span style="color: #BBB"> </span><span style="color: #070">5px</span><span style="color: #333">;</span>
+<span style="color: #070">color1</span><span style="color: #BBB"> </span><span style="color: #333">=</span><span style="color: #BBB"> </span><span style="color: #333">[</span>#<span style="color: #0E84B5; font-weight: bold">03AED2</span><span style="color: #333">,</span>#<span style="color: #0E84B5; font-weight: bold">FDDE55</span><span style="color: #333">];</span>
+
+<span style="color: #070">body</span><span style="color: #BBB"> </span>.<span style="color: #B06; font-weight: bold">flex</span>{
+<span style="color: #BBB">	</span><span style="color: #080; font-weight: bold">background-color</span>:<span style="color: #080; font-weight: bold">red</span>;
+}
+
+.<span style="color: #B06; font-weight: bold">flex-container</span><span style="color: #BBB"> </span>{
+<span style="color: #BBB">  </span><span style="color: #080; font-weight: bold">display</span>:<span style="color: #BBB"> </span><span style="color: #080; font-weight: bold">flex</span>;
+<span style="color: #BBB">  </span><span style="color: #080; font-weight: bold">flex-wrap</span>:<span style="color: #BBB"> </span><span style="color: #080; font-weight: bold">wrap</span>;
+<span style="color: #BBB">  </span><span style="color: #080; font-weight: bold">flex-direction</span>:<span style="color: #BBB"> </span><span style="color: #080; font-weight: bold">row</span>;
+<span style="color: #BBB">  </span><span style="color: #080; font-weight: bold">justify-content</span>:<span style="color: #BBB"> </span><span style="color: #080; font-weight: bold">start</span>;
+<span style="color: #BBB">  </span><span style="color: #080; font-weight: bold">align-items</span>:<span style="color: #BBB"> </span><span style="color: #080; font-weight: bold">auto</span>;
+<span style="color: #BBB">  </span><span style="color: #080; font-weight: bold">align-content</span>:<span style="color: #BBB"> </span><span style="color: #080; font-weight: bold">start</span>;
+<span style="color: #BBB">  </span><span style="color: #080; font-weight: bold">background-color</span>:color1;
+}
+
+.<span style="color: #B06; font-weight: bold">flex-container</span><span style="color: #BBB"> </span><span style="color: #070">alias</span><span style="color: #BBB"> </span>.<span style="color: #B06; font-weight: bold">unflexed-container</span><span style="color: #333">;</span>
+
+.<span style="color: #B06; font-weight: bold">flex-item</span><span style="color: #BBB"> </span>{
+<span style="color: #BBB">  </span><span style="color: #080; font-weight: bold">flex</span>:<span style="color: #BBB"> </span><span style="color: #00D; font-weight: bold">0</span><span style="color: #BBB"> </span><span style="color: #00D; font-weight: bold">0</span><span style="color: #BBB"> </span><span style="color: #080; font-weight: bold">auto</span>;
+<span style="color: #BBB">  </span><span style="color: #080; font-weight: bold">margin</span>:<span style="color: #BBB"> </span><span style="color: #00D; font-weight: bold">10</span><span style="color: #339; font-weight: bold">px</span>;
+}
+
+
+.<span style="color: #B06; font-weight: bold">sidebar</span><span style="color: #BBB"> </span><span style="color: #070">extends</span><span style="color: #BBB"> </span>.<span style="color: #B06; font-weight: bold">flex-item</span>{
+<span style="color: #BBB">   </span><span style="color: #888">/*testing comment*/</span>
+<span style="color: #BBB">   </span><span style="color: #F00; background-color: #FAA">!</span><span style="color: #080; font-weight: bold">padding-top</span><span style="color: #BBB"> </span>:<span style="color: #BBB"> </span><span style="color: #00D; font-weight: bold">10</span><span style="color: #339; font-weight: bold">px</span>;
+<span style="color: #BBB">   </span><span style="color: #080; font-weight: bold">padding-bottom</span><span style="color: #BBB"> </span>:<span style="color: #BBB"> </span><span style="color: #00D; font-weight: bold">10</span><span style="color: #339; font-weight: bold">px</span>;
+<span style="color: #BBB">   </span><span style="color: #080; font-weight: bold">height</span>:<span style="color: #BBB"> </span><span style="color: #00D; font-weight: bold">100</span><span style="color: #339; font-weight: bold">vh</span>;
+<span style="color: #BBB"> </span>}
+
+<span style="color: #BBB"> </span><span style="color: #888">/* small header */</span>
+.<span style="color: #B06; font-weight: bold">alert</span>.<span style="color: #B06; font-weight: bold">alert-warning</span><span style="color: #BBB"> </span>{
+<span style="color: #BBB">   </span><span style="color: #080; font-weight: bold">padding-top</span>:<span style="color: #BBB"> </span><span style="color: #007020">calc</span>(alert_padding<span style="color: #BBB"> </span><span style="color: #333">+</span><span style="color: #BBB"> </span><span style="color: #00D; font-weight: bold">21</span><span style="color: #339; font-weight: bold">px</span>);
+<span style="color: #BBB">   </span><span style="color: #080; font-weight: bold">padding-bottom</span>:<span style="color: #BBB"> </span>alert_padding;
+}
+
+<span style="color: #888">/* items list */</span>
+.<span style="color: #B06; font-weight: bold">nav-pills</span><span style="color: #BBB"> </span>.<span style="color: #B06; font-weight: bold">nav-link</span>
+.<span style="color: #B06; font-weight: bold">nav-pills</span><span style="color: #BBB"> </span>.<span style="color: #B06; font-weight: bold">nav-link</span><span style="color: #BBB"> </span><span style="color: #070">extends</span><span style="color: #BBB"> </span>.<span style="color: #B06; font-weight: bold">sidebar</span><span style="color: #BBB"> </span>.<span style="color: #B06; font-weight: bold">flex-container</span>{
+<span style="color: #BBB">  </span><span style="color: #080; font-weight: bold">width</span>:<span style="color: #00D; font-weight: bold">100</span><span style="color: #339; font-weight: bold">%</span>;
+}
+
+.<span style="color: #B06; font-weight: bold">card</span><span style="color: #BBB"> </span>.<span style="color: #B06; font-weight: bold">card-body</span><span style="color: #BBB"> </span>{
+<span style="color: #BBB">  </span><span style="color: #080; font-weight: bold">padding-top</span>:<span style="color: #BBB"> </span><span style="color: #00D; font-weight: bold">2</span><span style="color: #339; font-weight: bold">px</span>;<span style="color: #BBB"> </span>
+<span style="color: #BBB">  </span><span style="color: #080; font-weight: bold">padding-bottom</span>:<span style="color: #BBB"> </span><span style="color: #00D; font-weight: bold">2</span><span style="color: #339; font-weight: bold">px</span>;<span style="color: #BBB"> </span>
+}
+
+.<span style="color: #B06; font-weight: bold">btn-link</span>{
+<span style="color: #BBB">  </span><span style="color: #080; font-weight: bold">text-decoration</span>:<span style="color: #BBB"> </span><span style="color: #080; font-weight: bold">none</span>;
+}
+</pre>
+</div>
+
+</div></div><div style="clear:both; line-height:0; width:0; height:0; margin:0; padding:0;"> </div>This is the css our tranpiler generates</div>
+
+<!--Next 'div' was a 'text:p'.-->
+<div class="paragraph-Normal">
+<!--Next 'div' is emulating the top height of a draw:frame.-->
+
+<!--Next 'div' is a draw:frame. -->
+<div style="height:0.2248in;width:6.4469in; padding:0;  float:left; position:relative; left:0.0391cm; " id="Text_Frame_2" class="graphic-gr1 graphic-P4">
+<!--Next 'div' was a 'draw:text-box'.-->
+<div>
+<div class="code-snippet">
+<pre style="margin: 0; line-height: 125%;"><span></span>.<span style="color: #B06; font-weight: bold">flex</span>
+<span style="color: #070">body</span>{
+<span style="color: #BBB">	</span><span style="color: #080; font-weight: bold">background-color</span><span style="color: #BBB"> </span>:<span style="color: #BBB"> </span><span style="color: #080; font-weight: bold">red</span>;
+}
+.<span style="color: #B06; font-weight: bold">flex-container</span>{
+<span style="color: #BBB">	</span><span style="color: #080; font-weight: bold">display</span><span style="color: #BBB"> </span>:<span style="color: #BBB"> </span><span style="color: #080; font-weight: bold">flex</span>;
+<span style="color: #BBB">	</span><span style="color: #080; font-weight: bold">flex-wrap</span><span style="color: #BBB"> </span>:<span style="color: #BBB"> </span><span style="color: #080; font-weight: bold">wrap</span>;
+<span style="color: #BBB">	</span><span style="color: #080; font-weight: bold">flex-direction</span><span style="color: #BBB"> </span>:<span style="color: #BBB"> </span><span style="color: #080; font-weight: bold">row</span>;
+<span style="color: #BBB">	</span><span style="color: #080; font-weight: bold">justify-content</span><span style="color: #BBB"> </span>:<span style="color: #BBB"> </span><span style="color: #080; font-weight: bold">start</span>;
+<span style="color: #BBB">	</span><span style="color: #080; font-weight: bold">align-items</span><span style="color: #BBB"> </span>:<span style="color: #BBB"> </span><span style="color: #080; font-weight: bold">auto</span>;
+<span style="color: #BBB">	</span><span style="color: #080; font-weight: bold">align-content</span><span style="color: #BBB"> </span>:<span style="color: #BBB"> </span><span style="color: #080; font-weight: bold">start</span>;
+<span style="color: #BBB">	</span><span style="color: #080; font-weight: bold">background-color</span><span style="color: #BBB"> </span>:<span style="color: #BBB"> </span><span style="color: #06B; font-weight: bold">var</span>(<span style="color: #963">--color1</span>);
+}
+.<span style="color: #B06; font-weight: bold">unflexed-container</span>{
+<span style="color: #BBB">	</span><span style="color: #080; font-weight: bold">display</span><span style="color: #BBB"> </span>:<span style="color: #BBB"> </span><span style="color: #080; font-weight: bold">flex</span>;
+<span style="color: #BBB">	</span><span style="color: #080; font-weight: bold">flex-wrap</span><span style="color: #BBB"> </span>:<span style="color: #BBB"> </span><span style="color: #080; font-weight: bold">wrap</span>;
+<span style="color: #BBB">	</span><span style="color: #080; font-weight: bold">flex-direction</span><span style="color: #BBB"> </span>:<span style="color: #BBB"> </span><span style="color: #080; font-weight: bold">row</span>;
+<span style="color: #BBB">	</span><span style="color: #080; font-weight: bold">justify-content</span><span style="color: #BBB"> </span>:<span style="color: #BBB"> </span><span style="color: #080; font-weight: bold">start</span>;
+<span style="color: #BBB">	</span><span style="color: #080; font-weight: bold">align-items</span><span style="color: #BBB"> </span>:<span style="color: #BBB"> </span><span style="color: #080; font-weight: bold">auto</span>;
+<span style="color: #BBB">	</span><span style="color: #080; font-weight: bold">align-content</span><span style="color: #BBB"> </span>:<span style="color: #BBB"> </span><span style="color: #080; font-weight: bold">start</span>;
+<span style="color: #BBB">	</span><span style="color: #080; font-weight: bold">background-color</span><span style="color: #BBB"> </span>:<span style="color: #BBB"> </span><span style="color: #06B; font-weight: bold">var</span>(<span style="color: #963">--color1</span>);
+}
+.<span style="color: #B06; font-weight: bold">flex-item</span>{
+<span style="color: #BBB">	</span><span style="color: #080; font-weight: bold">flex</span><span style="color: #BBB"> </span>:<span style="color: #BBB"> </span><span style="color: #00D; font-weight: bold">0</span><span style="color: #BBB"> </span><span style="color: #00D; font-weight: bold">0</span><span style="color: #BBB"> </span><span style="color: #080; font-weight: bold">auto</span>;
+<span style="color: #BBB">	</span><span style="color: #080; font-weight: bold">margin</span><span style="color: #BBB"> </span>:<span style="color: #BBB"> </span><span style="color: #00D; font-weight: bold">10</span><span style="color: #339; font-weight: bold">px</span>;
+}
+.<span style="color: #B06; font-weight: bold">sidebar</span>{
+<span style="color: #BBB">	</span><span style="color: #080; font-weight: bold">flex</span><span style="color: #BBB"> </span>:<span style="color: #BBB"> </span><span style="color: #00D; font-weight: bold">0</span><span style="color: #BBB"> </span><span style="color: #00D; font-weight: bold">0</span><span style="color: #BBB"> </span><span style="color: #080; font-weight: bold">auto</span>;
+<span style="color: #BBB">	</span><span style="color: #080; font-weight: bold">margin</span><span style="color: #BBB"> </span>:<span style="color: #BBB"> </span><span style="color: #00D; font-weight: bold">10</span><span style="color: #339; font-weight: bold">px</span>;
+<span style="color: #888">/*testing comment*/</span>
+<span style="color: #BBB">	</span><span style="color: #080; font-weight: bold">padding-top</span><span style="color: #BBB"> </span>:<span style="color: #BBB"> </span><span style="color: #00D; font-weight: bold">10</span><span style="color: #339; font-weight: bold">px</span><span style="color: #BBB"> </span><span style="color: #579">!important</span><span style="color: #BBB"> </span>;
+<span style="color: #BBB">	</span><span style="color: #080; font-weight: bold">padding-bottom</span><span style="color: #BBB"> </span>:<span style="color: #BBB"> </span><span style="color: #00D; font-weight: bold">10</span><span style="color: #339; font-weight: bold">px</span>;
+<span style="color: #BBB">	</span><span style="color: #080; font-weight: bold">height</span><span style="color: #BBB"> </span>:<span style="color: #BBB"> </span><span style="color: #00D; font-weight: bold">100</span><span style="color: #339; font-weight: bold">vh</span>;
+}
+<span style="color: #888">/* small header */</span>
+.<span style="color: #B06; font-weight: bold">alert-warning</span>
+.<span style="color: #B06; font-weight: bold">alert</span>{
+<span style="color: #BBB">	</span><span style="color: #080; font-weight: bold">padding-top</span><span style="color: #BBB"> </span>:<span style="color: #BBB"> </span><span style="color: #007020">calc</span>(<span style="color: #00D; font-weight: bold">5</span><span style="color: #339; font-weight: bold">px</span><span style="color: #BBB"> </span><span style="color: #333">+</span><span style="color: #BBB"> </span><span style="color: #00D; font-weight: bold">21</span><span style="color: #339; font-weight: bold">px</span>);
+<span style="color: #BBB">	</span><span style="color: #080; font-weight: bold">padding-bottom</span><span style="color: #BBB"> </span>:<span style="color: #BBB"> </span><span style="color: #00D; font-weight: bold">5</span><span style="color: #339; font-weight: bold">px</span>;
+}
+<span style="color: #888">/* items list */</span>
+.<span style="color: #B06; font-weight: bold">nav-link</span>
+.<span style="color: #B06; font-weight: bold">nav-pills</span>
+.<span style="color: #B06; font-weight: bold">nav-link</span>
+.<span style="color: #B06; font-weight: bold">nav-pills</span>{
+<span style="color: #BBB">	</span><span style="color: #080; font-weight: bold">display</span><span style="color: #BBB"> </span>:<span style="color: #BBB"> </span><span style="color: #080; font-weight: bold">flex</span>;
+<span style="color: #BBB">	</span><span style="color: #080; font-weight: bold">flex-wrap</span><span style="color: #BBB"> </span>:<span style="color: #BBB"> </span><span style="color: #080; font-weight: bold">wrap</span>;
+<span style="color: #BBB">	</span><span style="color: #080; font-weight: bold">flex-direction</span><span style="color: #BBB"> </span>:<span style="color: #BBB"> </span><span style="color: #080; font-weight: bold">row</span>;
+<span style="color: #BBB">	</span><span style="color: #080; font-weight: bold">justify-content</span><span style="color: #BBB"> </span>:<span style="color: #BBB"> </span><span style="color: #080; font-weight: bold">start</span>;
+<span style="color: #BBB">	</span><span style="color: #080; font-weight: bold">align-items</span><span style="color: #BBB"> </span>:<span style="color: #BBB"> </span><span style="color: #080; font-weight: bold">auto</span>;
+<span style="color: #BBB">	</span><span style="color: #080; font-weight: bold">align-content</span><span style="color: #BBB"> </span>:<span style="color: #BBB"> </span><span style="color: #080; font-weight: bold">start</span>;
+<span style="color: #BBB">	</span><span style="color: #080; font-weight: bold">background-color</span><span style="color: #BBB"> </span>:<span style="color: #BBB"> </span><span style="color: #06B; font-weight: bold">var</span>(<span style="color: #963">--color1</span>);
+<span style="color: #BBB">	</span><span style="color: #080; font-weight: bold">flex</span><span style="color: #BBB"> </span>:<span style="color: #BBB"> </span><span style="color: #00D; font-weight: bold">0</span><span style="color: #BBB"> </span><span style="color: #00D; font-weight: bold">0</span><span style="color: #BBB"> </span><span style="color: #080; font-weight: bold">auto</span>;
+<span style="color: #BBB">	</span><span style="color: #080; font-weight: bold">margin</span><span style="color: #BBB"> </span>:<span style="color: #BBB"> </span><span style="color: #00D; font-weight: bold">10</span><span style="color: #339; font-weight: bold">px</span>;
+<span style="color: #BBB">	</span><span style="color: #080; font-weight: bold">padding-top</span><span style="color: #BBB"> </span>:<span style="color: #BBB"> </span><span style="color: #00D; font-weight: bold">10</span><span style="color: #339; font-weight: bold">px</span>;
+<span style="color: #BBB">	</span><span style="color: #080; font-weight: bold">padding-bottom</span><span style="color: #BBB"> </span>:<span style="color: #BBB"> </span><span style="color: #00D; font-weight: bold">10</span><span style="color: #339; font-weight: bold">px</span>;
+<span style="color: #BBB">	</span><span style="color: #080; font-weight: bold">height</span><span style="color: #BBB"> </span>:<span style="color: #BBB"> </span><span style="color: #00D; font-weight: bold">100</span><span style="color: #339; font-weight: bold">vh</span>;
+<span style="color: #BBB">	</span><span style="color: #080; font-weight: bold">width</span><span style="color: #BBB"> </span>:<span style="color: #BBB"> </span><span style="color: #00D; font-weight: bold">100</span><span style="color: #339; font-weight: bold">%</span>;
+}
+.<span style="color: #B06; font-weight: bold">card-body</span>
+.<span style="color: #B06; font-weight: bold">card</span>{
+<span style="color: #BBB">	</span><span style="color: #080; font-weight: bold">padding-top</span><span style="color: #BBB"> </span>:<span style="color: #BBB"> </span><span style="color: #00D; font-weight: bold">2</span><span style="color: #339; font-weight: bold">px</span>;
+<span style="color: #BBB">	</span><span style="color: #080; font-weight: bold">padding-bottom</span><span style="color: #BBB"> </span>:<span style="color: #BBB"> </span><span style="color: #00D; font-weight: bold">2</span><span style="color: #339; font-weight: bold">px</span>;
+}
+.<span style="color: #B06; font-weight: bold">btn-link</span>{
+<span style="color: #BBB">	</span><span style="color: #080; font-weight: bold">text-decoration</span><span style="color: #BBB"> </span>:<span style="color: #BBB"> </span><span style="color: #080; font-weight: bold">none</span>;
+}
+:<span style="color: #555; font-weight: bold">root</span>{
+<span style="color: #BBB">	</span><span style="color: #963">--color1</span>:<span style="color: #058; font-weight: bold">#03AED2</span>;
+}
+</pre>
+</div>
+
+</div></div><div style="clear:both; line-height:0; width:0; height:0; margin:0; padding:0;"> </div></div>
+
+<p class="paragraph-Normal">As you can see the language  supports inheritance via the ‘extends’ keyword, class name aliasing, variables and randomized values for variables (as you’ll see in the ‘color1’ property).</p>
+<h2 class="paragraph-Heading_20_2"><a id="a__Writing_the_tokenizer"><span/></a>Writing the tokenizer</h2>
+
+<p class="paragraph-Normal">The tokenizer will scan through the target code and understand the ‘tokens’ that comprise the grammar. A token could be anything – a semicolon, a keyword, opening or closing braces. Anything that is quantifiably the smallest unit in a grammar. </p>
+
+<p class="paragraph-Normal">Below is the flex program to implement the scanner</p>
+
+<!--Next 'div' was a 'text:p'.-->
+<div class="paragraph-Normal">
+<!--Next 'div' is emulating the top height of a draw:frame.-->
+
+<!--Next 'div' is a draw:frame. -->
+<div style="height:0.2248in;width:6.4469in; padding:0;  float:left; position:relative; left:0.0391cm; " id="Text_Frame_3" class="graphic-gr1 graphic-P4">
+<!--Next 'div' was a 'draw:text-box'.-->
+<div>
+<div class="code-snippet">
+<pre style="margin: 0; line-height: 125%;"><span></span><span style="color: #333">%</span>{
+<span style="color: #579">#include</span><span style="color: #888">&lt;string.h&gt;</span>
+<span style="color: #579">#include</span><span style="color: #888">&lt;iostream&gt;</span>
+<span style="color: #579">#include</span><span style="color: #888">&lt;stdbool.h&gt;</span>
+<span style="color: #579">#include</span><span style="color: #BBB"> </span><span style="color: #888">"y.tab.h"</span>
+
+<span style="color: #579">#define RETURN_IF_INVALID(x)\</span>
+<span style="color: #579">do{\</span>
+<span style="color: #579">	int _ret = (x);\</span>
+<span style="color: #579">	if(_ret!=-1)\</span>
+<span style="color: #579">		return _ret;\</span>
+<span style="color: #579">}while(0)</span>
+
+
+<span style="color: #339; font-weight: bold">char</span><span style="color: #BBB"> </span>id_buffer[<span style="color: #00D; font-weight: bold">256</span>]<span style="color: #333">=</span><span style="color: #BBB"> </span><span style="background-color: #FFF0F0">"</span><span style="color: #666; font-weight: bold; background-color: #FFF0F0">\0</span><span style="background-color: #FFF0F0">"</span>;
+<span style="color: #339; font-weight: bold">bool</span><span style="color: #BBB"> </span>commented<span style="color: #BBB"> </span><span style="color: #333">=</span><span style="color: #BBB"> </span><span style="color: #007020">false</span>;
+
+<span style="color: #339; font-weight: bold">int</span><span style="color: #BBB"> </span><span style="color: #06B; font-weight: bold">is_keyword</span>(){
+<span style="color: #BBB">	</span><span style="color: #080; font-weight: bold">if</span>(strcmp(yytext,<span style="background-color: #FFF0F0">"extends"</span>)<span style="color: #333">==</span><span style="color: #00D; font-weight: bold">0</span>)<span style="color: #BBB"> </span>{<span style="color: #080; font-weight: bold">return</span><span style="color: #BBB"> </span>EXTENDS;}
+<span style="color: #BBB">	</span><span style="color: #080; font-weight: bold">if</span>(strcmp(yytext,<span style="background-color: #FFF0F0">"alias"</span>)<span style="color: #333">==</span><span style="color: #00D; font-weight: bold">0</span>)<span style="color: #BBB"> </span>{<span style="color: #080; font-weight: bold">return</span><span style="color: #BBB"> </span>ALIAS;}
+<span style="color: #BBB">	</span><span style="color: #080; font-weight: bold">return</span><span style="color: #BBB"> </span><span style="color: #00D; font-weight: bold">-1</span>;
+}
+<span style="color: #339; font-weight: bold">int</span><span style="color: #BBB"> </span><span style="color: #06B; font-weight: bold">parse_comment</span>(){
+<span style="color: #BBB">	</span><span style="color: #080; font-weight: bold">if</span>(commented){
+<span style="color: #BBB">		</span>yylval.string<span style="color: #BBB"> </span><span style="color: #333">=</span><span style="color: #BBB"> </span>strdup(yytext);<span style="color: #BBB"> </span>
+<span style="color: #BBB">		</span><span style="color: #888">//std::cout&lt;&lt; "comment detected was "&lt;&lt;yytext;</span>
+<span style="color: #BBB">		</span><span style="color: #080; font-weight: bold">return</span><span style="color: #BBB"> </span>COMMENT;
+<span style="color: #BBB">	</span>}
+<span style="color: #BBB">	</span><span style="color: #080; font-weight: bold">return</span><span style="color: #BBB"> </span><span style="color: #00D; font-weight: bold">-1</span>;
+}
+
+<span style="color: #339; font-weight: bold">int</span><span style="color: #BBB"> </span><span style="color: #06B; font-weight: bold">yylex</span>(<span style="color: #339; font-weight: bold">void</span>);
+<span style="color: #333">%</span>}
+
+IDENTIFIER<span style="color: #BBB"> </span>[A<span style="color: #333">-</span>Za<span style="color: #333">-</span>z_]<span style="color: #333">+</span>[A<span style="color: #333">-</span>Za<span style="color: #333">-</span>z_0<span style="color: #00D; font-weight: bold">-9</span>]<span style="color: #333">*</span>
+WHITESPACE<span style="color: #BBB"> </span>[<span style="color: #BBB"> </span><span style="color: #F00; background-color: #FAA">\</span>t<span style="color: #F00; background-color: #FAA">\</span>n]
+COMMENT_BEGIN<span style="color: #BBB"> </span><span style="background-color: #FFF0F0">"/*"</span>
+COMMENT_END<span style="color: #BBB"> </span><span style="background-color: #FFF0F0">"*/"</span>
+
+<span style="color: #333">%</span>x<span style="color: #BBB"> </span>property
+<span style="color: #333">%</span>option<span style="color: #BBB"> </span>noyywrap
+
+<span style="color: #333">%%</span>
+<span style="color: #F00; background-color: #FAA">\</span>{<span style="color: #BBB">      				</span>{<span style="color: #BBB"> </span>RETURN_IF_INVALID(parse_comment());<span style="color: #BBB"> </span><span style="color: #080; font-weight: bold">return</span><span style="color: #BBB"> </span>OPENING_BRACES;}
+<span style="color: #F00; background-color: #FAA">\</span>}<span style="color: #BBB">      				</span>{<span style="color: #BBB"> </span>RETURN_IF_INVALID(parse_comment());<span style="color: #BBB"> </span><span style="color: #080; font-weight: bold">return</span><span style="color: #BBB"> </span>CLOSING_BRACES;}
+{IDENTIFIER}(<span style="color: #333">-</span>[A<span style="color: #333">-</span>Za<span style="color: #333">-</span>z_0<span style="color: #00D; font-weight: bold">-9</span>]<span style="color: #333">+</span>)<span style="color: #333">*/</span>{WHITESPACE}<span style="color: #333">*:</span><span style="color: #BBB"> 		</span>{<span style="color: #BBB"> </span>RETURN_IF_INVALID(parse_comment());yylval.string<span style="color: #BBB"> </span><span style="color: #333">=</span><span style="color: #BBB"> </span>strdup(yytext);<span style="color: #080; font-weight: bold">return</span><span style="color: #BBB"> </span>PROPERTY_NAME;}
+{IDENTIFIER}<span style="color: #BBB">		</span>{<span style="color: #BBB"> </span>
+<span style="color: #BBB">					</span>RETURN_IF_INVALID(parse_comment());
+<span style="color: #BBB">					</span><span style="color: #339; font-weight: bold">int</span><span style="color: #BBB"> </span>keyword<span style="color: #BBB"> </span><span style="color: #333">=</span><span style="color: #BBB"> </span>is_keyword();
+<span style="color: #BBB">					</span><span style="color: #080; font-weight: bold">if</span>(keyword<span style="color: #BBB"> </span><span style="color: #333">!=</span><span style="color: #BBB"> </span><span style="color: #00D; font-weight: bold">-1</span>)<span style="color: #BBB"> </span>{<span style="color: #080; font-weight: bold">return</span><span style="color: #BBB"> </span>keyword;}
+<span style="color: #BBB">					</span><span style="color: #080; font-weight: bold">else</span><span style="color: #BBB"> </span>{<span style="color: #BBB"> </span>
+<span style="color: #BBB">						</span>yylval.string<span style="color: #BBB"> </span><span style="color: #333">=</span><span style="color: #BBB"> </span>strdup(yytext);
+<span style="color: #BBB">						</span><span style="color: #080; font-weight: bold">return</span><span style="color: #BBB"> </span>IDENTIFIER;
+<span style="color: #BBB">					</span>}
+<span style="color: #BBB">					</span><span style="color: #888">/*this idiom up above works for 'anything else a.k.a .*'*/</span>
+<span style="color: #BBB">					</span>}
+<span style="color: #F00; background-color: #FAA">\</span>.{IDENTIFIER}(<span style="color: #333">-</span>[A<span style="color: #333">-</span>Za<span style="color: #333">-</span>z_0<span style="color: #00D; font-weight: bold">-9</span>]<span style="color: #333">+</span>)<span style="color: #333">*</span><span style="color: #BBB"> 	</span>{<span style="color: #BBB"> </span>RETURN_IF_INVALID(parse_comment());<span style="color: #BBB"> </span>yylval.string<span style="color: #BBB"> </span><span style="color: #333">=</span><span style="color: #BBB"> </span>strdup(yytext);<span style="color: #080; font-weight: bold">return</span><span style="color: #BBB"> </span>CLASS_NAME;}
+{COMMENT_BEGIN}<span style="color: #BBB">				</span>{<span style="color: #BBB"> </span>commented<span style="color: #333">=</span><span style="color: #007020">true</span>;<span style="color: #BBB"> </span>printf(<span style="background-color: #FFF0F0">"</span><span style="color: #666; font-weight: bold; background-color: #FFF0F0">\n</span><span style="background-color: #FFF0F0">"</span>);<span style="color: #BBB">	</span>ECHO;<span style="color: #BBB"> </span>}
+{COMMENT_END}<span style="color: #BBB">				</span>{<span style="color: #BBB"> </span>commented<span style="color: #333">=</span><span style="color: #007020">false</span>;<span style="color: #BBB">		</span>ECHO;<span style="color: #BBB"> </span>}
+;<span style="color: #BBB">					</span>{<span style="color: #BBB"> </span>RETURN_IF_INVALID(parse_comment());<span style="color: #BBB"> </span><span style="color: #080; font-weight: bold">return</span><span style="color: #BBB"> </span>PROPERTY_SEPARATOR;<span style="color: #BBB"> </span>}
+<span style="color: #F00; background-color: #FAA">\</span>[<span style="color: #BBB">					</span>{<span style="color: #BBB"> </span>RETURN_IF_INVALID(parse_comment());<span style="color: #BBB"> </span><span style="color: #080; font-weight: bold">return</span><span style="color: #BBB"> </span>OPENING_BRACES;<span style="color: #BBB"> </span>}
+<span style="color: #F00; background-color: #FAA">\</span>]<span style="color: #BBB">					</span>{<span style="color: #BBB"> </span>RETURN_IF_INVALID(parse_comment());<span style="color: #BBB"> </span><span style="color: #080; font-weight: bold">return</span><span style="color: #BBB"> </span>CLOSING_BRACES;<span style="color: #BBB"> </span>}
+<span style="color: #333">:</span><span style="color: #BBB">					</span>{<span style="color: #BBB"> </span>RETURN_IF_INVALID(parse_comment());<span style="color: #BBB"> </span><span style="color: #080; font-weight: bold">return</span><span style="color: #BBB"> </span>PAIR_SEPARATOR;<span style="color: #BBB"> </span>}
+{WHITESPACE}<span style="color: #BBB"> 				</span>{<span style="color: #BBB"> </span>RETURN_IF_INVALID(parse_comment());<span style="color: #BBB"> </span><span style="color: #080; font-weight: bold">return</span><span style="color: #BBB"> </span>WHITESPACE;}
+<span style="color: #333">=</span><span style="color: #BBB"> 					</span>{<span style="color: #BBB"> </span>RETURN_IF_INVALID(parse_comment());<span style="color: #BBB"> </span><span style="color: #080; font-weight: bold">return</span><span style="color: #BBB"> </span>ASSIGN;}
+<span style="color: #F00; background-color: #FAA">\</span>$<span style="color: #BBB"> 					</span>{<span style="color: #BBB"> </span>RETURN_IF_INVALID(parse_comment());<span style="color: #BBB"> </span><span style="color: #080; font-weight: bold">return</span><span style="color: #BBB"> </span>SCALAR;}
+<span style="color: #333">!</span><span style="color: #BBB">					</span>{<span style="color: #BBB"> </span>RETURN_IF_INVALID(parse_comment());<span style="color: #BBB"> </span><span style="color: #080; font-weight: bold">return</span><span style="color: #BBB"> </span>IMP_MARKER;}
+.<span style="color: #BBB">					</span>{<span style="color: #BBB"> </span>RETURN_IF_INVALID(parse_comment());yylval.string<span style="color: #BBB"> </span><span style="color: #333">=</span><span style="color: #BBB"> </span>strdup(yytext);<span style="color: #BBB"> </span><span style="color: #080; font-weight: bold">return</span><span style="color: #BBB"> </span>TEXT;<span style="color: #BBB"> </span>}
+<span style="color: #333">%%</span>
+</pre>
+</div>
+
+</div></div><div style="clear:both; line-height:0; width:0; height:0; margin:0; padding:0;"> </div></div>
+<h2 class="paragraph-Heading_20_2"><a id="a__Writing_the_parser_rules"><span/></a>Writing the parser rules</h2>
+
+<p class="paragraph-Normal">Once we have written the tokenizer grammar, we need to write the rules for the language. Forgetting advanced decorators, the rules for CSS are pretty straightforward – especially since we don’t have to deal with recursive constructs like loops or conditional blocks.</p>
+
+<p class="paragraph-Normal">In this example the bison program also handles the code generation process (which should ideally be handled in a separate source file)</p>
+
+<p class="paragraph-Normal">Below is the bison program to implement the parser</p>
+
+<!--Next 'div' was a 'text:p'.-->
+<div class="paragraph-Normal">
+<!--Next 'div' is emulating the top height of a draw:frame.-->
+
+<!--Next 'div' is a draw:frame. -->
+<div style="height:0.2248in;width:6.4469in; padding:0;  float:left; position:relative; left:0.0391cm; " id="Text_Frame_4" class="graphic-gr1 graphic-P4">
+<!--Next 'div' was a 'draw:text-box'.-->
+<div>
+<div class="code-snippet">
+<pre style="margin: 0; line-height: 125%;"><span></span><span style="color: #333">%</span>{
+<span style="color: #579">#include</span><span style="color: #BBB"> </span><span style="color: #888">&lt;stdio.h&gt;</span>
+<span style="color: #579">#include</span><span style="color: #BBB"> </span><span style="color: #888">&lt;stdbool.h&gt;</span>
+<span style="color: #579">#include</span><span style="color: #BBB"> </span><span style="color: #888">&lt;string.h&gt;</span>
+<span style="color: #579">#include</span><span style="color: #BBB"> </span><span style="color: #888">&lt;string&gt;</span>
+<span style="color: #579">#include</span><span style="color: #BBB"> </span><span style="color: #888">&lt;sstream&gt;</span>
+<span style="color: #579">#include</span><span style="color: #BBB"> </span><span style="color: #888">&lt;unordered_map&gt;</span>
+<span style="color: #579">#include</span><span style="color: #BBB"> </span><span style="color: #888">&lt;vector&gt;</span>
+<span style="color: #579">#include</span><span style="color: #BBB"> </span><span style="color: #888">&lt;numeric&gt;</span>
+<span style="color: #579">#include</span><span style="color: #BBB"> </span><span style="color: #888">&lt;iostream&gt;</span>
+<span style="color: #579">#include</span><span style="color: #BBB"> </span><span style="color: #888">&lt;random&gt;</span>
+
+<span style="color: #579">#define set_is_var(x) is_var.push_back(x)</span>
+
+<span style="color: #339; font-weight: bold">char</span><span style="color: #BBB"> </span>s_buffer[<span style="color: #00D; font-weight: bold">256</span>];
+<span style="color: #339; font-weight: bold">bool</span><span style="color: #BBB"> </span>extends_mode_on<span style="color: #BBB"> </span><span style="color: #333">=</span><span style="color: #BBB"> </span><span style="color: #007020">false</span>;
+<span style="color: #339; font-weight: bold">bool</span><span style="color: #BBB"> </span>active_class_extends<span style="color: #BBB"> </span><span style="color: #333">=</span><span style="color: #BBB"> </span><span style="color: #007020">false</span>;
+
+std<span style="color: #333">::</span>unordered_map<span style="color: #333">&lt;</span>std<span style="color: #333">::</span>string,std<span style="color: #333">::</span>string<span style="color: #333">&gt;</span><span style="color: #BBB"> </span>variables;
+std<span style="color: #333">::</span>vector<span style="color: #333">&lt;</span><span style="color: #339; font-weight: bold">bool</span><span style="color: #333">&gt;</span><span style="color: #BBB"> </span>is_var;
+
+std<span style="color: #333">::</span>unordered_map<span style="color: #333">&lt;</span>std<span style="color: #333">::</span>string,std<span style="color: #333">::</span>vector<span style="color: #333">&lt;</span>std<span style="color: #333">::</span>string<span style="color: #333">&gt;&gt;</span><span style="color: #BBB"> </span>classes;
+std<span style="color: #333">::</span>vector<span style="color: #333">&lt;</span>std<span style="color: #333">::</span>string<span style="color: #333">&gt;</span><span style="color: #BBB"> </span>parent_classes;
+<span style="color: #339; font-weight: bold">bool</span><span style="color: #BBB"> </span>marked_important<span style="color: #BBB"> </span><span style="color: #333">=</span><span style="color: #BBB"> </span><span style="color: #007020">false</span>;
+
+<span style="color: #339; font-weight: bold">char</span><span style="color: #BBB"> </span>active_class[<span style="color: #00D; font-weight: bold">256</span>];
+
+<span style="color: #339; font-weight: bold">void</span><span style="color: #BBB"> </span><span style="color: #06B; font-weight: bold">register_class</span>(<span style="color: #080; font-weight: bold">const</span><span style="color: #BBB"> </span><span style="color: #339; font-weight: bold">char</span><span style="color: #333">*</span><span style="color: #BBB"> </span>s){
+<span style="color: #BBB">	</span><span style="color: #080; font-weight: bold">if</span>(extends_mode_on){
+<span style="color: #BBB">		</span>parent_classes.push_back(std<span style="color: #333">::</span>string(s));
+<span style="color: #BBB">	</span>}<span style="color: #080; font-weight: bold">else</span>{
+<span style="color: #BBB">		</span>printf(<span style="background-color: #FFF0F0">"</span><span style="color: #666; font-weight: bold; background-color: #FFF0F0">\n</span><span style="background-color: #FFF0F0">%s"</span>,s);
+<span style="color: #BBB">		</span>strcpy(active_class,s);
+<span style="color: #BBB">	</span>}
+}
+
+<span style="color: #339; font-weight: bold">void</span><span style="color: #BBB"> </span><span style="color: #06B; font-weight: bold">output_properties</span>(){
+<span style="color: #BBB">	</span>extends_mode_on<span style="color: #BBB"> </span><span style="color: #333">=</span><span style="color: #BBB"> </span><span style="color: #007020">false</span>;
+<span style="color: #BBB">	</span><span style="color: #080; font-weight: bold">if</span>(active_class_extends){
+<span style="color: #BBB">		</span><span style="color: #080; font-weight: bold">for</span>(<span style="color: #080; font-weight: bold">auto</span><span style="color: #BBB"> </span>p<span style="color: #333">:</span><span style="color: #BBB"> </span>parent_classes){
+<span style="color: #BBB">			</span><span style="color: #080; font-weight: bold">for</span>(<span style="color: #080; font-weight: bold">auto</span><span style="color: #BBB"> </span>s<span style="color: #333">:</span><span style="color: #BBB"> </span>classes[p]){
+<span style="color: #BBB">				</span>std<span style="color: #333">::</span>cout<span style="color: #333">&lt;&lt;</span><span style="color: #BBB"> </span>s<span style="color: #BBB"> </span><span style="color: #333">&lt;&lt;</span><span style="background-color: #FFF0F0">";"</span>;
+<span style="color: #BBB">				</span>classes[active_class].push_back(s);
+<span style="color: #BBB">			</span>}
+<span style="color: #BBB">		</span>}
+<span style="color: #BBB">		</span><span style="color: #888">//reset</span>
+<span style="color: #BBB">		</span>active_class_extends<span style="color: #BBB"> </span><span style="color: #333">=</span><span style="color: #BBB"> </span><span style="color: #007020">false</span>;
+<span style="color: #BBB">		</span>parent_classes.clear();
+<span style="color: #BBB">	</span>}
+}
+<span style="color: #080; font-weight: bold">const</span><span style="color: #BBB"> </span><span style="color: #339; font-weight: bold">int</span><span style="color: #BBB"> </span><span style="color: #06B; font-weight: bold">random_index</span>(<span style="color: #339; font-weight: bold">size_t</span><span style="color: #BBB"> </span>limit<span style="color: #333">=</span><span style="color: #00D; font-weight: bold">0</span>)<span style="color: #BBB"> </span>{
+<span style="color: #BBB">        </span>std<span style="color: #333">::</span>random_device<span style="color: #BBB"> </span>rd;
+<span style="color: #BBB">        </span>std<span style="color: #333">::</span>mt19937<span style="color: #BBB"> </span>gen(rd());
+<span style="color: #BBB">        </span>std<span style="color: #333">::</span>uniform_int_distribution<span style="color: #333">&lt;&gt;</span><span style="color: #BBB"> </span>dis(<span style="color: #00D; font-weight: bold">0</span>,<span style="color: #BBB"> </span>limit);
+
+<span style="color: #BBB">        </span><span style="color: #888">// Generate a random index</span>
+<span style="color: #BBB">        </span><span style="color: #080; font-weight: bold">return</span><span style="color: #BBB">  </span>dis(gen);
+}
+
+<span style="color: #080; font-weight: bold">const</span><span style="color: #BBB"> </span><span style="color: #339; font-weight: bold">char</span><span style="color: #333">*</span><span style="color: #BBB"> </span><span style="color: #06B; font-weight: bold">select_random_from_values</span>(<span style="color: #080; font-weight: bold">const</span><span style="color: #BBB"> </span>std<span style="color: #333">::</span>string<span style="color: #333">&amp;</span><span style="color: #BBB"> </span>input)<span style="color: #BBB"> </span>{
+<span style="color: #BBB">    </span>std<span style="color: #333">::</span>vector<span style="color: #333">&lt;</span>std<span style="color: #333">::</span>string<span style="color: #333">&gt;</span><span style="color: #BBB"> </span>tokens;
+<span style="color: #BBB">    </span>std<span style="color: #333">::</span>string<span style="color: #BBB"> </span>token;
+<span style="color: #BBB">    </span>std<span style="color: #333">::</span>stringstream<span style="color: #BBB"> </span>ss(input);
+
+<span style="color: #BBB">    </span><span style="color: #080; font-weight: bold">while</span><span style="color: #BBB"> </span>(std<span style="color: #333">::</span>getline(ss,<span style="color: #BBB"> </span>token,<span style="color: #BBB"> </span><span style="color: #04D">','</span>))<span style="color: #BBB"> </span>{
+<span style="color: #BBB">        </span>tokens.push_back(token);
+<span style="color: #BBB">    </span>}
+
+<span style="color: #BBB">    </span><span style="color: #080; font-weight: bold">return</span><span style="color: #BBB"> </span>tokens[random_index(tokens.size()<span style="color: #00D; font-weight: bold">-1</span>)].c_str();
+}
+
+<span style="color: #339; font-weight: bold">void</span><span style="color: #BBB"> </span><span style="color: #06B; font-weight: bold">yyerror</span>(<span style="color: #080; font-weight: bold">const</span><span style="color: #BBB"> </span><span style="color: #339; font-weight: bold">char</span><span style="color: #333">*</span><span style="color: #BBB"> </span>s);
+<span style="color: #339; font-weight: bold">int</span><span style="color: #BBB"> </span><span style="color: #06B; font-weight: bold">yylex</span>(<span style="color: #339; font-weight: bold">void</span>);
+
+<span style="color: #333">%</span>}
+
+<span style="color: #333">%</span>define<span style="color: #BBB"> </span>parse.error<span style="color: #BBB"> </span>custom
+
+<span style="color: #333">%</span><span style="color: #080; font-weight: bold">union</span>{
+<span style="color: #BBB">    </span><span style="color: #339; font-weight: bold">char</span><span style="color: #333">*</span><span style="color: #BBB"> </span>string;
+}
+
+<span style="color: #333">%</span>token<span style="color: #BBB"> </span>OPENING_BRACES
+<span style="color: #333">%</span>token<span style="color: #BBB"> </span>CLOSING_BRACES
+<span style="color: #333">%</span>token<span style="color: #BBB"> </span>PROPERTY_SEPARATOR
+<span style="color: #333">%</span>token<span style="color: #BBB"> </span>PAIR_SEPARATOR
+<span style="color: #333">%</span>token<span style="color: #BBB"> </span>ASSIGN
+<span style="color: #333">%</span>token<span style="color: #BBB"> </span>EXTENDS
+<span style="color: #333">%</span>token<span style="color: #BBB"> </span>ALIAS
+<span style="color: #333">%</span>token<span style="color: #BBB"> </span>SCALAR
+<span style="color: #333">%</span>token<span style="color: #BBB"> </span>WHITESPACE
+<span style="color: #333">%</span>token<span style="color: #BBB"> </span>IMP_MARKER
+
+<span style="color: #333">%</span>token<span style="color: #BBB"> </span><span style="color: #333">&lt;</span>string<span style="color: #333">&gt;</span><span style="color: #BBB"> </span>PROPERTY_NAME
+<span style="color: #333">%</span>token<span style="color: #BBB"> </span><span style="color: #333">&lt;</span>string<span style="color: #333">&gt;</span><span style="color: #BBB"> </span>IDENTIFIER
+<span style="color: #333">%</span>token<span style="color: #BBB"> </span><span style="color: #333">&lt;</span>string<span style="color: #333">&gt;</span><span style="color: #BBB"> </span>CLASS_NAME
+<span style="color: #333">%</span>token<span style="color: #BBB"> </span><span style="color: #333">&lt;</span>string<span style="color: #333">&gt;</span><span style="color: #BBB"> </span>TEXT
+<span style="color: #333">%</span>token<span style="color: #BBB"> </span><span style="color: #333">&lt;</span>string<span style="color: #333">&gt;</span><span style="color: #BBB"> </span>COMMENT
+
+<span style="color: #333">%</span>nterm<span style="color: #BBB"> </span><span style="color: #333">&lt;</span>string<span style="color: #333">&gt;</span><span style="color: #BBB"> </span>valid_value
+<span style="color: #333">%</span>nterm<span style="color: #BBB"> </span><span style="color: #333">&lt;</span>string<span style="color: #333">&gt;</span><span style="color: #BBB"> </span>array
+
+<span style="color: #333">%%</span>
+
+<span style="color: #970; font-weight: bold">css</span>:<span style="color: #BBB"> </span>opt_whitespace<span style="color: #BBB"> </span>css<span style="color: #BBB"> </span>
+<span style="color: #BBB">	</span><span style="color: #333">|</span><span style="color: #BBB"> </span>variable<span style="color: #BBB"> </span>css<span style="color: #BBB"> </span>
+<span style="color: #BBB">	</span><span style="color: #333">|</span><span style="color: #BBB"> </span>class_definition<span style="color: #BBB"> </span>css
+<span style="color: #BBB">	</span><span style="color: #333">|</span><span style="color: #BBB"> </span>comment<span style="color: #BBB"> </span>css<span style="color: #BBB">  </span>
+<span style="color: #BBB">	</span><span style="color: #333">|</span><span style="color: #BBB"> </span>aliasing<span style="color: #BBB"> </span>css
+<span style="color: #BBB">	</span><span style="color: #333">|</span><span style="color: #BBB"> </span>class_definition
+<span style="color: #BBB">	</span><span style="color: #333">|</span><span style="color: #BBB"> </span>comment<span style="color: #BBB"> </span>
+<span style="color: #BBB">	</span><span style="color: #333">|</span><span style="color: #BBB"> </span>aliasing
+<span style="color: #BBB">	</span>;
+
+<span style="color: #970; font-weight: bold">aliasing</span>:<span style="color: #BBB"> </span>CLASS_NAME<span style="color: #BBB"> </span>opt_whitespace<span style="color: #BBB"> </span>ALIAS<span style="color: #BBB"> </span>opt_whitespace<span style="color: #BBB"> </span>CLASS_NAME<span style="color: #BBB"> </span>opt_whitespace<span style="color: #BBB"> </span>PROPERTY_SEPARATOR<span style="color: #BBB"> </span>
+<span style="color: #BBB">	</span>{
+<span style="color: #BBB">		</span>register_class($5);
+<span style="color: #BBB">		</span>std<span style="color: #333">::</span>cout<span style="color: #333">&lt;&lt;</span><span style="background-color: #FFF0F0">"{"</span>;
+<span style="color: #BBB">		</span>extends_mode_on<span style="color: #BBB"> </span><span style="color: #333">=</span><span style="color: #BBB"> </span><span style="color: #007020">true</span>;
+<span style="color: #BBB">		</span>register_class($1);
+<span style="color: #BBB">		</span>active_class_extends<span style="color: #BBB"> </span><span style="color: #333">=</span><span style="color: #BBB"> </span><span style="color: #007020">true</span>;
+<span style="color: #BBB">		</span>output_properties();
+<span style="color: #BBB">		</span>std<span style="color: #333">::</span>cout<span style="color: #333">&lt;&lt;</span><span style="background-color: #FFF0F0">"</span><span style="color: #666; font-weight: bold; background-color: #FFF0F0">\n</span><span style="background-color: #FFF0F0">}"</span>;
+<span style="color: #BBB">	</span>};
+
+<span style="color: #970; font-weight: bold">class_definition</span>:<span style="color: #BBB">  </span>selectors<span style="color: #BBB"> </span>opt_extends_class_names<span style="color: #BBB"> </span>open_brace<span style="color: #BBB"> </span>class_body<span style="color: #BBB"> </span>close_brace<span style="color: #BBB"> </span>opt_whitespace<span style="color: #BBB"> </span>
+<span style="color: #BBB">		</span><span style="color: #333">|</span><span style="color: #BBB">  </span>CLASS_NAME<span style="color: #BBB"> </span>opt_whitespace<span style="color: #BBB"> </span>PROPERTY_SEPARATOR<span style="color: #BBB"> </span>opt_whitespace<span style="color: #BBB"> </span>{std<span style="color: #333">::</span>cout<span style="color: #333">&lt;&lt;</span><span style="background-color: #FFF0F0">"</span><span style="color: #666; font-weight: bold; background-color: #FFF0F0">\n</span><span style="background-color: #FFF0F0">"</span><span style="color: #333">&lt;&lt;</span>$1<span style="color: #333">&lt;&lt;</span><span style="background-color: #FFF0F0">";"</span>;}
+<span style="color: #BBB">		</span>;
+
+<span style="color: #970; font-weight: bold">class_body</span>:<span style="color: #BBB"> </span>opt_whitespace<span style="color: #BBB"> </span>
+<span style="color: #BBB">	</span><span style="color: #333">|</span><span style="color: #BBB"> </span>comment<span style="color: #BBB"> </span>
+<span style="color: #BBB">	</span><span style="color: #333">|</span><span style="color: #BBB"> </span>property_pairs<span style="color: #BBB"> </span>
+<span style="color: #BBB">	</span><span style="color: #333">|</span><span style="color: #BBB"> </span>class_body<span style="color: #BBB"> </span>opt_whitespace<span style="color: #BBB"> </span>
+<span style="color: #BBB">	</span><span style="color: #333">|</span><span style="color: #BBB"> </span>class_body<span style="color: #BBB"> </span>comment
+<span style="color: #BBB">	</span><span style="color: #333">|</span><span style="color: #BBB"> </span>class_body<span style="color: #BBB"> </span>property_pairs<span style="color: #BBB"> </span>
+<span style="color: #BBB">	</span>;
+<span style="color: #BBB">	</span>;
+
+<span style="color: #970; font-weight: bold">array</span>:<span style="color: #BBB">	</span>OPENING_BRACES<span style="color: #BBB"> </span>valid_value<span style="color: #BBB"> </span>CLOSING_BRACES<span style="color: #BBB"> </span>{$$<span style="color: #333">=</span>strdup(select_random_from_values($2));};
+
+<span style="color: #970; font-weight: bold">variable</span>:<span style="color: #BBB"> </span>SCALAR<span style="color: #BBB"> </span>IDENTIFIER<span style="color: #BBB"> </span>opt_whitespace<span style="color: #BBB"> </span>ASSIGN<span style="color: #BBB"> </span>opt_whitespace<span style="color: #BBB"> </span>valid_value<span style="color: #BBB"> </span>opt_whitespace<span style="color: #BBB"> </span>PROPERTY_SEPARATOR<span style="color: #BBB"> </span>{variables[$2]<span style="color: #333">=</span>std<span style="color: #333">::</span>string($6);set_is_var(<span style="color: #007020">true</span>);}
+<span style="color: #BBB">        </span><span style="color: #333">|</span><span style="color: #BBB">        </span>IDENTIFIER<span style="color: #BBB"> </span>opt_whitespace<span style="color: #BBB"> </span>ASSIGN<span style="color: #BBB"> </span>opt_whitespace<span style="color: #BBB"> </span>valid_value<span style="color: #BBB"> </span>opt_whitespace<span style="color: #BBB"> </span>PROPERTY_SEPARATOR<span style="color: #BBB"> </span>{variables[$1]<span style="color: #333">=</span>std<span style="color: #333">::</span>string($5);set_is_var(<span style="color: #007020">false</span>);}
+<span style="color: #BBB">        </span><span style="color: #333">|</span><span style="color: #BBB">        </span>IDENTIFIER<span style="color: #BBB"> </span>opt_whitespace<span style="color: #BBB"> </span>ASSIGN<span style="color: #BBB"> </span>opt_whitespace<span style="color: #BBB"> </span>array<span style="color: #BBB"> </span>opt_whitespace<span style="color: #BBB"> </span>PROPERTY_SEPARATOR<span style="color: #BBB"> </span>{variables[$1]<span style="color: #333">=</span>std<span style="color: #333">::</span>string($5);set_is_var(<span style="color: #007020">false</span>);}
+<span style="color: #BBB">	</span>;
+
+<span style="color: #970; font-weight: bold">open_brace</span>:<span style="color: #BBB"> 	</span>OPENING_BRACES<span style="color: #BBB"> </span>{
+<span style="color: #BBB">		  	</span>printf(<span style="background-color: #FFF0F0">"{"</span>);
+<span style="color: #BBB">			</span>output_properties();
+<span style="color: #BBB">		</span>};
+
+<span style="color: #970; font-weight: bold">close_brace</span>:<span style="color: #BBB"> 	</span>CLOSING_BRACES<span style="color: #BBB"> </span>{printf(<span style="background-color: #FFF0F0">"</span><span style="color: #666; font-weight: bold; background-color: #FFF0F0">\n</span><span style="background-color: #FFF0F0">}"</span>);};
+
+<span style="color: #970; font-weight: bold">selectors</span>:<span style="color: #BBB"> </span>class_names
+<span style="color: #BBB">	 </span><span style="color: #333">|</span><span style="color: #BBB"> </span>IDENTIFIER<span style="color: #BBB"> </span>opt_whitespace<span style="color: #BBB"> </span>{<span style="color: #BBB"> </span>printf(<span style="background-color: #FFF0F0">"</span><span style="color: #666; font-weight: bold; background-color: #FFF0F0">\n</span><span style="background-color: #FFF0F0">%s"</span>,$1);}
+<span style="color: #BBB">	 </span><span style="color: #333">|</span><span style="color: #BBB"> </span>IDENTIFIER<span style="color: #BBB"> </span>opt_whitespace<span style="color: #BBB"> </span>selectors<span style="color: #BBB"> </span>{<span style="color: #BBB"> </span>printf(<span style="background-color: #FFF0F0">"</span><span style="color: #666; font-weight: bold; background-color: #FFF0F0">\n</span><span style="background-color: #FFF0F0">%s"</span>,$1);}
+<span style="color: #BBB">	 </span>;
+
+<span style="color: #970; font-weight: bold">class_names</span>:<span style="color: #BBB"> </span>CLASS_NAME<span style="color: #BBB"> 				</span>{register_class($1);}
+<span style="color: #BBB">	   </span><span style="color: #333">|</span><span style="color: #BBB"> </span>CLASS_NAME<span style="color: #BBB"> </span>opt_whitespace<span style="color: #BBB"> 			</span>{register_class($1);}
+<span style="color: #BBB">	   </span><span style="color: #333">|</span><span style="color: #BBB"> </span>CLASS_NAME<span style="color: #BBB"> </span>opt_whitespace<span style="color: #BBB"> </span>class_names<span style="color: #BBB"> 	</span>{register_class($1);}
+<span style="color: #BBB">	   </span>;
+
+<span style="color: #970; font-weight: bold">opt_extends_class_names</span>:<span style="color: #BBB"> </span>EMPTY<span style="color: #BBB"> </span>
+<span style="color: #BBB">		        </span><span style="color: #333">|</span><span style="color: #BBB"> </span>extends<span style="color: #BBB"> </span>opt_whitespace<span style="color: #BBB"> </span>class_names<span style="color: #BBB"> </span>
+<span style="color: #BBB">			</span>;
+
+<span style="color: #970; font-weight: bold">extends</span>:<span style="color: #BBB"> </span>EXTENDS<span style="color: #BBB"> </span>{extends_mode_on<span style="color: #BBB"> </span><span style="color: #333">=</span><span style="color: #BBB"> </span><span style="color: #007020">true</span>;active_class_extends<span style="color: #BBB"> </span><span style="color: #333">=</span><span style="color: #BBB"> </span><span style="color: #007020">true</span>;}
+<span style="color: #BBB"> </span>
+<span style="color: #970; font-weight: bold">property_pairs</span>:<span style="color: #BBB"> </span>property_pair<span style="color: #BBB"> </span>opt_whitespace<span style="color: #BBB"> </span>property_separator<span style="color: #BBB"> </span>opt_whitespace
+<span style="color: #BBB">	      </span><span style="color: #333">|</span><span style="color: #BBB"> </span>property_pair<span style="color: #BBB"> </span>opt_whitespace<span style="color: #BBB"> </span>
+<span style="color: #BBB">	      </span><span style="color: #333">|</span><span style="color: #BBB"> </span>property_pair<span style="color: #BBB"> </span>opt_whitespace<span style="color: #BBB"> </span>property_separator<span style="color: #BBB"> </span>opt_whitespace<span style="color: #BBB"> </span>property_pairs<span style="color: #BBB"> </span>opt_whitespace<span style="color: #BBB"> </span>
+<span style="color: #BBB">	      </span>;
+
+<span style="color: #970; font-weight: bold">property_pair</span>:<span style="color: #BBB"> </span>opt_important<span style="color: #BBB"> </span>PROPERTY_NAME<span style="color: #BBB"> </span>opt_whitespace<span style="color: #BBB"> </span>PAIR_SEPARATOR<span style="color: #BBB"> </span>opt_whitespace<span style="color: #BBB"> </span>valid_value<span style="color: #BBB"> </span>
+<span style="color: #BBB">	     </span>{
+<span style="color: #BBB">		</span>std<span style="color: #333">::</span>string<span style="color: #BBB"> </span>t<span style="color: #BBB"> </span><span style="color: #333">=</span><span style="color: #BBB"> </span><span style="background-color: #FFF0F0">"</span><span style="color: #666; font-weight: bold; background-color: #FFF0F0">\n\t</span><span style="background-color: #FFF0F0">"</span><span style="color: #333">+</span>std<span style="color: #333">::</span>string($2)<span style="color: #333">+</span><span style="background-color: #FFF0F0">" : "</span><span style="color: #333">+</span>std<span style="color: #333">::</span>string($6);
+<span style="color: #BBB">		</span>std<span style="color: #333">::</span>cout<span style="color: #333">&lt;&lt;</span><span style="color: #BBB"> </span>t;
+<span style="color: #BBB">		</span><span style="color: #080; font-weight: bold">if</span>(marked_important)
+<span style="color: #BBB">			</span>printf(<span style="background-color: #FFF0F0">" !important "</span>);
+<span style="color: #BBB">		</span>classes[active_class].push_back(t);
+<span style="color: #BBB">	     </span>};
+
+<span style="color: #970; font-weight: bold">valid_value</span>:<span style="color: #BBB"> </span>TEXT<span style="color: #BBB"> 			</span>{$$<span style="color: #333">=</span>$1;}
+<span style="color: #BBB">           </span><span style="color: #333">|</span><span style="color: #BBB"> </span>IDENTIFIER<span style="color: #BBB"> 		</span>{<span style="color: #080; font-weight: bold">auto</span><span style="color: #BBB"> </span>f_iter<span style="color: #333">=</span><span style="color: #BBB"> </span>variables.find($1);<span style="color: #080; font-weight: bold">if</span>(f_iter<span style="color: #333">!=</span>variables.end())<span style="color: #BBB"> </span>{
+<span style="color: #BBB">						</span><span style="color: #080; font-weight: bold">if</span>(is_var[std<span style="color: #333">::</span>distance(variables.begin(),f_iter)]){
+<span style="color: #BBB">							</span><span style="color: #339; font-weight: bold">char</span><span style="color: #BBB"> </span>t[<span style="color: #00D; font-weight: bold">256</span>];
+<span style="color: #BBB">							</span>sprintf(t,<span style="background-color: #FFF0F0">"var(--%s)"</span>,$1);
+<span style="color: #BBB">							</span>strcpy($$,t);
+<span style="color: #BBB">							</span><span style="color: #888">//std::cout&lt;&lt; "\n$$-ii: "&lt;&lt;$$;</span>
+<span style="color: #BBB">						</span>}<span style="color: #080; font-weight: bold">else</span>{
+<span style="color: #BBB">							</span>$$<span style="color: #333">=</span>strdup(variables[$1].c_str());
+<span style="color: #BBB">							</span><span style="color: #888">//std::cout&lt;&lt; "\n$$-ie: "&lt;&lt;$$;</span>
+
+<span style="color: #BBB">						</span>}
+<span style="color: #BBB">					</span>}}
+<span style="color: #BBB">           </span><span style="color: #333">|</span><span style="color: #BBB"> </span>valid_value<span style="color: #BBB"> </span>TEXT<span style="color: #BBB"> 		</span>{$$<span style="color: #333">=</span>strcat($$,$2);}
+<span style="color: #BBB">           </span><span style="color: #333">|</span><span style="color: #BBB"> </span>valid_value<span style="color: #BBB"> </span>IDENTIFIER<span style="color: #BBB"> 	</span>{<span style="color: #080; font-weight: bold">auto</span><span style="color: #BBB"> </span>f_iter<span style="color: #333">=</span><span style="color: #BBB"> </span>variables.find($2);<span style="color: #080; font-weight: bold">if</span>(f_iter<span style="color: #333">!=</span>variables.end())<span style="color: #BBB"> </span>{
+<span style="color: #BBB">						</span><span style="color: #080; font-weight: bold">if</span>(is_var[std<span style="color: #333">::</span>distance(variables.begin(),f_iter)]){
+<span style="color: #BBB">							</span><span style="color: #339; font-weight: bold">char</span><span style="color: #BBB"> </span>t[<span style="color: #00D; font-weight: bold">256</span>];
+<span style="color: #BBB">							</span>sprintf(t,<span style="background-color: #FFF0F0">"var(--%s)"</span>,$2);
+<span style="color: #BBB">							</span>$$<span style="color: #BBB"> </span><span style="color: #333">=</span><span style="color: #BBB"> </span>strcat($1,t);
+<span style="color: #BBB">							</span><span style="color: #888">//std::cout&lt;&lt; "\n$$e-ii: "&lt;&lt;$$;</span>
+<span style="color: #BBB">						</span>}<span style="color: #080; font-weight: bold">else</span>{
+<span style="color: #BBB">							</span><span style="color: #339; font-weight: bold">char</span><span style="color: #BBB"> </span>t[<span style="color: #00D; font-weight: bold">256</span>];
+<span style="color: #BBB">							</span>strcpy(t,strdup(variables[$2].c_str()));
+<span style="color: #BBB">							</span>$$<span style="color: #BBB"> </span><span style="color: #333">=</span><span style="color: #BBB"> </span>strcat($$,t);
+<span style="color: #BBB">							</span><span style="color: #888">//std::cout&lt;&lt; "\n$$e-ie: "&lt;&lt;$$;</span>
+<span style="color: #BBB">						</span>}
+<span style="color: #BBB">					</span>}<span style="color: #080; font-weight: bold">else</span>{
+<span style="color: #BBB">						</span>$$<span style="color: #333">=</span>strcat($$,$2);
+<span style="color: #BBB">						</span><span style="color: #888">//std::cout&lt;&lt; "\n$$e-e: "&lt;&lt;$$;</span>
+<span style="color: #BBB">					</span>}
+<span style="color: #BBB">					</span>}
+<span style="color: #BBB">           </span><span style="color: #333">|</span><span style="color: #BBB"> </span>valid_value<span style="color: #BBB"> </span>WHITESPACE<span style="color: #BBB"> 	</span>{$$<span style="color: #333">=</span>strcat($$,<span style="background-color: #FFF0F0">" "</span>);}
+<span style="color: #BBB">           </span>;
+
+<span style="color: #970; font-weight: bold">opt_important</span>:<span style="color: #BBB"> </span>EMPTY<span style="color: #BBB"> 	  </span>{marked_important<span style="color: #BBB"> </span><span style="color: #333">=</span><span style="color: #BBB"> </span><span style="color: #007020">false</span>;}
+<span style="color: #BBB">	     </span><span style="color: #333">|</span><span style="color: #BBB"> </span>IMP_MARKER<span style="color: #BBB"> </span>{marked_important<span style="color: #BBB"> </span><span style="color: #333">=</span><span style="color: #BBB"> </span><span style="color: #007020">true</span>;};
+<span style="color: #970; font-weight: bold">property_separator</span><span style="color: #BBB"> </span>:<span style="color: #BBB"> </span>PROPERTY_SEPARATOR<span style="color: #BBB"> </span>{printf(<span style="background-color: #FFF0F0">";"</span>);};
+
+<span style="color: #970; font-weight: bold">EMPTY</span>:<span style="color: #BBB"> </span><span style="color: #888">/*empty*/</span>;
+<span style="color: #970; font-weight: bold">opt_whitespace</span>:<span style="color: #BBB"> </span>EMPTY<span style="color: #BBB"> </span>
+<span style="color: #BBB">	      </span><span style="color: #333">|</span><span style="color: #BBB"> </span>WHITESPACE<span style="color: #BBB"> </span>opt_whitespace<span style="color: #BBB"> </span>
+<span style="color: #BBB">	      </span>;
+<span style="color: #BBB">		</span>
+<span style="color: #970; font-weight: bold">comment</span>:<span style="color: #BBB"> </span>COMMENT<span style="color: #BBB"> </span>{printf(<span style="background-color: #FFF0F0">"%s"</span>,$1);}
+
+<span style="color: #333">%%</span>
+
+<span style="color: #339; font-weight: bold">void</span><span style="color: #BBB"> </span>finally(){
+<span style="color: #BBB">	</span><span style="color: #888">//print :root block</span>
+<span style="color: #BBB">	</span><span style="color: #339; font-weight: bold">bool</span><span style="color: #BBB"> </span>any_vars<span style="color: #BBB"> </span><span style="color: #333">=</span><span style="color: #BBB"> </span>std<span style="color: #333">::</span>accumulate(is_var.begin(),<span style="color: #BBB"> </span>is_var.end(),<span style="color: #BBB"> </span><span style="color: #007020">false</span>,<span style="color: #BBB"> </span>[](<span style="color: #339; font-weight: bold">bool</span><span style="color: #BBB"> </span>a,<span style="color: #339; font-weight: bold">bool</span><span style="color: #BBB"> </span>b){<span style="color: #080; font-weight: bold">return</span><span style="color: #BBB"> </span>a<span style="color: #BBB"> </span>or<span style="color: #BBB"> </span>b;});
+<span style="color: #BBB">	</span><span style="color: #080; font-weight: bold">if</span>(any_vars){
+<span style="color: #BBB">		</span>std<span style="color: #333">::</span>cout<span style="color: #333">&lt;&lt;</span><span style="color: #BBB"> </span><span style="background-color: #FFF0F0">"</span><span style="color: #666; font-weight: bold; background-color: #FFF0F0">\n</span><span style="background-color: #FFF0F0">:root{"</span>;
+<span style="color: #BBB">		</span>uint<span style="color: #BBB"> </span>i<span style="color: #BBB"> </span><span style="color: #333">=</span><span style="color: #BBB"> </span><span style="color: #00D; font-weight: bold">0</span>;
+<span style="color: #BBB">		</span><span style="color: #080; font-weight: bold">for</span>(<span style="color: #080; font-weight: bold">const</span><span style="color: #BBB"> </span><span style="color: #080; font-weight: bold">auto</span><span style="color: #333">&amp;</span><span style="color: #BBB"> </span>[k,v]<span style="color: #333">:</span><span style="color: #BBB"> </span>variables){
+<span style="color: #BBB">			</span><span style="color: #080; font-weight: bold">if</span><span style="color: #BBB"> </span>(is_var[i])
+<span style="color: #BBB">				</span>std<span style="color: #333">::</span>cout<span style="color: #333">&lt;&lt;</span><span style="color: #BBB"> </span><span style="background-color: #FFF0F0">"</span><span style="color: #666; font-weight: bold; background-color: #FFF0F0">\n\t</span><span style="background-color: #FFF0F0">--"</span><span style="color: #333">&lt;&lt;</span>k<span style="color: #333">&lt;&lt;</span><span style="background-color: #FFF0F0">":"</span><span style="color: #333">&lt;&lt;</span>v<span style="color: #333">&lt;&lt;</span><span style="background-color: #FFF0F0">";"</span>;
+<span style="color: #BBB">			</span>i<span style="color: #333">++</span>;
+<span style="color: #BBB">		</span>}
+<span style="color: #BBB">		</span>std<span style="color: #333">::</span>cout<span style="color: #333">&lt;&lt;</span><span style="color: #BBB"> </span><span style="background-color: #FFF0F0">"</span><span style="color: #666; font-weight: bold; background-color: #FFF0F0">\n</span><span style="background-color: #FFF0F0">}"</span>;
+<span style="color: #BBB">	</span>}
+}
+
+<span style="color: #339; font-weight: bold">int</span><span style="color: #BBB"> </span>yywrap(<span style="color: #339; font-weight: bold">void</span>)<span style="color: #BBB"> </span>{<span style="color: #080; font-weight: bold">return</span><span style="color: #BBB"> </span><span style="color: #00D; font-weight: bold">1</span>;}
+
+<span style="color: #339; font-weight: bold">void</span><span style="color: #BBB"> </span>yyerror(<span style="color: #080; font-weight: bold">const</span><span style="color: #BBB"> </span><span style="color: #339; font-weight: bold">char</span><span style="color: #333">*</span><span style="color: #BBB"> </span>s)<span style="color: #BBB"> </span>{
+<span style="color: #BBB">    </span>printf(<span style="background-color: #FFF0F0">"</span><span style="color: #666; font-weight: bold; background-color: #FFF0F0">\n</span><span style="background-color: #FFF0F0">Error: %s</span><span style="color: #666; font-weight: bold; background-color: #FFF0F0">\n</span><span style="background-color: #FFF0F0">"</span>,<span style="color: #BBB"> </span>s);
+}
+
+<span style="color: #080; font-weight: bold">static</span><span style="color: #BBB"> </span><span style="color: #339; font-weight: bold">int</span><span style="color: #BBB"> </span>yyreport_syntax_error<span style="color: #BBB"> </span>(<span style="color: #080; font-weight: bold">const</span><span style="color: #BBB"> </span>yypcontext_t<span style="color: #BBB"> </span><span style="color: #333">*</span>ctx)<span style="color: #BBB"> </span>{<span style="color: #BBB"> </span>
+<span style="color: #BBB">	</span><span style="color: #339; font-weight: bold">int</span><span style="color: #BBB"> </span>res<span style="color: #BBB"> </span><span style="color: #333">=</span><span style="color: #BBB"> </span><span style="color: #00D; font-weight: bold">0</span>;<span style="color: #BBB"> </span>
+<span style="color: #BBB">	</span>YY_LOCATION_PRINT<span style="color: #BBB"> </span>(stderr,<span style="color: #BBB"> </span><span style="color: #333">*</span>yypcontext_location<span style="color: #BBB"> </span>(ctx));
+<span style="color: #BBB">	</span>fprintf<span style="color: #BBB"> </span>(stderr,<span style="color: #BBB"> </span><span style="background-color: #FFF0F0">": syntax error"</span>);
+<span style="color: #BBB">	 </span><span style="color: #888">// Report the tokens expected at this point. </span>
+<span style="color: #BBB">	</span>{<span style="color: #BBB"> </span>
+<span style="color: #BBB">		</span><span style="color: #080; font-weight: bold">enum</span><span style="color: #BBB"> </span>{<span style="color: #BBB"> </span>TOKENMAX<span style="color: #BBB"> </span><span style="color: #333">=</span><span style="color: #BBB"> </span><span style="color: #00D; font-weight: bold">5</span><span style="color: #BBB"> </span>};
+<span style="color: #BBB">		</span>yysymbol_kind_t<span style="color: #BBB"> </span>expected[TOKENMAX];
+<span style="color: #BBB">		</span><span style="color: #339; font-weight: bold">int</span><span style="color: #BBB"> </span>n<span style="color: #BBB"> </span><span style="color: #333">=</span><span style="color: #BBB"> </span>yypcontext_expected_tokens<span style="color: #BBB"> </span>(ctx,<span style="color: #BBB"> </span>expected,<span style="color: #BBB"> </span>TOKENMAX);
+<span style="color: #BBB">		</span><span style="color: #080; font-weight: bold">if</span><span style="color: #BBB"> </span>(n<span style="color: #BBB"> </span><span style="color: #333">&lt;</span><span style="color: #BBB"> </span><span style="color: #00D; font-weight: bold">0</span>)<span style="color: #BBB"> </span><span style="color: #888">// Forward errors to yyparse. </span>
+<span style="color: #BBB">			</span>res<span style="color: #BBB"> </span><span style="color: #333">=</span><span style="color: #BBB"> </span>n;<span style="color: #BBB"> </span>
+<span style="color: #BBB">		</span><span style="color: #080; font-weight: bold">else</span>
+<span style="color: #BBB">			</span><span style="color: #080; font-weight: bold">for</span><span style="color: #BBB"> </span>(<span style="color: #339; font-weight: bold">int</span><span style="color: #BBB"> </span>i<span style="color: #BBB"> </span><span style="color: #333">=</span><span style="color: #BBB"> </span><span style="color: #00D; font-weight: bold">0</span>;<span style="color: #BBB"> </span>i<span style="color: #BBB"> </span><span style="color: #333">&lt;</span><span style="color: #BBB"> </span>n;<span style="color: #BBB"> </span><span style="color: #333">++</span>i)<span style="color: #BBB"> </span>
+<span style="color: #BBB">				</span>fprintf<span style="color: #BBB"> </span>(stderr,<span style="color: #BBB"> </span><span style="background-color: #FFF0F0">"%s %s"</span>,<span style="color: #BBB"> </span>i<span style="color: #BBB"> </span><span style="color: #333">==</span><span style="color: #BBB"> </span><span style="color: #00D; font-weight: bold">0</span><span style="color: #BBB"> </span><span style="color: #333">?</span><span style="color: #BBB"> </span><span style="background-color: #FFF0F0">": expected"</span><span style="color: #BBB"> </span><span style="color: #333">:</span><span style="color: #BBB"> </span><span style="background-color: #FFF0F0">" or"</span>,<span style="color: #BBB"> </span>yysymbol_name<span style="color: #BBB"> </span>(expected[i]));<span style="color: #BBB"> </span>
+<span style="color: #BBB">	</span>}<span style="color: #BBB"> </span><span style="color: #888">// Report the unexpected token. </span>
+<span style="color: #BBB">	</span>{<span style="color: #BBB"> </span>
+<span style="color: #BBB">		</span>yysymbol_kind_t<span style="color: #BBB"> </span>lookahead<span style="color: #BBB"> </span><span style="color: #333">=</span><span style="color: #BBB"> </span>yypcontext_token<span style="color: #BBB"> </span>(ctx);<span style="color: #BBB"> </span>
+<span style="color: #BBB">		</span><span style="color: #080; font-weight: bold">if</span><span style="color: #BBB"> </span>(lookahead<span style="color: #BBB"> </span><span style="color: #333">!=</span><span style="color: #BBB"> </span>YYSYMBOL_YYEMPTY)<span style="color: #BBB"> </span>
+<span style="color: #BBB">		</span>fprintf<span style="color: #BBB"> </span>(stderr,<span style="color: #BBB"> </span><span style="background-color: #FFF0F0">" before %s at "</span>,<span style="color: #BBB"> </span>yysymbol_name<span style="color: #BBB"> </span>(lookahead));<span style="color: #BBB"> </span>
+<span style="color: #BBB">		</span>YY_LOCATION_PRINT<span style="color: #BBB"> </span>(stderr,<span style="color: #BBB"> </span><span style="color: #333">*</span>yypcontext_location<span style="color: #BBB"> </span>(ctx));
+<span style="color: #BBB">	</span>}<span style="color: #BBB"> </span>
+<span style="color: #BBB">		</span>fprintf<span style="color: #BBB"> </span>(stderr,<span style="color: #BBB"> </span><span style="background-color: #FFF0F0">"</span><span style="color: #666; font-weight: bold; background-color: #FFF0F0">\n</span><span style="background-color: #FFF0F0">"</span>);<span style="color: #BBB"> </span>
+<span style="color: #BBB">		</span><span style="color: #080; font-weight: bold">return</span><span style="color: #BBB"> </span>res;
+}
+<span style="color: #339; font-weight: bold">int</span><span style="color: #BBB"> </span>main()<span style="color: #BBB"> </span>{
+<span style="color: #BBB">    </span>yyparse();
+<span style="color: #BBB">    </span>finally();
+<span style="color: #BBB">    </span><span style="color: #080; font-weight: bold">return</span><span style="color: #BBB"> </span><span style="color: #00D; font-weight: bold">0</span>;
+}
+</pre>
+</div>
+
+</div></div><div style="clear:both; line-height:0; width:0; height:0; margin:0; padding:0;"> </div></div>
+<h2 class="paragraph-Heading_20_2"><a id="a__Makefile"><span/></a>Makefile</h2>
+
+<p class="paragraph-Normal">Below is the Makefile to build the project. Just execute the ‘<span class="text-T1">make</span>’ command, that is if you are compiling on linux / WSL. If not, manually executing the ‘generate’ and ‘compile’ commands should work.</p>
+
+<!--Next 'div' was a 'text:p'.-->
+<div class="paragraph-Normal">
+<!--Next 'div' is emulating the top height of a draw:frame.-->
+
+<!--Next 'div' is a draw:frame. -->
+<div style="height:0.2248in;width:6.4469in; padding:0;  float:left; position:relative; left:0.0391cm; " id="Text_Frame_5" class="graphic-gr1 graphic-P4">
+<!--Next 'div' was a 'draw:text-box'.-->
+<div>
+<div class="code-snippet">
+<pre style="margin: 0; line-height: 125%;"><span></span><span style="color: #06B; font-weight: bold">all</span><span style="color: #333">:</span><span style="color: #BBB"> </span>generate compile
+<span style="color: #06B; font-weight: bold">generate</span><span style="color: #333">:</span>
+<span style="color: #BBB">	</span>flex<span style="color: #BBB"> </span>pss.l<span style="color: #BBB"> </span><span style="color: #333">&amp;&amp;</span><span style="color: #BBB"> </span>bison<span style="color: #BBB"> </span>-t<span style="color: #BBB"> </span>-dy<span style="color: #BBB"> </span>pss.y
+<span style="color: #06B; font-weight: bold">compile</span><span style="color: #333">:</span>
+<span style="color: #BBB">	</span>g++<span style="color: #BBB"> </span>-std<span style="color: #333">=</span>c++17<span style="color: #BBB"> </span>lex.yy.c<span style="color: #BBB"> </span>y.tab.c<span style="color: #BBB"> </span>-o<span style="color: #BBB"> </span>pss
+<span style="color: #06B; font-weight: bold">clean</span><span style="color: #333">:</span>
+<span style="color: #BBB">	</span>rm<span style="color: #BBB"> </span>./pss
+<span style="color: #BBB">	</span>rm<span style="color: #BBB"> </span>y.tab.c<span style="color: #BBB"> </span>y.tab.h
+<span style="color: #BBB">	</span>rm<span style="color: #BBB"> </span>lex.yy.c<span style="color: #BBB"> </span>
+<span style="color: #06B; font-weight: bold">git-ignore-fix</span><span style="color: #333">:</span>
+<span style="color: #BBB">	</span>git<span style="color: #BBB"> </span>rm<span style="color: #BBB"> </span>-r<span style="color: #BBB"> </span>--cached<span style="color: #BBB"> </span>.;
+<span style="color: #BBB">	</span>git<span style="color: #BBB"> </span>add<span style="color: #BBB"> </span>.;
+<span style="color: #BBB">	</span>git<span style="color: #BBB"> </span>commit<span style="color: #BBB"> </span>-m<span style="color: #BBB"> </span><span style="background-color: #FFF0F0">"Untracked files issue resolved to fix .gitignore"</span>;
+</pre>
+</div>
+
+</div></div><div style="clear:both; line-height:0; width:0; height:0; margin:0; padding:0;"> </div></div>
+<h2 class="paragraph-Heading_20_2"><a id="a__Testing"><span/></a>Testing</h2>
+
+<p class="paragraph-Normal">Finally we can test our program by executing the command</p>
+<h4 class="paragraph-Heading_20_4"><a id="a__cat__input_pss__|___pss"><span/></a>cat &lt;input.pss&gt; | .\pss</h4>
+</div>
+    
+				</div>
+			</div>
+		</div>
+			<center>
+		<small style="padding: 2px 1em;" class="deprecated">
+			<a href="https://www.namecheap.com/">Namecheap</a>
+			|
+			Github Pages
+		</small>
+	</center>
+	<br>
+	</div>
+
+	<script>
+		(function () {
+			if (/Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+				const sidebar = document.querySelector('.site-container');
+				// if (sidebar) sidebar.innerHTML = '';
+				if (sidebar) {
+					sidebar.style.width = 'auto';
+				}
+			}
+		})();
+
+		// Wait for the document to fully load
+		document.addEventListener('DOMContentLoaded', () => {
+			// Select all span elements with the class 'Bullet_20_Symbols'
+			const spans = document.querySelectorAll('span.Bullet_20_Symbols');
+
+			// Loop through each span and remove it from the DOM
+			spans.forEach(span => {
+				span.remove();
+			});
+
+			const tr_paras = document.querySelectorAll('.paragraph-Table_20_Contents');
+
+			tr_paras.forEach(para => {
+				const parent = para.parentElement;  // Get the parent of the <tr> element
+				const paraHTML = para.innerHTML;    // Get the inner HTML of the <tr> element
+
+				para.remove();  // Remove the <tr> element from the DOM
+
+				parent.innerHTML += paraHTML;  // Append the inner HTML of <tr> to the parent element
+			});
+
+			const images = document.querySelectorAll('.article-container img'); // Select all <img> tags within #article-container
+
+			images.forEach(img => {
+				img.classList.add('modal_img'); // Add 'modal_img' class to each image
+			});
+
+
+			// Create a table of contents
+			// This will create a list of all headings (h2, h3) in the document
+			// and link them to their respective sections.
+			const headings = document.querySelectorAll("h2, h3");
+			const toc = document.getElementById("toc");
+
+			if (!toc) {
+				console.warn("No element with ID 'table-of-contents' found.");
+				return;
+			}
+
+			const tocList = document.createElement("ul");
+
+			headings.forEach((heading, index) => {
+				let id = heading.id;
+
+				// If the heading doesn't have an ID, generate one
+				if (!id) {
+					id = heading.textContent
+						.toLowerCase()
+						.trim()
+						.replace(/[^\w]+/g, "-")
+						.replace(/^-+|-+$/g, "") + "-" + index;
+					heading.id = id;
+				}
+
+				const link = document.createElement("a");
+				link.href = `#${id}`;
+				link.textContent = heading.textContent;
+
+				const listItem = document.createElement("li");
+				listItem.appendChild(link);
+
+				// Add class for h3 to style indents, etc.
+				if (heading.tagName.toLowerCase() === "h3") {
+					listItem.classList.add("toc-nested-list-item");
+				}
+
+				tocList.appendChild(listItem);
+			});
+
+			toc.appendChild(tocList);
+
+			// Select all divs with id starting with "Text_Frame"
+			const divs = document.querySelectorAll('div[id^="Text_Frame"]');
+
+			divs.forEach(div => {
+				// Remove inline styles
+				div.removeAttribute('style');
+			});
+
+		});
+
+	</script>
+
+	<!-- Modal Structure -->
+<div id="screenshotModal" class="modal">
+	<span id="closeModal" class="close">&times;</span>
+	<img id="modalImage" src="" alt="Screenshot">
+</div>
+<script src="/scripts/script.js"></script>
+
+</body>
+
+</html>

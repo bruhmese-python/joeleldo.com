@@ -36,3 +36,4 @@ if preview_div:
         print("</div>")
 else:
     print("#preview not found in the response.")
+    print(response.text)
