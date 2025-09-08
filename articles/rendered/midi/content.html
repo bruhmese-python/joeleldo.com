@@ -93,9 +93,21 @@
 
 			<!-- Main Content -->
 			<div class="main-content">
-				<p>
+				<!-- 				<p>
 					<a href="/articles.html">◄&nbsp;Articles</a>
 				</p>
+ -->
+				<div class="article-header">
+					<div class="back-btn-container">
+						<a href="/articles.html">◄&nbsp;Articles</a>
+					</div>
+					<div class="doc-download">
+						<a href="/articles/midi.odt" id="download-doc-link">
+							<img src="/images/doc-download.png" style="width: 1em;" alt="">
+							Download doc</a>
+					</div>
+				</div>
+
 				<br>
 				<div class="article-container">
 					
@@ -264,6 +276,15 @@
 				// Remove inline styles
 				div.removeAttribute('style');
 			});
+
+			// Grey out download document link if href is '#'
+			const link = document.getElementById("download-doc-link");
+
+			if (link.getAttribute("href") === "#") {
+				link.style.color = "grey";
+				link.style.pointerEvents = "none"; // optional: disable click
+				link.style.textDecoration = "none"; // optional: remove underline
+			}
 
 		});
 

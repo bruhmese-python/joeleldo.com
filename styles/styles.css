@@ -40,18 +40,18 @@ html {
 }
 
 .code-snippet {
-  background-color: #f5f5f5;
-  padding: 1em;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  white-space: pre; 
-  font-size: small;
-  line-height: 1.5;
-  box-sizing: border-box;
+    background-color: #f5f5f5;
+    padding: 1em;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    white-space: pre;
+    font-size: small;
+    line-height: 1.5;
+    box-sizing: border-box;
 
-  /* width: 75%; */
-  width: 50em;
-  overflow-x: scroll;
+    /* width: 75%; */
+    width: 50em;
+    overflow-x: scroll;
 }
 
 .paragraph-Table_20_Contents {
@@ -100,7 +100,8 @@ table tr:first-child {
     margin-left: 20px;
     font-size: 0.95em;
     color: #555;
-    list-style-type: square; /* Optional: remove bullet */
+    list-style-type: square;
+    /* Optional: remove bullet */
 }
 
 
@@ -215,7 +216,7 @@ details {
 .site-container {
     display: flex;
     flex-direction: column;
-    width: 80%; 
+    width: 80%;
     /* ontent wrapper with 80% width */
     /* max-width: 1200px; */
     /* Optional: limit maximum width for large screens */
@@ -677,4 +678,24 @@ table img {
     font-size: 40px;
     font-weight: bold;
     cursor: pointer;
+}
+
+.article-header {
+    padding: 1em;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    grid-template-rows: 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+        "back-btn-container . doc-download";
+}
+
+.back-btn-container {
+    grid-area: back-btn-container;
+}
+
+.doc-download {
+    text-align: right;
+    grid-area: doc-download;
 }

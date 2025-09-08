@@ -49,6 +49,11 @@ def process_snippets(file_path :str):
     matches += list(re.findall(pattern, code_highlighted_html))
 
     print('Snippets found:') 
+
+    snippets_list = list(matches)
+    if snippets_list.__len__() == 0:
+        print("No code snippets found in document")
+
     [print(f"\t{x}") for x in matches]
 
     #if files with their content's fielnames exist in the current directory, replace them with the content inside the span tag

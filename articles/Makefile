@@ -21,14 +21,20 @@ rendered/%: %.odt
 	    echo "Renamed $$src_html to $$dst_html"; \
 	    python3 $(STRIP_SCRIPT) "$$dst_html"; \
 	    echo "Processing $$dst_html.."; \
-	    python3 $(GLOSSARY_SCRIPT) "$$dst_html"; \
+		processing_logs=`python3 $(GLOSSARY_SCRIPT) "$$dst_html"`; \
+		echo "$$processing_logs"; \
+		echo "$$processing_logs" > processing_logs.log; \
 	else \
 	    echo "Error: HTML file $$src_html not found."; \
 	fi
 	@echo "Copying temporary template"
 	@cp $@/content.html ../content.html
 	@echo "Rendering article"
-	@cd $@ && $(JINJA_CMD)  ../../../article_.html > content.html
+	@if grep -q "Generating highlighted code" processing_logs.log; then \
+	    cd $@ && $(JINJA_CMD) -D document="#" ../../../article_.html > content.html; \
+	else \
+	    cd $@ && $(JINJA_CMD) -D document="/articles/$<" ../../../article_.html > content.html; \
+	fi
 	@echo "Cleaning up temp template"
 	@rm ../content.html
 
