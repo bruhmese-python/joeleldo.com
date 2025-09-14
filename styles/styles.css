@@ -24,19 +24,27 @@ body {
 }
 
 html {
-    font-family: Noto Sans Display;
+    /* font-family: Noto Sans Display; */
     color: #eee;
 
     font-size: 1em;
-    line-height: 1;
-    letter-spacing: 0.062em;
-    text-shadow: 1px 0 0 #ea36af, -1px 0 0 #75fa69;
+    /* line-height: 1.5; */
 
     /* letter-spacing: 0.125em; */
     /* mation-duration: 0.01s; */
     /* animation-name: textflicker; */
     /* animation-iteration-count: infinite; */
     /* animation-direction: alternate; */
+}
+
+.glitch-effect {
+
+    letter-spacing: 0.062em;
+    text-shadow: 1px 0 0 #ea36af, -1px 0 0 #75fa69;
+}
+
+.index-line-height {
+    line-height: 1.75em;
 }
 
 .code-snippet {
@@ -186,6 +194,7 @@ img {
 
 .banner-text {
     grid-area: banner-text;
+    padding-left: 1em;
 }
 
 .banner>h1 {
@@ -669,6 +678,43 @@ table img {
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
+.youtube-thumbnail {
+    max-width: 200px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.youtube-modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    grid-template-columns: 20% 1fr 20%;
+    grid-template-rows: auto 1fr auto;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+        ". . ."
+        ". video-area ."
+        ". . .";
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.video-area {
+    justify-self: center;
+    align-self: center;
+    grid-area: video-area;
+}
+
 
 .close {
     position: absolute;

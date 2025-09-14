@@ -39,7 +39,7 @@ def extract_first_h1(file_path):
         return None
 
 def main():
-    print('<ul>')
+    print('<ul style="list-style-type: none;line-height:1.75">')
     # List directories inside articles/rendered
     for folder in sorted(os.listdir(BASE_DIR)):
         folder_path = os.path.join(BASE_DIR, folder)

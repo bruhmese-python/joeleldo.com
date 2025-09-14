@@ -27,4 +27,38 @@ document.addEventListener("DOMContentLoaded", () => {
       modal.style.display = "none";
     }
   });
+
+  // --------------------------
+  // Elements for YouTube modal
+  // --------------------------
+  const youtubeModal = document.getElementById("youtubeModal");
+  const youtubeIframe = document.getElementById("youtubeIframe");
+  const closeYoutubeModal = document.getElementById("closeYoutubeModal");
+
+  const youtubeThumbnails = document.querySelectorAll(".youtube-thumbnail");
+
+  youtubeThumbnails.forEach((thumb) => {
+    thumb.addEventListener("click", function () {
+      const videoId = this.getAttribute("data-video-id");
+      const videoURL = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+      youtubeIframe.src = videoURL;
+      youtubeModal.style.display = "grid";
+      document.body.style.overflow = "hidden";
+    });
+  });
+
+  // Close YouTube modal
+  function closeVideoModal() {
+    youtubeModal.style.display = "none";
+    youtubeIframe.src = "";
+    document.body.style.overflow = "auto";
+  }
+
+  closeYoutubeModal.addEventListener("click", closeVideoModal);
+
+  window.addEventListener("click", (e) => {
+    if (e.target === youtubeModal) {
+      closeVideoModal();
+    }
+  });
 });
