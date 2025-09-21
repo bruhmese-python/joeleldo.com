@@ -1,0 +1,8 @@
+put whatever images on top of which you want the play overlay to youtube-thumbnails folder
+
+cleaning the following affects the corresponding pages
+
+article-links.html : all articles get remade/checked when doing make
+downloads.html : as name
+links.html : as name
+
