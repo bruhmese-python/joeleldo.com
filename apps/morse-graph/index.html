@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Morse Code Tree</title>
+  <style>
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      background-color: #1e1e1e;
+      /* Dark background like itch.io */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* The top-right box */
+    .top-right-box {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: #1c1c1c;
+      color: rgb(152, 152, 152);
+      padding: 8px 12px;
+      border-radius: 4px;
+      font-weight: bold;
+      font-family: 'monospace';
+    }
+
+    .svg-wrapper {
+      position: relative;
+      max-width: 90vw;
+      max-height: 90vh;
+      overflow: auto;
+      background: #2b2b2b;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    }
+
+    .svg-wrapper img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="svg-wrapper">
+    <div id="keystrokes" class="top-right-box">Tap screen / press spacebar
+    </div>
+    <object type="image/svg+xml" data="morse-tree.svg" style="width:100%; height:auto; user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none;" id="mySvg"></object>
+  </div>
+
+  <input type="text" name="letter" id="letter" style="display: none;">
+  <script src="script.js"></script>
+</body>
+
+</html>

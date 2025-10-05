@@ -9,7 +9,33 @@ TEMPLATES = $(wildcard _*.html)
 TARGETS = $(patsubst _%.html,%.html,$(TEMPLATES))
 
 # Default target
-all: $(TARGETS) downloads.html sitemap.html
+all: $(TARGETS) downloads.html sitemap.html apps
+
+apps:
+	@mkdir -p apps
+	@while read path; do \
+		if [ -d "$$path" ]; then \
+			echo "Processing $$path"; \
+			dest=./apps/$$(basename "$$path"); \
+			rm -rf "$$dest"; \
+			mkdir -p "$$dest"; \
+			if [ -f "$$path/files_to_copy.txt" ]; then \
+				while read item; do \
+					if [ -e "$$path/$$item" ]; then \
+						echo "  Copying $$item"; \
+						cp -r "$$path/$$item" "$$dest/"; \
+					else \
+						echo "  Warning: '$$item' not found in $$path"; \
+					fi \
+				done < "$$path/files_to_copy.txt"; \
+			else \
+				echo "  Warning: files_to_copy.txt not found in $$path"; \
+			fi \
+		else \
+			echo "Warning: '$$path' is not a directory or does not exist"; \
+		fi \
+	done < apps.path
+
 
 # Rule to generate target files from templates
 %.html: _%.html
@@ -43,3 +69,4 @@ articles.html:
 clean:
 	cd articles && make clean
 	rm -f $(TARGETS)
+	rm -rf apps
