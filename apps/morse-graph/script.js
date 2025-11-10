@@ -108,8 +108,10 @@ function registerStrokes() {
   pressStartTime = Date.now();
 
   const output = document.getElementById("keystrokes");
+  const output_letter = document.getElementById("letter-overlay");
   if (output.textContent.startsWith("Tap")) {
     output.textContent = "";
+    output_letter.textContent = "";
   }
 
   // Add this:
@@ -124,6 +126,7 @@ function sendStrokes() {
   pressDuration = Date.now() - pressStartTime;
 
   const output = document.getElementById("keystrokes");
+  const output_letter = document.getElementById("letter-overlay");
 
   if (pressDuration < DASH_THRESHOLD) {
     dotDashLog.push(".");
@@ -183,6 +186,9 @@ function highlight(code) {
   letter.value = morseToChar[code];
   console.log("finding code: ", code);
   console.log("finding letter: ", letter.value);
+
+  const output_letter = document.getElementById("letter-overlay");
+  output_letter.textContent = letter.value;
 }
 
 function refreshSVG() {
@@ -195,11 +201,13 @@ function refreshSVG() {
 function loop() {
   const now = Date.now();
   const output = document.getElementById("keystrokes");
+  const output_letter = document.getElementById("letter-overlay");
 
   // Check for word gap
   if (lastReleaseTime && now - lastReleaseTime > WORD_GAP) {
     if (dotDashLog.length > 0) {
       output.textContent = "Tap screen / press spacebar";
+      output_letter.textContent = "undefined";
       dotDashLog = [];
 
       // reset the graph

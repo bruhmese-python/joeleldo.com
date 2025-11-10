@@ -11,6 +11,8 @@ TARGETS = $(patsubst _%.html,%.html,$(TEMPLATES))
 # Default target
 all: $(TARGETS) downloads.html sitemap.html apps
 
+.PHONY: apps
+
 apps:
 	@mkdir -p apps
 	@while read path; do \

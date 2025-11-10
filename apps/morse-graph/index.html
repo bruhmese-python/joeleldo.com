@@ -30,6 +30,18 @@
       font-family: 'monospace';
     }
 
+    .letter-overlay {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: #1c1c1c;
+      color: rgb(152, 152, 152);
+      padding: 8px 12px;
+      border-radius: 4px;
+      font-weight: bold;
+      font-family: 'monospace';
+    }
+
     .svg-wrapper {
       position: relative;
       max-width: 90vw;
@@ -51,9 +63,12 @@
 
 <body>
   <div class="svg-wrapper">
+    <div id="letter-overlay" class="letter-overlay">undefined</div>
     <div id="keystrokes" class="top-right-box">Tap screen / press spacebar
     </div>
-    <object type="image/svg+xml" data="morse-tree.svg" style="width:100%; height:auto; user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none;" id="mySvg"></object>
+    <object type="image/svg+xml" data="morse-tree.svg"
+      style="width:100%; height:auto; user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none;"
+      id="mySvg"></object>
   </div>
 
   <input type="text" name="letter" id="letter" style="display: none;">
