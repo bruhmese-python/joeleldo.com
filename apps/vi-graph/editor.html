@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vi-graph Modernized</title>
+    <!-- Vue 3 Global Build CDN -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!-- D3.js for Auto-Layout -->
+    <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+    <!-- Google Fonts for Premium Look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app" v-cloak>
+        <!-- Lock Screen -->
+        <div v-if="isLocked" class="lock-screen glass">
+            <div class="lock-content">
+                <i data-feather="shield-off" class="lock-icon"></i>
+                <h2>Security Violation</h2>
+                <p>{{ lockMessage }}</p>
+                <a href="https://vigraph.app" class="primary-btn">Visit Official Site</a>
+            </div>
+        </div>
+
+        <template v-else>
+            <!-- Background Decor -->
+            <div class="bg-blur"></div>
+            
+            <!-- SVG Canvas -->
+            <div class="canvas-container" 
+                 @mousemove="handleMouseMove" 
+                 @mouseup="handleMouseUp"
+                 ref="canvas">
+                <svg width="100%" height="100%" class="graph-svg" ref="svg">
+                    <!-- Grid Patterns -->
+                    <defs>
+                        <pattern id="smallGrid" width="20" height="20" patternUnits="userSpaceOnUse" :patternTransform="gridTransform">
+                            <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(255, 255, 255, 0.05)" stroke-width="0.5"/>
+                        </pattern>
+                        <pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse" :patternTransform="gridTransform">
+                            <rect width="100" height="100" fill="url(#smallGrid)"/>
+                            <path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1"/>
+                        </pattern>
+                        
+                        <marker id="arrowhead" markerWidth="10" markerHeight="7" 
+                                refX="10" refY="3.5" orient="auto">
+                            <polygon points="0 0, 10 3.5, 0 7" fill="rgba(255, 255, 255, 0.4)" />
+                        </marker>
+                    </defs>
+
+                    <!-- Infinite Grid Background -->
+                    <rect width="100%" height="100%" fill="url(#grid)" @mousedown="deselectAll" />
+
+                    <!-- Transformable Group for Graph -->
+                    <g class="contents" :transform="zoomTransform">
+                        <!-- Edges Layer -->
+                        <g class="edges">
+                            <path v-for="(edge, index) in edges" 
+                                  :key="'edge-' + index"
+                                  :d="getEdgePath(edge)"
+                                  fill="none"
+                                  stroke="rgba(255, 255, 255, 0.2)"
+                                  stroke-width="2"
+                                  marker-end="url(#arrowhead)" />
+                        </g>
+
+                        <!-- Nodes Layer -->
+                        <g v-for="(node, index) in nodes" 
+                           :key="node.id"
+                           class="node-group"
+                           :class="{ 
+                               selected: selectedNodeIndex === index, 
+                               ['mode-' + mode.toLowerCase().replace(' ', '-')]: selectedNodeIndex === index 
+                           }"
+                           @mousedown="selectNode(index)">
+                            
+                            <!-- Node Body (Text or Rect) -->
+                            <rect v-if="!node.isText"
+                                  :x="node.x" :y="node.y" 
+                                  :width="node.width" :height="node.height" 
+                                  rx="8" ry="8"
+                                  class="node-rect" />
+                            
+                            <!-- Node Text -->
+                            <text :x="node.x + node.width / 2" 
+                                  :y="node.y + node.height / 2" 
+                                  text-anchor="middle" 
+                                  dominant-baseline="central"
+                                  class="node-text"
+                                  :class="{ 'text-only': node.isText }">
+                                <tspan v-for="(line, i) in node.text.split('\n')"
+                                       :x="node.x + node.width / 2"
+                                       :dy="i === 0 ? -(node.text.split('\n').length - 1) * 0.6 + 'em' : '1.2em'"
+                                       :class="{ highlighted: searchQuery && node.text.toLowerCase().includes(searchQuery.toLowerCase()) }">
+                                    {{ line }}
+                                </tspan>
+                            </text>
+
+                            <!-- Node Index Badge (Peek Mode) -->
+                            <text v-if="peekNumbers"
+                                  :x="node.x + 5" 
+                                  :y="node.y - 5" 
+                                  class="node-index">
+                                {{ index }}
+                            </text>
+                        </g>
+                    </g>
+
+                    <!-- Arrows Marker -->
+                </svg>
+            </div>
+
+            <!-- Search Overlay (Fly-in) -->
+            <transition name="slide-up-fade">
+                <div v-if="isSearching" class="search-overlay">
+                    <div class="search-bar">
+                        <span class="icon"><i data-feather="search" style="width: 16px; height: 16px;"></i></span>
+                        <input ref="searchInput" 
+                               v-model="searchQuery" 
+                               class="search-input" 
+                               placeholder="Find nodes..."
+                               @keydown.enter="nextMatch"
+                               @keydown.esc.stop="closeSearch">
+                        <span v-if="searchQuery" class="search-info">
+                            {{ searchResults.length > 0 ? (searchIndex + 1) : 0 }} / {{ searchResults.length }}
+                        </span>
+                    </div>
+                </div>
+            </transition>
+
+            <!-- Floating UI Overlays -->
+            <div class="overlay-top">
+                <div class="status-bar">
+                    <span class="mode-label">Mode:</span>
+                    <span class="mode-value" :class="mode.toLowerCase()">{{ mode }}</span>
+                    <span v-if="gotoNumber" class="goto-input"> {{ gotoNumber }}</span>
+                    <div class="divider"></div>
+                    <button class="layout-btn" title="Auto Layout (=)" @click="autoArrange">
+                        <span class="icon"><i data-feather="zap"></i></span> Auto Layout
+                    </button>
+                    <div class="divider"></div>
+                    <button class="layout-btn" title="Reset Zoom" @click="resetZoom">
+                        <span class="icon"><i data-feather="search"></i></span> {{ Math.round(currentZoom * 100) }}%
+                    </button>
+                </div>
+            </div>
+
+            <div class="overlay-top-right">
+                <div class="content-bar status-bar">
+                    <button class="layout-btn" title="Demo Video" @click="showVideo = true">
+                        <span class="icon"><i data-feather="play-circle"></i></span> Demo
+                    </button>
+                    <div class="divider"></div>
+                    <a href="https://linkedin.com" target="_blank" class="layout-btn" title="LinkedIn">
+                        <span class="icon"><i data-feather="linkedin"></i></span>
+                    </a>
+                    <div class="divider"></div>
+                    <button class="layout-btn" title="More Options">
+                        <span class="icon"><i data-feather="more-horizontal"></i></span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="overlay-bottom">
+                <div class="shortcuts-hint">
+                    Press <span class="key">?</span> for Help | <span class="key">W</span> to Save | <span class="key">O</span> to Open
+                </div>
+            </div>
+
+            <!-- Help Modal -->
+            <transition name="fade">
+                <div v-if="showHelp" class="modal-overlay" @click.self="showHelp = false">
+                    <div class="modal-content glass">
+                        <button class="close-btn" @click="showHelp = false">&times;</button>
+                        <h3>vi-graph Keyboard Shortcuts</h3>
+                        <div class="modal-body">
+                            <section>
+                                <h4>Modes</h4>
+                                <ul>
+                                    <li><span class="key">Enter</span> Toggle selection/movement</li>
+                                    <li><span class="key">/</span> Find Keywords (<span class="key">n</span> next / <span class="key">N</span> prev)</li>
+                                    <li><span class="key">Esc</span> Deselect everything</li>
+                                </ul>
+                            </section>
+                            <section>
+                                <h4>Selection Mode Actions</h4>
+                                <ul>
+                                    <li><span class="key">a</span> Add child node / <span class="key">d</span> Delete</li>
+                                    <li><span class="key">i</span> / <span class="key">s</span> Edit text (Enter to save)</li>
+                                    <li><span class="key">y</span> / <span class="key">p</span> Copy / Paste</li>
+                                    <li><span class="key">e</span> / <span class="key">b</span> Navigate nodes</li>
+                                    <li><span class="key">g</span> / <span class="key">J</span> / <span class="key">X</span> Goto / Join / Remove Parent</li>
+                                    <li><span class="key">t</span> Toggle border / <span class="key">f</span> Focus Node</li>
+                                    <li><span class="key">w</span> / <span class="key">o</span> Save / Open</li>
+                                    <li><span class="key">?</span> Show this help</li>
+                                </ul>
+                            </section>
+                            <section>
+                                <h4>Canvas & Layout</h4>
+                                <ul>
+                                    <li><span class="key">zi</span> / <span class="key">zo</span> Zoom In / Out</li>
+                                    <li><span class="key">zz</span> Reset Zoom (100%)</li>
+                                    <li><span class="key">Ctrl +/-</span> In-app Zoom (Override)</li>
+                                    <li><span class="key">=</span> Magic Auto-Layout</li>
+                                </ul>
+                            </section>
+                            <section>
+                                <h4>Translate Mode</h4>
+                                <ul>
+                                    <li><span class="key">H</span> <span class="key">J</span> <span class="key">K</span> <span class="key">L</span> Move selected node</li>
+                                </ul>
+                            </section>
+                            <section>
+                                <h4>Mouse Interactions</h4>
+                                <ul>
+                                    <li><span class="key">Click</span> Select node</li>
+                                    <li><span class="key">Drag</span> Move node (Auto-Translate)</li>
+                                    <li><span class="key">Wheel</span> Zoom in/out</li>
+                                    <li><span class="key">Right Drag / Ctrl Drag</span> Pan canvas</li>
+                                </ul>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </transition>
+
+            <!-- JSON Output Modal (Save) -->
+            <transition name="fade">
+                <div v-if="showExport" class="modal-overlay" @click.self="showExport = false">
+                    <div class="modal-content glass export-modal">
+                        <h3>Export Success</h3>
+                        <p>Your graph has been saved. You can also copy the Graphviz output below:</p>
+                        <textarea readonly v-model="graphvizOutput" class="export-area"></textarea>
+                        <div class="modal-footer">
+                            <button class="primary-btn" @click="showExport = false">Done</button>
+                        </div>
+                    </div>
+                </div>
+            </transition>
+
+            <!-- Video Modal -->
+            <transition name="fade">
+                <div v-if="showVideo" class="modal-overlay" @click.self="showVideo = false">
+                    <div class="modal-content glass video-modal">
+                        <button class="close-btn" @click="showVideo = false">&times;</button>
+                        <h3>Demo Video</h3>
+                        <div class="video-container">
+                            <iframe 
+                                src="https://www.youtube.com/embed/wEgltkiKXNc?autoplay=1" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+            </transition>
+        </template>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

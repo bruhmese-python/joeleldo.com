@@ -2,133 +2,182 @@
 <html lang="en">
 
 <head>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.10.0/p5.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.10.0/addons/p5.sound.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="style.css">
-  <meta charset="utf-8" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vi-graph | Infinite Workspace</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="landing.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter+Tight:wght@500;700&family=IBM+Plex+Mono:wght@400;600&family=Oxanium:wght@400;600&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+
 
 </head>
 
 <body>
-  <script>
-    window.addEventListener('keydown', (e) => {
-      if (e.keyCode === 32 && e.target === document.body) {
-        e.preventDefault();
-      }
-    });
-    function closeModal() {
-      document.getElementById("modal").style.display = "none";
-    }
-  </script>
-  <main>
-  </main>
-  <div class="overlay">
-
-    <!-- Help Button -->
-    <button id="helpButton">?</button>
-
-    <!-- Modal -->
-    <div id="shortcutsModal" class="modal">
-      <div class="modal-content">
-        <span class="close" id="closeModal">&times;</span>
-        <div class="scroll-area">
-          <h3>Keyboard Shortcuts</h3>
-          <p><strong>Enter</strong> to switch between modes :</p>
-          <ul>
-            <li><strong>Selection (default)</strong>
-              <ul>
-                <li><strong>a </strong>add child</li>
-                <li><strong>d </strong>delete<br /><br /></li>
-                <li><strong>y&nbsp;</strong>copy&nbsp;</li>
-                <li><strong>p&nbsp;</strong>paste<br /><br /></li>
-                <li><strong>s&nbsp;</strong>Overwrite</li>
-                <li><strong>i&nbsp;&nbsp;</strong>Insertion<br /><br /></li>
-                <li><strong>g &lt;num&gt; &lt;enter&gt; </strong>goto node</li>
-                <li><strong>e</strong>/<strong>b&nbsp;</strong>navigate nodes<br /><br /></li>
-                <li><strong>&lt;Shift&gt; j &lt;num&gt; &lt;enter&gt;&nbsp;</strong>Join/Connect&nbsp;</li>
-                <li><strong>&lt;Shift&gt; x &lt;num&gt;</strong> remove connection from&nbsp;<br /><br /></li>
-                <li><strong>t&nbsp;</strong>toggle border/borderless<br /><br /></li>
-              </ul>
-            </li>
-            <li><strong>Translate</strong>
-              <ul>
-                <li><strong>H</strong>/<strong>J</strong>/<strong>K</strong>/<strong>L </strong>keys to move the node
-                  around</li>
-              </ul>
-            </li>
-          </ul>
-          <p><strong>&lt;Esc&gt;&nbsp;</strong>to deselect</p>
-          <ul>
-            <li><strong>a</strong> add child at cursor</li>
-            <li><strong>g &lt;num&gt; &lt;enter&gt;&nbsp;</strong>goto node</li>
-          </ul>
-          <p><br /><strong>o&nbsp;</strong>load vigraph from system<br /><strong>w </strong>save vigraph to system</p>
-          <p>&nbsp;</p>
+    <div class="landing-container">
+        <div class="glitch-wrapper">
+            <h1 class="glitch" data-text="vi-graph">vi-graph</h1>
         </div>
-      </div>
+        <div class="subtext">Neurotransmission through your fingertips.</div>
+        <a href="editor.html" class="cta-button">
+            <span class="prefix">//</span> INITIALIZE EDITOR
+        </a>
     </div>
+    <div class="checkered-grid" id="checkeredGrid"></div>
+    <canvas id="neuralCanvas"></canvas>
+    <div class="background-noise"></div>
 
     <script>
-      const helpButton = document.getElementById('helpButton');
-      const modal = document.getElementById('shortcutsModal');
-      const _closeModal = document.getElementById('closeModal');
+        const canvas = document.getElementById('neuralCanvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        let pulses = [];
 
-      helpButton.onclick = () => {
-        modal.style.display = 'block';
-      };
-
-      _closeModal.onclick = () => {
-        modal.style.display = 'none';
-      };
-
-      window.onclick = (event) => {
-        if (event.target === modal) {
-          modal.style.display = 'none';
+        function resize() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
         }
-      };
 
-      document.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape') {
-          modal.style.display = 'none';
+        window.addEventListener('resize', resize);
+        resize();
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.vx = (Math.random() - 0.5) * 0.5;
+                this.vy = (Math.random() - 0.5) * 0.5;
+                this.radius = Math.random() * 2 + 1;
+                this.connections = [];
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+
+                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(255, 255, 255, 0.3)';
+                ctx.fill();
+            }
         }
-      });
+
+        class Pulse {
+            constructor(start, end) {
+                this.start = start;
+                this.end = end;
+                this.progress = 0;
+                this.speed = 0.02 + Math.random() * 0.03;
+            }
+
+            update() {
+                this.progress += this.speed;
+                return this.progress < 1;
+            }
+
+            draw() {
+                const x = this.start.x + (this.end.x - this.start.x) * this.progress;
+                const y = this.start.y + (this.end.y - this.start.y) * this.progress;
+                
+                ctx.beginPath();
+                ctx.arc(x, y, 2, 0, Math.PI * 2);
+                ctx.fillStyle = '#fff';
+                ctx.shadowBlur = 10;
+                ctx.shadowColor = '#58a6ff';
+                ctx.fill();
+                ctx.shadowBlur = 0;
+            }
+        }
+
+        function init() {
+            particles = [];
+            for (let i = 0; i < 60; i++) {
+                particles.push(new Particle());
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Update and draw particles
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+
+            // Draw connections
+            ctx.beginPath();
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.05)';
+            ctx.lineWidth = 1;
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+
+                    if (dist < 150) {
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        
+                        // Randomly spawn pulses
+                        if (Math.random() < 0.0005) {
+                            pulses.push(new Pulse(particles[i], particles[j]));
+                        }
+                    }
+                }
+            }
+            ctx.stroke();
+
+            // Update and draw pulses
+            pulses = pulses.filter(p => {
+                const active = p.update();
+                if (active) p.draw();
+                return active;
+            });
+
+            requestAnimationFrame(animate);
+        }
+
+        init();
+        animate();
+
+        // Checkered Glitch Logic
+        const grid = document.getElementById('checkeredGrid');
+        const boxCount = 400; // 20x20
+        const boxes = [];
+
+        for (let i = 0; i < boxCount; i++) {
+            const box = document.createElement('div');
+            box.classList.add('checkered-box');
+            grid.appendChild(box);
+            boxes.push(box);
+        }
+
+        setInterval(() => {
+            // Randomly pick a few boxes to glitch
+            const count = Math.floor(Math.random() * 5);
+            for (let i = 0; i < count; i++) {
+                const idx = Math.floor(Math.random() * boxCount);
+                const box = boxes[idx];
+                box.classList.add('glitch-flash');
+                setTimeout(() => {
+                    box.classList.remove('glitch-flash');
+                }, 100 + Math.random() * 400);
+            }
+        }, 200);
     </script>
-
-
-
-
-    <b>Mode : </b>
-    <span id="mode">Selection</span>
-    <!--       
-      <span>&nbsp;|&nbsp;&nbsp;&nbsp;</span>
-      <b>Controls :</b> 
-      selection
-      a (add)
-      d (remove)
-      y (copy)
-      p (paste)
-      b/e (switch)
-      goto
-      g&lt;number&gt;(goto node)
-      translate
-      h/j/k/l (movement)
-      J (join)    
--->
-
-  </div>
-
-
-  <!-- The Modal -->
-  <div id="modal">
-    <div id="modal-content">
-      <!--             <p>Output copied to clipboard</p> -->
-      <textarea rows="4" cols="50" id="output-area">
-            </textarea>
-      <br>
-      <!--             <button onclick="closeModal()">OK</button> -->
-    </div>
-  </div>
-  <script src="sketch.js"></script>
 </body>
 
 </html>
