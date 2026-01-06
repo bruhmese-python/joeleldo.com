@@ -18,7 +18,17 @@
 </head>
 <body>
     <div id="app" v-cloak>
+        <!-- Lock Screen -->
+        <div v-if="isLocked" class="lock-screen glass">
+            <div class="lock-content">
+                <i data-feather="shield-off" class="lock-icon"></i>
+                <h2>Security Violation</h2>
+                <p>{{ lockMessage }}</p>
+                <a href="https://vigraph.app" class="primary-btn">Visit Official Site</a>
+            </div>
+        </div>
 
+        <template v-else>
             <!-- Background Decor -->
             <div class="bg-blur"></div>
             
@@ -251,7 +261,7 @@
                     </div>
                 </div>
             </transition>
-
+        </template>
     </div>
 
     <script src="app.js"></script>

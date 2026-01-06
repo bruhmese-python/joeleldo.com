@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ps2iworkflow</title>
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- CodeMirror 5 - Simpler and more reliable for CDN usage -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/theme/solarized.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/powershell/powershell.min.js"></script>
+    
+    <script src="https://unpkg.com/feather-icons"></script>
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="sidebar-icon active" title="Home" onclick="switchToView('home')">
+            <i data-feather="home"></i>
+        </div>
+        <div class="sidebar-icon" title="Editor" onclick="switchToView('editor')">
+            <i data-feather="edit"></i>
+        </div>
+    </div>
+
+    <div class="header">
+        <img src="logo.png" class="logo" alt="ps2iworkflow">
+        <span class="logo-text">ps2iworkflow</span>
+    </div>
+    
+    <div class="main-content">
+        <!-- Home View -->
+        <div id="home-view" class="view active">
+            <div class="landing-container">
+                <div class="landing-content">
+                    <h1 class="landing-title">Welcome to ps2iworkflow</h1>
+                    <p class="landing-subtitle">PowerShell to iWorkflow Converter</p>
+                    <p class="landing-description">
+                        Convert your PowerShell scripts into iWorkflow code with ease.
+                        Enterprise automation the easy way.
+                    </p>
+                    <button class="go-editor-btn" onclick="switchToView('editor')">
+                        <i data-feather="code"></i> Go to Editor
+                    </button>
+                </div>
+                <div class="landing-visual">
+                    <video autoplay muted loop playsinline class="hero-video">
+                        <source src="logo.webm" type="video/webm">
+                    </video>
+                </div>
+            </div>
+        </div>
+
+        <!-- Editor View -->
+        <div id="editor-view" class="view">
+            <div class="code-area">
+                <div class="buttons-panel">
+                    <div class="buttons-group">
+                        <button class="convert-btn">
+                            <i data-feather="play"></i> Convert
+                        </button>
+                    </div>
+                </div>
+                <div id="code-editor" class="code-editor"></div>
+            </div>
+            
+            <div class="output-area">
+                <div class="tabs-header">
+                    <div class="tab-item active" onclick="switchOutputTab('code')">Output</div>
+                    <div class="tab-item" onclick="switchOutputTab('logs')" title="Visualizaton of an example flow in program control flow">Control Flow</div>
+                </div>
+                
+                <div id="tab-code" class="tab-content active">
+                    <div id="output-code" class="output-code-div">
+                        <div class="buttons-panel">
+                            <div class="buttons-group">
+                                <button class="adjust-btn" title="Copy Code"><i data-feather="copy"></i></button>
+                            </div>
+                        </div>
+                        <div class="output-content">
+                            <!-- Output code will be injected here -->
+                        </div>
+                    </div>
+                </div>
+
+                <div id="tab-logs" class="tab-content">
+                    <div id="flow-visualization" class="logs-div">
+                        <!-- Flow table will be injected here -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="details-area">
+                    <div id="status-logs-container" class="status-logs-container"></div>
+                <div class="transpiler-details">
+                    <pre>
+<b><u>Transpiler information</u></b>
+
+<a href="https://ftp.gnu.org/old-gnu/Manuals/flex-2.5.4/html_mono/flex.html">flex</a>/<a href="https://www.gnu.org/software/bison/">bison</a> 3.2 | <a href="https://gcc.gnu.org/">g++</a>
+10 shift reduce conflicts
+
+Uses <a target="_blank" href="https://hilite.me/">hilite.me</a> for syntax highlighting
+Status: <span id="status-dot" class="status-dot offline"></span> <span id="status-text">Offline</span>
+<strike>Tokens per IP address: 7000</strike>
+</pre>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <a target="_blank" href="https://en.wikipedia.org/wiki/WTFPL">
+            <img src="wtfpl.png" class="wftpl-logo" alt="">
+            WTFPL</a> License
+    </div>
+    
+    <script src="app.js"></script>
+    <script>
+        // Logic moved to app.js
+    </script>
+</body>
+
+</html>
