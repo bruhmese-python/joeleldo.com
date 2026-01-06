@@ -346,16 +346,30 @@ async function convert() {
             
             if (status === 'done') {
                 console.log('Job completed!');
-                setConversionState(false);
-                if (statusDiv) statusDiv.innerHTML = `<div class="log-entry success">Conversion completed successfully.</div>`;
+                setConversionState(false, 'Job completed. Fetching output...');
                 
-                // Populate output
+                // Fetch Output Content
                 let iworkflowText = '';
-                if (jobData.iworkflow && typeof jobData.iworkflow === 'object' && jobData.iworkflow.iworkflow) {
-                     // Handle case where iworkflow is nested object { iworkflow: "string", csv: "..." }
-                     iworkflowText = jobData.iworkflow.iworkflow;
-                } else if (jobData.iworkflow) {
-                     iworkflowText = jobData.iworkflow;
+                if (jobData.iworkflow) {
+                     // Legacy/Inline support
+                     if (typeof jobData.iworkflow === 'object' && jobData.iworkflow.iworkflow) {
+                         iworkflowText = jobData.iworkflow.iworkflow;
+                     } else {
+                         iworkflowText = jobData.iworkflow;
+                     }
+                } else if (jobData.iworkflow_path) {
+                    // Fetch from path
+                    try {
+                        const res = await fetch(`${JOB_API_URL}/${jobData.iworkflow_path}`);
+                        if (res.ok) {
+                            iworkflowText = await res.text();
+                        } else {
+                            throw new Error(`Failed to fetch iWorkflow content: ${res.statusText}`);
+                        }
+                    } catch (e) {
+                        console.error('Error fetching iWorkflow:', e);
+                        if (statusDiv) statusDiv.innerHTML += `<div class="log-entry error">Error fetching output: ${esc(e.message)}</div>`;
+                    }
                 }
                 
                 if (typeof iworkflowText === 'object') {
@@ -363,18 +377,14 @@ async function convert() {
                 }
                 
                 outputContent.textContent = iworkflowText || '// No output generated';
-                
+                if (statusDiv) statusDiv.innerHTML = `<div class="log-entry success">Conversion and fetching completed.</div>`;
+
                 // Attempt Syntax Highlighting
                 if (iworkflowText && statusDiv) {
-                    // Don't await this blocking the flow logic, but we should show status
-                    // Actually, we want to run this asynchronously but maybe track it?
-                    // Let's run it and update UI when done.
                     (async () => {
                         try {
                             statusDiv.innerHTML += `<div class="log-entry">Highlighting code...</div>`;
                             const highlightedHtml = await highlightCode(iworkflowText);
-                            // Verify outputContent is still there and we haven't started a new job? 
-                            // (Simplification: assuming user doesn't spam convert)
                             outputContent.innerHTML = highlightedHtml;
                             statusDiv.innerHTML += `<div class="log-entry success">Highlighting successful.</div>`;
                         } catch (hlErr) {
@@ -384,11 +394,22 @@ async function convert() {
                     })();
                 }
                 
-                // Populate flow table
-                // Try top level csv, then nested
-                let csvText = jobData.csv;
-                if (!csvText && jobData.iworkflow && jobData.iworkflow.csv) {
-                     csvText = jobData.iworkflow.csv;
+                // Fetch and Render Flow Table
+                let csvText = '';
+                if (jobData.csv) {
+                    csvText = jobData.csv;
+                } else if (jobData.iworkflow && jobData.iworkflow.csv) {
+                    csvText = jobData.iworkflow.csv;
+                } else if (jobData.csv_path) {
+                     try {
+                        const res = await fetch(`${JOB_API_URL}/${jobData.csv_path}`);
+                        if (res.ok) {
+                            csvText = await res.text();
+                        }
+                    } catch (e) {
+                         console.error('Error fetching CSV:', e);
+                         if (statusDiv) statusDiv.innerHTML += `<div class="log-entry warning">Failed to fetch flow data: ${esc(e.message)}</div>`;
+                    }
                 }
                  
                 if (csvText) {
