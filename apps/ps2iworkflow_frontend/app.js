@@ -1,6 +1,6 @@
 /* app.js */
 // If running on port 5001 (proxy), use relative path. Otherwise (e.g. VSCode Live Server), try direct backend (will fail CORS if not configured).
-const JOB_API_URL = 'http://sangi30.pythonanywhere.com/';
+const JOB_API_URL = 'http://sangi30.pythonanywhere.com';
 //window.location.port === '5001' ? '' : 'http://127.0.0.1:5000';
 
 // --- UI Logic from index.html ---
