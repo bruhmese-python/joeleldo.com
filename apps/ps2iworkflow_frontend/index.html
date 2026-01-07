@@ -13,6 +13,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/powershell/powershell.min.js"></script>
     
+    <!-- highlight.js for output highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/solarized-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/groovy.min.js"></script>
+    
     <script src="https://unpkg.com/feather-icons"></script>
 </head>
 
@@ -102,7 +107,7 @@
 <a href="https://ftp.gnu.org/old-gnu/Manuals/flex-2.5.4/html_mono/flex.html">flex</a>/<a href="https://www.gnu.org/software/bison/">bison</a> 3.2 | <a href="https://gcc.gnu.org/">g++</a>
 10 shift reduce conflicts
 
-Uses <a target="_blank" href="https://hilite.me/">hilite.me</a> for syntax highlighting
+Uses <a target="_blank" href="https://highlightjs.org/">highlight.js</a> for syntax highlighting
 Status: <span id="status-dot" class="status-dot offline"></span> <span id="status-text">Offline</span>
 <strike>Tokens per IP address: 7000</strike>
 </pre>

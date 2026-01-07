@@ -123,38 +123,7 @@ function getEditorContentSafe() {
     return '';
 }
 
-/**
- * Highlight code using hilite.me API
- * @param {string} code - The code to highlight
- * @returns {Promise<string>} - The HTML string of highlighted code
- */
-async function highlightCode(code) {
-    // We use 'java' as a proxy for iWorkflow/Groovy if 'groovy' isn't better supported
-    // hilite.me supports 'java', 'groovy' might be available too. Let's try 'groovy' first, fallback to 'java' if needed? 
-    // Actually hilite.me list includes 'groovy'.
-    const lexer = 'groovy'; 
-    const style = 'colorful'; // solarized-dark might fit better but colorful is standard
-    
-    // hilite.me accepts x-www-form-urlencoded
-    const params = new URLSearchParams();
-    params.append('code', code);
-    params.append('lexer', lexer);
-    params.append('style', style);
-    
-    const response = await fetch('http://hilite.me/api', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
-        },
-        body: params
-    });
 
-    if (!response.ok) {
-        throw new Error(`Highlighting API failed: ${response.statusText}`);
-    }
-
-    return await response.text();
-}
 
 // Escaping function from control_flow reference.html
 const esc = (s) => String(s)
@@ -379,19 +348,22 @@ async function convert() {
                 outputContent.textContent = iworkflowText || '// No output generated';
                 if (statusDiv) statusDiv.innerHTML = `<div class="log-entry success">Conversion and fetching completed.</div>`;
 
-                // Attempt Syntax Highlighting
-                if (iworkflowText && statusDiv) {
-                    (async () => {
-                        try {
-                            statusDiv.innerHTML += `<div class="log-entry">Highlighting code...</div>`;
-                            const highlightedHtml = await highlightCode(iworkflowText);
-                            outputContent.innerHTML = highlightedHtml;
-                            statusDiv.innerHTML += `<div class="log-entry success">Highlighting successful.</div>`;
-                        } catch (hlErr) {
-                            console.error('Highlighting failed:', hlErr);
-                            statusDiv.innerHTML += `<div class="log-entry warning">Highlighting failed: ${esc(hlErr.message)} (Showing raw output)</div>`;
+                // Syntax Highlighting using highlight.js
+                if (iworkflowText) {
+                    try {
+                        if (window.hljs) {
+                            const highlighted = window.hljs.highlight(iworkflowText, { language: 'groovy' }).value;
+                            outputContent.innerHTML = `<pre style="margin:0;"><code class="hljs language-groovy">${highlighted}</code></pre>`;
+                            if (statusDiv) statusDiv.innerHTML += `<div class="log-entry success">Highlighting successful.</div>`;
+                        } else {
+                            outputContent.textContent = iworkflowText;
+                            if (statusDiv) statusDiv.innerHTML += `<div class="log-entry warning">Highlight.js not loaded. Showing raw text.</div>`;
                         }
-                    })();
+                    } catch (e) {
+                        console.error('Highlighting failed:', e);
+                        outputContent.textContent = iworkflowText;
+                        if (statusDiv) statusDiv.innerHTML += `<div class="log-entry warning">Highlighting failed: ${esc(e.message)}</div>`;
+                    }
                 }
                 
                 // Fetch and Render Flow Table

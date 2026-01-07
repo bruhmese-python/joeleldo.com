@@ -1,0 +1,19 @@
+const params = new URLSearchParams({
+  lexer: "groovy",
+  style: "monokai",
+  code: `
+class Build {
+    static def run() {
+        println "Build started"
+    }
+}`
+});
+
+fetch("https://hilite.me/api", {
+  method: "POST",
+  body: params
+})
+  .then(res => res.text())
+  .then(html => {
+    document.getElementById("output").innerHTML = html;
+  });
