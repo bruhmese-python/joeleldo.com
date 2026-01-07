@@ -29,6 +29,9 @@
         <div class="sidebar-icon" title="Editor" onclick="switchToView('editor')">
             <i data-feather="edit"></i>
         </div>
+        <div class="sidebar-icon" title="About" onclick="switchToView('about')">
+            <i data-feather="info"></i>
+        </div>
     </div>
 
     <div class="header">
@@ -111,6 +114,16 @@ Uses <a target="_blank" href="https://highlightjs.org/">highlight.js</a> for syn
 Status: <span id="status-dot" class="status-dot offline"></span> <span id="status-text">Offline</span>
 <strike>Tokens per IP address: 7000</strike>
 </pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- About View -->
+        <div id="about-view" class="view">
+            <div class="about-container" style="padding: 2rem; color: #fff; text-align: center;">
+                <h2>System Architecture</h2>
+                <div class="architecture-visual" style="margin-top: 2rem; background: white; padding: 20px; border-radius: 8px; display: inline-block;">
+                    <img src="architecture.svg" alt="Architecture Diagram" style="max-width: 100%; height: auto;">
                 </div>
             </div>
         </div>

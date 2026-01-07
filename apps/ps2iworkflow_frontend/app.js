@@ -34,6 +34,8 @@ function switchToView(viewName) {
         sidebarIcons[0].classList.add('active');
     } else if (viewName === 'editor') {
         sidebarIcons[1].classList.add('active');
+    } else if (viewName === 'about') {
+        sidebarIcons[2].classList.add('active');
     }
 
     // Re-render Feather icons after DOM changes
