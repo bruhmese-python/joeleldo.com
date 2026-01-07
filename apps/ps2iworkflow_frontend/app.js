@@ -385,7 +385,23 @@ async function convert() {
         });
 
         if (!createRes.ok) {
-            throw new Error(`Failed to create job: ${createRes.statusText}`);
+            let errorMsg = createRes.statusText;
+            try {
+                const errData = await createRes.json();
+                if (errData && errData.error) {
+                     // Handle specific error display
+                     if (statusDiv) {
+                         statusDiv.innerHTML = `<div class="log-entry error">Failed to create job: ${esc(createRes.status)} ${esc(createRes.statusText)}</div>`;
+                         statusDiv.innerHTML += `<div class="log-entry error-detail">${esc(errData.error)}</div>`;
+                     }
+                     setConversionState(false);
+                     return;
+                }
+            } catch (e) {
+                // Ignore JSON parse error, fall through to default error
+                console.warn('Could not parse error response JSON', e);
+            }
+            throw new Error(`Failed to create job: ${errorMsg}`);
         }
 
         const { job_id } = await createRes.json();
@@ -488,7 +504,7 @@ async function convert() {
                 if (statusDiv) {
                     statusDiv.innerHTML = `<div class="log-entry error">Job failed!</div>`;
                     if (jobData.error) {
-                        statusDiv.innerHTML += `<div class="log-entry error">${esc(jobData.error)}</div>`;
+                        statusDiv.innerHTML += `<div class="log-entry error-detail">${esc(jobData.error)}</div>`;
                     }
                 }
             } else {

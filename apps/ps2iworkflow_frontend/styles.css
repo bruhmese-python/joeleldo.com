@@ -524,6 +524,7 @@ body {
 .log-entry.success { color: var(--green); }
 .log-entry.warning { color: var(--yellow); }
 .log-entry.error { color: var(--red); }
+.log-entry.error-detail { color: var(--base3); }
 
 /* Ensure Tab Content can be flex container */
 #tab-code.tab-content.active {
