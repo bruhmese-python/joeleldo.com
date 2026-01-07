@@ -74,6 +74,96 @@ function switchOutputTab(tabName) {
     if (window.feather) feather.replace();
 }
 
+const DEFAULT_CODE = `# Enterprise User Onboarding Demo
+# This script simulates a batch onboarding process to demonstrating:
+# 1. Functions (internal and atomic/external)
+# 2. Conditionals (if/elseif/else)
+# 3. Loops (do-while)
+# 4. Variable assignment and usage
+
+# Atomic Function Stubs (External Calls)
+function atomic_CheckSystemUser($u) {
+    write-output "stub"
+}
+function atomic_CreateADUser($u, $d) {
+    write-output "stub"
+}
+function atomic_AssignLicense($u, $l) {
+    write-output "stub"
+}
+function atomic_SendWelcomeEmail($u) {
+    write-output "stub"
+}
+function atomic_AddToGroup($u, $g) {
+    write-output "stub"
+}
+
+function Log-Info($msg) {
+    write-output "INFO: $msg"
+}
+
+function Log-Error($err) {
+    write-output "ERROR: $err"
+}
+
+function Onboard-User($username, $dept) {
+    Log-Info "Starting onboarding for $username..."
+    
+    # 1. Check if user exists (Atomic Call to External System)
+    $exists = CheckSystemUser $username
+    
+    # 2. Conditional Logic
+    if ($exists -eq 1) {
+        Log-Error "User $username already exists in the system."
+        return 0
+    } else {
+        # 3. Create User (Atomic Call)
+        $userId = CreateADUser $username $dept
+        
+        if ($userId -gt 0) {
+             # 4. Assign Licenses based on Department
+             if ($dept -eq "Engineering") {
+                 AssignLicense $userId "Dev_Tools_Pack"
+             } elseif ($dept -eq "Sales") {
+                 AssignLicense $userId "CRM_License"
+             } else {
+                 AssignLicense $userId "Standard_Pack"
+             }
+             
+             SendWelcomeEmail $userId
+             Log-Info "Onboarding complete for $username"
+        } else {
+             Log-Error "Failed to create user account."
+        }
+    }
+}
+
+function main() {
+    Log-Info "Starting Batch Onboarding Job"
+    
+    $processed = 0
+    $limit = 3
+    
+    # 5. Loop Structure
+    do {
+        $processed = $processed + 1
+        Log-Info "Processing record # $processed"
+        
+        # Simulating different users based on loop counter
+        if ($processed -eq 1) {
+            Onboard-User "alice_dev" "Engineering"
+        } elseif ($processed -eq 2) {
+            Onboard-User "bob_sales" "Sales"
+        } else {
+            Onboard-User "charlie_guest" "Visitor"
+        }
+        
+    } while ($processed -lt $limit)
+    
+    Log-Info "Job Complete."
+}
+`;
+
 // Initialize CodeMirror Editor
 function initCodeMirror() {
     const editorContainer = document.getElementById('code-editor');
@@ -94,7 +184,7 @@ function initCodeMirror() {
         matchBrackets: true,
         autoCloseBrackets: true,
         styleActiveLine: true,
-        value: ''
+        value: DEFAULT_CODE
     });
 }
 
