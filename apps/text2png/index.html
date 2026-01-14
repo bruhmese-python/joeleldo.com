@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text to PNG Converter (with Better Fonts)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Didact+Gothic&family=Lobster&family=Merriweather:wght@300;400;700&family=Montserrat:wght@400;700&family=Open+Sans:wght@400;700&family=Oswald:wght@400;700&family=Pacifico&family=Playfair+Display:wght@400;700&family=Press+Start+2P&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            color: #333;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        .container {
+            display: flex;
+            gap: 20px;
+            width: 100%;
+            max-width: 1200px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .controls {
+            flex: 1;
+            min-width: 300px;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        /* Update font picker to show font previews */
+        select#fontFamily option {
+            font-size: 16px;
+            padding: 5px;
+        }
+        
+        .preview {
+            flex: 2;
+            min-width: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        canvas {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            background-image: linear-gradient(45deg, #eee 25%, transparent 25%), linear-gradient(-45deg, #eee 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #eee 75%), linear-gradient(-45deg, transparent 75%, #eee 75%);
+            background-size: 20px 20px;
+            background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+
+        textarea {
+            width: 100%;
+            height: 100px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            resize: vertical;
+            font-family: inherit;
+        }
+
+        input[type="number"], input[type="color"], select, input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .control-group {
+            margin-bottom: 10px;
+        }
+        
+        button#downloadBtn {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            align-self: flex-start;
+        }
+
+        button#downloadBtn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Text to PNG Converter (Better Fonts)</h1>
+
+    <div class="container">
+        <div class="controls">
+            <div class="control-group">
+                <label for="textInput">Text</label>
+                <textarea id="textInput" placeholder="Enter your text here...">Make it Pop!</textarea>
+            </div>
+
+            <div class="control-group">
+                <label for="fontSize">Font Size (px)</label>
+                <input type="number" id="fontSize" value="60">
+            </div>
+
+            <div class="control-group">
+                <label for="fontFamily">Font Family</label>
+                <select id="fontFamily">
+                    <option value="'Roboto', sans-serif" style="font-family: 'Roboto', sans-serif;">Roboto (Sans)</option>
+                    <option value="'Open Sans', sans-serif" style="font-family: 'Open Sans', sans-serif;">Open Sans</option>
+                    <option value="'Montserrat', sans-serif" style="font-family: 'Montserrat', sans-serif;">Montserrat</option>
+                    <option value="'Didact Gothic', sans-serif" style="font-family: 'Didact Gothic', sans-serif;">Didact Gothic</option>
+                    <option value="'Oswald', sans-serif" style="font-family: 'Oswald', sans-serif;">Oswald</option>
+                    <option value="'Merriweather', serif" style="font-family: 'Merriweather', serif;">Merriweather (Serif)</option>
+                    <option value="'Playfair Display', serif" style="font-family: 'Playfair Display', serif;">Playfair Display</option>
+                    <option value="'Dancing Script', cursive" style="font-family: 'Dancing Script', cursive;">Dancing Script (Handwriting)</option>
+                    <option value="'Pacifico', cursive" style="font-family: 'Pacifico', cursive;">Pacifico</option>
+                    <option value="'Lobster', cursive" style="font-family: 'Lobster', cursive;">Lobster</option>
+                    <option value="'Press Start 2P', cursive" style="font-family: 'Press Start 2P', cursive;">Press Start 2P (Pixel)</option>
+                    <option value="sans-serif">System Sans</option>
+                    <option value="serif">System Serif</option>
+                    <option value="monospace">System Monospace</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label for="textColor">Text Color</label>
+                <input type="color" id="textColor" value="#222222">
+            </div>
+
+            <div class="control-group">
+                <label for="bgColor">Background Color (Transparent if unchecked)</label>
+                 <div style="display: flex; gap: 10px; align-items: center;">
+                    <input type="color" id="bgColor" value="#ffffff">
+                    <input type="checkbox" id="transparentBg">
+                    <label for="transparentBg" style="margin:0; font-weight: normal;">Transparent</label>
+                 </div>
+            </div>
+            
+            <div class="control-group">
+                <label for="padding">Padding (px)</label>
+                <input type="number" id="padding" value="20">
+            </div>
+            
+            <div class="control-group">
+                <label for="maxWidth">Max Width (px) (0 for auto)</label>
+                <input type="number" id="maxWidth" value="800">
+            </div>
+             <div class="control-group">
+                <label for="textAlign">Text Align</label>
+                <select id="textAlign">
+                    <option value="left" selected>Left</option>
+                    <option value="center">Center</option>
+                    <option value="right">Right</option>
+                </select>
+            </div>
+
+            <button id="downloadBtn">Download PNG</button>
+        </div>
+
+        <div class="preview">
+            <label>Preview</label>
+            <canvas id="canvas"></canvas>
+            <div id="dimensions" style="margin-top: 5px; color: #666; font-size: 0.9em;"></div>
+        </div>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+
+        const textInput = document.getElementById('textInput');
+        const fontSizeInput = document.getElementById('fontSize');
+        const fontFamilyInput = document.getElementById('fontFamily');
+        const textColorInput = document.getElementById('textColor');
+        const bgColorInput = document.getElementById('bgColor');
+        const transparentBgInput = document.getElementById('transparentBg');
+        const paddingInput = document.getElementById('padding');
+        const maxWidthInput = document.getElementById('maxWidth');
+        const textAlignInput = document.getElementById('textAlign');
+        const downloadBtn = document.getElementById('downloadBtn');
+        const dimensionsDisplay = document.getElementById('dimensions');
+
+        function draw() {
+            const text = textInput.value;
+            const fontSize = parseInt(fontSizeInput.value, 10);
+            const fontFamily = fontFamilyInput.value;
+            const color = textColorInput.value;
+            const bgColor = bgColorInput.value;
+            const isTransparent = transparentBgInput.checked;
+            const padding = parseInt(paddingInput.value, 10);
+            const maxWidthConstraint = parseInt(maxWidthInput.value, 10);
+            const textAlign = textAlignInput.value;
+
+            ctx.font = `${fontSize}px ${fontFamily}`;
+            
+            // Text Wrapping Logic
+            const lines = [];
+            const paragraphs = text.split('\n');
+            let maxLineWidth = 0;
+
+            paragraphs.forEach(paragraph => {
+                if (maxWidthConstraint > 0) {
+                     const words = paragraph.split(' ');
+                     let currentLine = words[0] || '';
+
+                     for (let i = 1; i < words.length; i++) {
+                         const word = words[i];
+                         const width = ctx.measureText(currentLine + " " + word).width;
+                         // Check against max width (accounting for padding * 2)
+                         if (width < maxWidthConstraint - (padding * 2)) {
+                             currentLine += " " + word;
+                         } else {
+                             lines.push(currentLine);
+                             maxLineWidth = Math.max(maxLineWidth, ctx.measureText(currentLine).width);
+                             currentLine = word;
+                         }
+                     }
+                     lines.push(currentLine);
+                     maxLineWidth = Math.max(maxLineWidth, ctx.measureText(currentLine).width);
+                } else {
+                    // No wrapping, just use the paragraph width
+                    lines.push(paragraph);
+                    maxLineWidth = Math.max(maxLineWidth, ctx.measureText(paragraph).width);
+                }
+            });
+
+            // Calculate Canvas Dimensions
+            const lineHeight = fontSize * 1.2; // Approximation
+            const canvasWidth = maxWidthConstraint > 0 ? maxWidthConstraint : maxLineWidth + (padding * 2);
+            const canvasHeight = (lines.length * lineHeight) + (padding * 2);
+
+            canvas.width = canvasWidth;
+            canvas.height = canvasHeight;
+            
+            dimensionsDisplay.textContent = `${canvas.width} x ${canvas.height} px`;
+
+            // Reset context after resize
+            ctx.font = `${fontSize}px ${fontFamily}`;
+            ctx.textBaseline = 'top';
+
+            // Background
+            if (!isTransparent) {
+                ctx.fillStyle = bgColor;
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+            } else {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+            }
+
+            // Draw Text
+            ctx.fillStyle = color;
+            
+            lines.forEach((line, index) => {
+                const lineWidth = ctx.measureText(line).width;
+                let x = padding;
+                let y = padding + (index * lineHeight);
+
+                if (textAlign === 'center') {
+                    x = (canvasWidth - lineWidth) / 2;
+                    // If no max width set, center relative to the widest line isn't effectively different than left unless we force a width.
+                    // But if max-width IS set, this works. If not, canvasWidth shrinks to fit so it looks left aligned anyway.
+                } else if (textAlign === 'right') {
+                    x = canvasWidth - padding - lineWidth;
+                }
+
+                ctx.fillText(line, x, y);
+            });
+        }
+
+        function download() {
+            const link = document.createElement('a');
+            link.download = 'text-image.png';
+            link.href = canvas.toDataURL();
+            link.click();
+        }
+
+        // Event Listeners
+        const inputs = [textInput, fontSizeInput, fontFamilyInput, textColorInput, bgColorInput, transparentBgInput, paddingInput, maxWidthInput, textAlignInput];
+        inputs.forEach(input => {
+            input.addEventListener('input', draw);
+            input.addEventListener('change', draw);
+        });
+
+        downloadBtn.addEventListener('click', download);
+
+        // Initial draw
+        draw();
+    </script>
+</body>
+</html>
