@@ -58,8 +58,8 @@ html {
     box-sizing: border-box;
 
     /* width: 75%; */
-    width: 50em;
-    overflow-x: scroll;
+    width: 100%; max-width: 100%;
+    overflow-x: auto;
 }
 
 .paragraph-Table_20_Contents {
@@ -744,4 +744,22 @@ table img {
 .doc-download {
     text-align: right;
     grid-area: doc-download;
+}
+@media (max-width: 768px) {
+    .site-container {
+        width: 100%;
+        padding: 0 10px;
+    }
+    .page-wrapper {
+        flex-direction: column;
+    }
+    .sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #ccc;
+        box-sizing: border-box;
+    }
+    .main-content {
+        padding: 20px 10px;
+    }
 }
