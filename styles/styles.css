@@ -1,3 +1,14 @@
+:root {
+    --bg-color: #1a1b26;
+    --container-bg: #24283b;
+    --text-color: #c0caf5;
+    --muted-color: #a9b1d6;
+    --link-color: #7aa2f7;
+    --heading-color: #bb9af7;
+    --border-color: #414868;
+    --code-bg: #1f2335;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+}
 /* Reset and base styling */
 body {
     display: flex;
@@ -6,12 +17,12 @@ body {
     align-items: center;
     /* Center vertically */
     margin: 0;
-    /* background-color: #ffffff; */
+    /* background-color: var(--container-bg); */
     /* background-color: #eaeaea; */
     font-family: Arial, sans-serif;
     /* font-family: 'Courier New', Courier, monospace; */
     font-size: 14px;
-    color: #000000;
+    color: var(--text-color);
 
     /* patterns */
     /* background-color: #e5e5f7;
@@ -20,12 +31,12 @@ body {
     background-size: 20px 20px, 20px 20px, 10px 10px, 10px 10px;
 
  */
-    background: #111;
+    background: var(--bg-color);
 }
 
 html {
     /* font-family: Noto Sans Display; */
-    color: #eee;
+    color: var(--text-color);
 
     font-size: 1em;
     /* line-height: 1.5; */
@@ -40,7 +51,7 @@ html {
 .glitch-effect {
 
     letter-spacing: 0.062em;
-    text-shadow: 1px 0 0 #ea36af, -1px 0 0 #75fa69;
+    text-shadow: none;
 }
 
 .index-line-height {
@@ -48,9 +59,9 @@ html {
 }
 
 .code-snippet {
-    background-color: #f5f5f5;
+    background-color: var(--code-bg);
     padding: 1em;
-    border: 1px solid #ddd;
+    border: 1px solid var(--border-color);
     border-radius: 6px;
     white-space: pre;
     font-size: small;
@@ -179,7 +190,7 @@ img {
         "peek banner-text";
 
     padding: 2em;
-    background: url('/images/banner_new.png');
+    background-blend-mode: multiply; background-color: #4e3366; background-image: url('/images/banner_new.png');
     background-size: contain;
     background-position: center center;
     background-repeat: repeat;
@@ -194,12 +205,12 @@ img {
 
 .banner-text {
     grid-area: banner-text;
-    padding-left: 1em;
+    padding-left: 1em; color: var(--text-color); text-shadow: 0 1px 2px rgba(0,0,0,0.5);
 }
 
 .banner>h1 {
     margin-top: 0px;
-    border: none;
+    border: none; color: var(--text-color);
 }
 
 
@@ -238,17 +249,17 @@ details {
 /* Page wrapper using flex layout */
 .page-wrapper {
     display: flex;
-    background-color: #f9f9ff;
+    background-color: var(--container-bg);
     border-radius: 5px;
     margin: 2em 0 1em 0;
-    border: 1px solid #ccc;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 10px var(--shadow-color);
     min-height: 90vh;
 }
 
 .sidebar {
     width: 240px;
-    /* background-color: #f9f9ff; */
+    /* background-color: var(--container-bg); */
     border-right: 1px solid #ccc;
     padding: 15px;
     box-shadow: 2px 0 6px rgba(0, 0, 0, 0.1);
@@ -258,28 +269,28 @@ details {
 
 .main-content-no-padding {
     flex: 1;
-    /* background-color: #ffffff; */
+    /* background-color: var(--container-bg); */
     /* font-family: Verdana, sans-serif; */
 }
 
 .main-content {
     flex: 1;
-    /* background-color: #ffffff; */
+    /* background-color: var(--container-bg); */
     padding: 0 20px 20px 20px;
     /* font-family: Verdana, sans-serif; */
 }
 
 /* Header Styles */
 h1 {
-    color: #002244;
-    border-bottom: 2px solid #ccc;
+    color: var(--heading-color);
+    border-bottom: 2px solid var(--border-color);
     margin-top: 0;
     font-size: 1.75em;
     font-weight: 600;
 }
 
 h2 {
-    color: #003366;
+    color: var(--link-color);
     border-bottom: 2px solid #bbb;
     margin-top: 0.75em;
     font-size: 1.5em;
@@ -289,15 +300,15 @@ h2 {
 
 /* Header Styles */
 h3 {
-    color: #003366;
-    border-bottom: 2px solid #ccc;
+    color: var(--link-color);
+    border-bottom: 2px solid var(--border-color);
     margin-top: 0;
 }
 
 /* Subheading */
 .subheading {
-    background-color: #003366;
-    color: white;
+    background-color: var(--code-bg); border: 1px solid var(--heading-color);
+    color: var(--heading-color);
     padding: 2px;
     text-align: center;
     font-size: 18px;
@@ -351,13 +362,13 @@ h3 {
 
 /* Links */
 a {
-    color: #0000cc;
+    color: var(--link-color);
     text-decoration: none;
 }
 
 a:hover {
     text-decoration: underline;
-    background-color: yellow;
+    background-color: transparent; color: var(--heading-color); text-shadow: 0 0 5px var(--heading-color);
 }
 
 .disabled-anchor {
@@ -384,13 +395,13 @@ a:hover {
 }
 
 .deprecated {
-    border: 2px solid #FFD700;
+    border: 1px solid #ff9e64;
     border-radius: 2px;
-    /* Gold color for the frame */
+    
     padding: 10px;
     margin: 10px 0;
-    background-color: #FFFACD;
-    /* Light yellow background */
+    background-color: var(--code-bg); color: var(--text-color);
+    
     position: relative;
 }
 
@@ -527,23 +538,23 @@ a:hover {
 }
 
 .updates_box {
-    background-color: #f9f9ff;
+    background-color: var(--container-bg);
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--border-color);
     border-radius: 2px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     /* Add subtle shadow */
 }
 
 .pin_box {
-    border: 1px solid #ccc;
+    border: 1px solid var(--border-color);
     border-radius: 2px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     /* Add subtle shadow */
 }
 
 .pin_box>h5 {
-    background-color: #f9f9ff;
+    background-color: var(--container-bg);
     border-bottom: 1px solid #ccc;
     margin: 0;
     padding: 10px;
@@ -589,7 +600,7 @@ img.profile {
     border: 0.5em solid #ffffff;
     width: 100px;
     height: 100px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px var(--shadow-color);
     /* Use transform instead of rotate to apply the rotation */
 }
 
@@ -762,4 +773,9 @@ table img {
     .main-content {
         padding: 20px 10px;
     }
+}
+
+/* Invert icons */
+table img, .profile-container a img, img[src*="glyph"], .pins svg, .octicon {
+    filter: invert(1) brightness(2);
 }
