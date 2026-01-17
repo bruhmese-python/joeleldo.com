@@ -89,7 +89,7 @@ table tr:first-child {
     text-shadow: none;
 
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
     grid-template-rows: auto auto auto;
     gap: 0px 1em;
     grid-auto-flow: row;
@@ -778,4 +778,13 @@ table img {
 /* Invert icons */
 table img, .profile-container a img, img[src*="glyph"], .pins svg, .octicon {
     filter: invert(1) brightness(2);
+}
+
+/* Fix for ODF generated content */
+div[class*="graphic-"] {
+    max-width: 100% !important;
+    width: auto !important;
+    height: auto !important;
+    float: none !important;
+    position: static !important;
 }

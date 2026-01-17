@@ -9,5 +9,6 @@ sitemap.exclude
 .*.js
 .*.odt
 .*.sh
+.*.path
 scripts
 styles
