@@ -101,4 +101,12 @@ document.addEventListener("DOMContentLoaded", () => {
     link.style.pointerEvents = "none"; // optional: disable click
     link.style.textDecoration = "none"; // optional: remove underline
   }
+
+  // Change background color of certain spans from #FFF0F0 to #510101
+  const targetSpans = document.querySelectorAll(
+    'span[style*="background-color: #FFF0F0"]'
+  );
+  targetSpans.forEach((span) => {
+    span.style.backgroundColor = "#510101";
+  });
 });
