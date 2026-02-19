@@ -1,0 +1,7 @@
+Muzhi-3D
+is an upcoming (work in progress) curve based 3d polymodeller with a focus on ease of use and speed of creation.
+it aims to be parametric and able to create variations of the same model.
+it is currently in the early stages of development and is not yet available for public use.
+Muzhi 3d will also be able to suggest topology patterns similar to blenders grid fill.
+
+Curves. topology. meshes. procedural.
