@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copilot Assistant for Ignio</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --text-color: #f8fafc;
+            --secondary-text: #94a3b8;
+            --accent-color: #3b82f6;
+            --accent-hover: #2563eb;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4rem;
+            max-width: 1200px;
+            width: 90%;
+            margin: 0 auto;
+            padding: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .content {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .media {
+            flex: 0 0 30%;
+            min-width: 250px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .media video {
+            width: 100%;
+            max-width: 300px; /* Specific logo size constraint */
+            height: auto;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+            background: linear-gradient(to right, #60a5fa, #a78bfa);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        p.description {
+            font-size: 1.25rem;
+            color: var(--secondary-text);
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        p.description a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        p.description a:hover {
+            color: var(--accent-hover);
+            text-decoration: underline;
+        }
+
+        .download-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-download {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            transition: background-color 0.2s ease, transform 0.1s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        .btn-download .separator {
+            opacity: 0.3;
+            font-weight: 300;
+            margin: 0 0.25rem;
+        }
+
+        .btn-download img {
+            width: 24px;
+            height: 24px;
+        }
+
+        .btn-download:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-1px);
+        }
+
+        .btn-download:active {
+            transform: translateY(0);
+        }
+
+        video.bg-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.15;
+            filter: blur(2px);
+        }
+
+        .foreground-video {
+            width: 100%;
+            border-radius: 1rem;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                text-align: center;
+                gap: 2rem;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            p.description {
+                margin: 0 auto 2rem auto;
+            }
+
+            .download-buttons {
+                justify-content: center;
+            }
+        }
+
+        /* Background Video Styles */
+        .bg-video-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 60vh; /* Upper half area */
+            overflow: hidden;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .bg-video-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.15; /* Faded effect */
+            filter: blur(2px); /* Subtle soft look */
+        }
+
+        /* Gradient fade to blend with background */
+        .bg-video-container::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 40%;
+            background: linear-gradient(to bottom, transparent, var(--bg-color));
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-video-container">
+        <video autoplay muted loop playsinline class="bg-video">
+            <source src="copilot_assistant_video.webm" type="video/webm">
+        </video>
+    </div>
+
+    <div class="container">
+        <div class="media">
+            <!-- Non-looping logo animation -->
+            <video autoplay muted playsinline loop>
+                <source src="logo-animation.webm" type="video/webm">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="content">
+            <h1>Copilot Assistant for Ignio</h1>
+            <!-- Added a foreground video for demonstration/context if needed, but keeping it clean for now -->
+            <!-- <video autoplay muted loop playsinline class="foreground-video" src="copilot_assistant_video.webm"></video> -->
+            <p class="description">
+                Transforms SOPs, design docs, and prompts into tailored Copilot instructions, auto-generates iWorkflow code (using <a href="https://www.joeleldo.com/apps/ps2iworkflow_frontend/">ps2iworkflow</a>), and builds ready-to-use Ignio bundles.
+            </p>
+            <!-- Assuming a zip or extension link might be added later, for now a placeholder link or potentially a javascript triggered download if needed -->
+            <div class="download-buttons">
+                <a href="#" class="btn-download">
+                    <img src="chrome.png" alt="Chrome Icon">
+                    <span class="separator">|</span>
+                    <img src="edge.png" alt="Edge Icon">
+                    <span>Download Extension</span>
+                </a>
+            </div> 
+        </div>
+    </div>
+
+</body>
+</html>
