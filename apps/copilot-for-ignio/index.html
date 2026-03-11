@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,11 +21,16 @@
             color: var(--text-color);
             margin: 0;
             padding: 0;
+            overflow-x: hidden;
+        }
+
+        .hero-section {
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            overflow-x: hidden;
+            position: relative;
+            width: 100%;
         }
 
         .container {
@@ -54,7 +60,8 @@
 
         .media video {
             width: 100%;
-            max-width: 300px; /* Specific logo size constraint */
+            max-width: 300px;
+            /* Specific logo size constraint */
             height: auto;
         }
 
@@ -154,7 +161,7 @@
             h1 {
                 font-size: 2.5rem;
             }
-            
+
             p.description {
                 margin: 0 auto 2rem auto;
             }
@@ -170,7 +177,8 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 60vh; /* Upper half area */
+            height: 60vh;
+            /* Upper half area */
             overflow: hidden;
             z-index: -1;
             pointer-events: none;
@@ -180,8 +188,10 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            opacity: 0.15; /* Faded effect */
-            filter: blur(2px); /* Subtle soft look */
+            opacity: 0.15;
+            /* Faded effect */
+            filter: blur(2px);
+            /* Subtle soft look */
         }
 
         /* Gradient fade to blend with background */
@@ -194,42 +204,310 @@
             height: 40%;
             background: linear-gradient(to bottom, transparent, var(--bg-color));
         }
+
+        /* Architecture Section Styles */
+        .architecture-section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+        }
+
+        .architecture-section h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
+            background: linear-gradient(to right, #a78bfa, #60a5fa);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .architecture-description {
+            font-size: 1.25rem;
+            color: var(--secondary-text);
+            line-height: 1.6;
+            margin-bottom: 3rem;
+            max-width: 800px;
+            margin-inline: auto;
+        }
+
+        .architecture-video-wrapper {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+            border-radius: 1rem;
+            overflow: hidden;
+            background: #1e293b;
+        }
+
+        .architecture-video-wrapper video {
+            width: 100%;
+            display: block;
+        }
+
+        /* Scroll Down Arrow */
+        .scroll-down {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+            cursor: pointer;
+            color: var(--secondary-text);
+            z-index: 10;
+        }
+
+        .scroll-down svg {
+            width: 32px;
+            height: 32px;
+            transition: color 0.2s ease;
+        }
+
+        .scroll-down:hover svg {
+            color: var(--accent-color);
+        }
+
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translate(-50%, 0);
+            }
+
+            40% {
+                transform: translate(-50%, -15px);
+            }
+
+            60% {
+                transform: translate(-50%, -7px);
+            }
+        }
+
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(4px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: #1e293b;
+            border: 1px solid #334155;
+            padding: 2.5rem;
+            border-radius: 1rem;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            transform: scale(0.95);
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: scale(1);
+        }
+
+        .modal-icon {
+            color: #94a3b8;
+            /* Grey warning color */
+            width: 48px;
+            height: 48px;
+            margin: 0 auto 1.5rem auto;
+        }
+
+        .modal-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-color);
+        }
+
+        .modal-body {
+            font-size: 1.1rem;
+            color: var(--secondary-text);
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .modal-close-btn {
+            background-color: transparent;
+            border: 1px solid #475569;
+            color: var(--text-color);
+            padding: 0.75rem 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: background-color 0.2s, border-color 0.2s;
+        }
+
+        .modal-close-btn:hover {
+            background-color: #334155;
+            border-color: #64748b;
+        }
+
+        .close-icon {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            cursor: pointer;
+            color: #64748b;
+            transition: color 0.2s;
+        }
+
+        .close-icon:hover {
+            color: var(--text-color);
+        }
     </style>
 </head>
+
 <body>
 
-    <div class="bg-video-container">
-        <video autoplay muted loop playsinline class="bg-video">
-            <source src="copilot_assistant_video.webm" type="video/webm">
-        </video>
+    <!-- Disclaimer Modal -->
+    <div class="modal-overlay" id="downloadModal">
+        <div class="modal-content">
+            <svg class="close-icon" onclick="closeModal()" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+            <svg class="modal-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+            </svg>
+            <h3 class="modal-title">Disclaimer</h3>
+            <p class="modal-body">
+                This is a 3rd party tool and in no way runs on Digitate infrastructure. To keep organization data closed
+                off, downloads are not served here. Kindly reach out to me via Teams for access.
+            </p>
+            <button class="modal-close-btn" onclick="closeModal()">Understood</button>
+        </div>
     </div>
 
-    <div class="container">
-        <div class="media">
-            <!-- Non-looping logo animation -->
-            <video autoplay muted playsinline loop>
-                <source src="logo-animation.webm" type="video/webm">
+    <div class="hero-section">
+        <div class="bg-video-container">
+            <video autoplay muted loop playsinline class="bg-video">
+                <source src="copilot_assistant_video.webm" type="video/webm">
+            </video>
+        </div>
+
+        <div class="container">
+            <div class="media">
+                <!-- Non-looping logo animation -->
+                <video autoplay muted playsinline loop>
+                    <source src="logo-animation.webm" type="video/webm">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="content">
+                <h1>Copilot Assistant for Ignio</h1>
+                <!-- Added a foreground video for demonstration/context if needed, but keeping it clean for now -->
+                <!-- <video autoplay muted loop playsinline class="foreground-video" src="copilot_assistant_video.webm"></video> -->
+                <p class="description">
+                    Transforms SOPs, design docs, and prompts into tailored Copilot instructions, auto-generates
+                    iWorkflow code (using <a
+                        href="https://www.joeleldo.com/apps/ps2iworkflow_frontend/">ps2iworkflow</a>), and builds
+                    ready-to-use Ignio bundles.
+                </p>
+                <!-- Assuming a zip or extension link might be added later, for now a placeholder link or potentially a javascript triggered download if needed -->
+                <div class="download-buttons">
+                    <button onclick="openModal()" class="btn-download" style="border: none; cursor: pointer;">
+                        <img src="chrome.png" alt="Chrome Icon">
+                        <span class="separator">|</span>
+                        <img src="edge.png" alt="Edge Icon">
+                        <span>Download Extension</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="scroll-down"
+            onclick="document.getElementById('architecture').scrollIntoView({ behavior: 'smooth' });">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </svg>
+        </div>
+    </div>
+
+    <!-- Architecture Section -->
+    <div id="architecture" class="architecture-section">
+        <h2>Architecture Overview</h2>
+        <p class="architecture-description">
+            Explore how the Copilot Assistant seamlessly integrates into your workflow, connecting SOPs and prompts to
+            the Ignio ecosystem. Watch the demonstration below to understand the end-to-end flow.
+        </p>
+        <div class="architecture-video-wrapper">
+            <video id="arch-video" playsinline controls>
+                <source src="render-with-audio.webm" type="video/webm">
                 Your browser does not support the video tag.
             </video>
         </div>
-        <div class="content">
-            <h1>Copilot Assistant for Ignio</h1>
-            <!-- Added a foreground video for demonstration/context if needed, but keeping it clean for now -->
-            <!-- <video autoplay muted loop playsinline class="foreground-video" src="copilot_assistant_video.webm"></video> -->
-            <p class="description">
-                Transforms SOPs, design docs, and prompts into tailored Copilot instructions, auto-generates iWorkflow code (using <a href="https://www.joeleldo.com/apps/ps2iworkflow_frontend/">ps2iworkflow</a>), and builds ready-to-use Ignio bundles.
-            </p>
-            <!-- Assuming a zip or extension link might be added later, for now a placeholder link or potentially a javascript triggered download if needed -->
-            <div class="download-buttons">
-                <a href="#" class="btn-download">
-                    <img src="chrome.png" alt="Chrome Icon">
-                    <span class="separator">|</span>
-                    <img src="edge.png" alt="Edge Icon">
-                    <span>Download Extension</span>
-                </a>
-            </div> 
-        </div>
     </div>
 
+    <script>
+        // Modal logic
+        function openModal() {
+            document.getElementById('downloadModal').classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+        }
+
+        function closeModal() {
+            document.getElementById('downloadModal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Close modal when clicking outside of the modal content
+        document.getElementById('downloadModal').addEventListener('click', function (e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const archVideo = document.getElementById('arch-video');
+
+            // Intersection Observer to autoplay video when in view
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        archVideo.play().catch(error => {
+                            console.log("Autoplay prevented by browser, needs user interaction.", error);
+                        });
+                        // Optional: stop observing once started if you only want it to trigger once
+                        // observer.unobserve(archVideo);
+                    } else {
+                        archVideo.pause(); // Pause when out of view
+                    }
+                });
+            }, {
+                threshold: 0.5 // Trigger when at least 50% of the video is visible
+            });
+
+            observer.observe(archVideo);
+        });
+    </script>
 </body>
+
 </html>
