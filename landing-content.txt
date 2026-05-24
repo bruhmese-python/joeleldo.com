@@ -1,0 +1,152 @@
+Productising Ideas Through Software
+
+Joel Eldo
+
+Solutions engineer building MVPs, AI agents, internal tools, and rapid product prototypes.
+
+Focus Areas
+
+MVPs • AI Agents • Automation • Browser Extensions • Internal Tools
+
+Featured Work
+
+(Add thumbnails and links to project pages or GitHub repositories.)
+
+AI Automation Pipeline
+
+LLM agent combined with webhook orchestration to automate multi-step workflows across APIs.
+
+Rapid MVP Platform
+
+A lightweight full-stack application built with Flask and modern frontend tools to validate a product idea quickly.
+
+Browser Extension Toolkit
+
+A browser extension designed to automate repetitive workflows and integrate directly into existing web platforms.
+
+What I Build
+Full-Stack MVP Development (Flask / Django)
+
+Take your next business idea from concept to a working MVP.
+
+I design and build rapid full-stack applications using lightweight architectures that help teams validate ideas quickly without unnecessary complexity.
+
+Typical Projects
+
+MVP web applications
+
+API backends
+
+Admin dashboards
+
+Rapid product prototypes
+
+Relevant Projects
+
+(Insert links to projects here)
+
+AI Agents & Automation
+
+Not sure where to start with APIs, webhooks, or prompt engineering?
+
+I design AI-powered agents and automation pipelines that connect services, process information, and reduce repetitive work.
+
+Typical Projects
+
+LLM agents
+
+API integrations
+
+Webhook automation systems
+
+Data processing pipelines
+
+Relevant Projects
+
+(Insert links to projects here)
+
+Internal Tools & Rapid Development
+
+Many companies need small pieces of software that connect systems or automate internal workflows.
+
+I build internal tools and utilities that help teams move faster and reduce manual operations.
+
+Typical Projects
+
+Internal dashboards
+
+Inter-conversion tools
+
+Transpilers
+
+Developer tooling
+
+Relevant Projects
+
+(Insert links to projects here)
+
+Browser Extensions
+
+Browser extensions are one of the fastest ways to prototype functionality or extend existing platforms.
+
+They are ideal for feature demos, experiments, and lightweight integrations.
+
+Typical Projects
+
+Product feature prototypes
+
+Workflow automation extensions
+
+UI overlays for existing platforms
+
+Relevant Projects
+
+(Insert links to projects here)
+
+Motion Graphics
+
+Good software deserves clear storytelling.
+
+I create motion graphics and animated content that explain product features, demonstrate workflows, and bring brands to life.
+
+Typical Projects
+
+Product explainer animations
+
+Feature demonstrations
+
+Brand animation content
+
+Relevant Projects
+
+(Insert links to projects here)
+
+My Approach
+Idea → Prototype
+
+Quickly test concepts with lightweight systems and rapid development tools.
+
+Prototype → Working Product
+
+Build stable architectures that can evolve into real, production-ready software.
+
+Automate & Extend
+
+Integrate AI agents, APIs, and internal tooling to expand functionality and automate workflows.
+
+About Joel
+
+Joel is a solutions engineer focused on building the systems behind modern software products — including MVPs, AI agents, developer tooling, and automation platforms.
+
+He enjoys working at the intersection of engineering, product thinking, and rapid experimentation, helping teams transform ideas into working software.
+
+Contact
+
+Interested in building something together?
+
+Email: (your email)
+GitHub: (link)
+LinkedIn: (link)
+Website: joeleldo.com
+
+If you'd like, I can also help you make a much stronger “Featured Projects” section (the 3–4 projects that will actually impress recruiters and founders)—that section is usually what determines whether your portfolio feels average or exceptional.

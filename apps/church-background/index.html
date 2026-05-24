@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Screen Overlay Utility</title>
+  <!-- Google Fonts: Roboto -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+  
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- Fabric.js CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.3.0/fabric.min.js"></script>
+</head>
+<body>
+  <div class="app-container">
+    <div class="main-layout">
+      <!-- Canvas Editor Area (Left) -->
+      <main class="editor-viewport">
+        <div class="canvas-outer-wrapper">
+          <div id="canvas-loading-spinner" class="spinner-overlay">
+            <div class="spinner"></div>
+            <p>Loading background...</p>
+          </div>
+          <div class="canvas-scroll-container">
+            <div class="canvas-inner-wrapper" id="canvas-wrapper">
+              <canvas id="fabric-canvas"></canvas>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <!-- Sidebar Custom Controls (Right) -->
+      <aside class="control-panel">
+        <div class="panel-section">
+          <label for="text-input" class="field-label">Overlay Text</label>
+          <textarea id="text-input" placeholder="Type overlay text here..."></textarea>
+        </div>
+
+        <!-- Export Operations -->
+        <div class="action-section">
+          <button class="export-btn" id="btn-download">
+            Export PNG
+          </button>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <!-- JavaScript file -->
+  <script src="app.js"></script>
+</body>
+</html>

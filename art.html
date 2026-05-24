@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Art and Motion Graphics by Joel Eldo - Solutions Engineer.">
+    <title>Art | Joel Eldo</title>
+    <!-- Modern Typography from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="landing.css">
+    <link rel="stylesheet" href="art.css">
+</head>
+
+<body>
+    <!-- Dynamic Ambient Background -->
+    <div class="background-elements">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+        <div class="glow-orb orb-3"></div>
+    </div>
+
+    <main class="art-container">
+        <a href="landing.html" class="back-home slide-up">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+            Back to Home
+        </a>
+
+        <header class="hero slide-up delay-1">
+            <div class="hero-badge">Digital Canvas</div>
+            <h1>Visual Explorations.</h1>
+            <p class="section-desc">A collection of motion graphics, digital art, and technical visualizations created
+                at the intersection of design and engineering.</p>
+        </header>
+
+        <section class="gallery-grid slide-up delay-2">
+            <!-- Gallery Item 1 -->
+            <div class="gallery-item item-1 glass-card" onclick="openModal('images/art/kiri.png')">
+                <img src="images/art/kiri.png" alt="Kiri Art">
+                <div class="gallery-caption">
+                    <h4>Kiri</h4>
+                    <p>Digital illustration exploration.</p>
+                </div>
+            </div>
+
+            <!-- Gallery Item 2 -->
+            <div class="gallery-item item-2 glass-card" onclick="openModal('images/art/jaw-prosthetic.png')">
+                <img src="images/art/jaw-prosthetic.png" alt="Jaw Prosthetic">
+                <div class="gallery-caption">
+                    <h4>Jaw Prosthetic</h4>
+                    <p>Technical visualization and concept design.</p>
+                </div>
+            </div>
+
+            <!-- Gallery Item 3 -->
+            <div class="gallery-item item-3 glass-card" onclick="openModal('images/art/machine-head-wallpaper-new.png')">
+                <img src="images/art/machine-head-wallpaper-new.png" alt="Machine Head Wallpaper">
+                <div class="gallery-caption">
+                    <h4>Machine Head</h4>
+                    <p>Graphic design for desktop wallpapers.</p>
+                </div>
+            </div>
+
+            <!-- Gallery Item 4 -->
+            <div class="gallery-item item-4 glass-card" onclick="openModal('images/art/firefox.png')">
+                <img src="images/art/firefox.png" alt="Firefox Concept">
+                <div class="gallery-caption">
+                    <h4>Firefox Concept</h4>
+                    <p>Interface and branding experiment.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="modal" onclick="closeModal()">
+        <span class="close" onclick="event.stopPropagation(); closeModal();">&times;</span>
+        <img id="modalImg" class="modal-content">
+    </div>
+
+    <!-- Footer -->
+    <footer class="fade-in delay-4">
+        <p>&copy; 2026 Joel Eldo. Visual designs and technical artifacts.</p>
+    </footer>
+
+    <script>
+        function openModal(imgSrc) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImg');
+            modal.style.display = "flex";
+            modalImg.src = imgSrc;
+            // Force reflow
+            void modal.offsetWidth;
+            modal.classList.add('show');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('imageModal');
+            modal.classList.remove('show');
+            setTimeout(() => {
+                modal.style.display = "none";
+                document.body.style.overflow = ''; // Restore scrolling
+            }, 300);
+        }
+
+        // Close on escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+
+</html>

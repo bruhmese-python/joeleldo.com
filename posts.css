@@ -1,0 +1,129 @@
+/* 
+  Posts Gallery Styles - joeleldo.com
+*/
+
+.posts-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 6rem 2rem 2rem;
+}
+
+.posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-top: 4rem;
+}
+
+.post-card {
+    display: flex;
+    flex-direction: column;
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    cursor: pointer;
+}
+
+.post-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-color);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.post-image {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.post-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.post-card:hover .post-image img {
+    transform: scale(1.05);
+}
+
+/* Platform Icon styling */
+.platform-icon {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    width: 35px;
+    height: 35px;
+    background: rgba(10, 10, 15, 0.7);
+    backdrop-filter: blur(8px);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 2;
+    transition: transform 0.3s ease;
+}
+
+.post-card:hover .platform-icon {
+    transform: scale(1.1);
+}
+
+.platform-icon svg {
+    width: 18px;
+    height: 18px;
+    fill: #fff;
+}
+
+.platform-icon.linkedin svg { fill: #0a66c2; }
+.platform-icon.twitter svg { fill: #1da1f2; }
+.platform-icon.devto svg { fill: #fff; }
+
+.post-content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.post-content h4 {
+    font-size: 1.25rem;
+    font-family: 'Space Grotesk', sans-serif;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+}
+
+.post-content p {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0;
+}
+
+.back-home {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    transition: color 0.3s ease;
+}
+
+.back-home:hover {
+    color: var(--text-primary);
+}
+
+.back-home svg {
+    width: 20px;
+    height: 20px;
+}
